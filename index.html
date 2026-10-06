@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowix Agency — Header, Hero, Servicios, Trabajos & Flowix Book</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons Library -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       BARRA DE CONTROL SUPERIOR (TEST BENCH)
+       ========================================================= -->
+  <aside class="lab-toolbar">
+    <div class="lab-toolbar-left">
+      <div class="lab-badge">
+        <span class="lab-dot"></span>
+        FLOWIX LABS
+      </div>
+      <div class="lab-meta">
+        <span class="lab-title">Presentación de Flowix Book</span>
+        <span class="lab-sub">Banner panorámico con tarjeta glassmórfica flotante sobre la interfaz</span>
+      </div>
+    </div>
+
+    <!-- Controles de Viewport / Responsive -->
+    <div class="lab-viewport-controls">
+      <span class="vp-label">Vista previa:</span>
+      <button class="vp-btn active" data-vp="desktop" title="Vista Desktop">🖥️ Desktop</button>
+      <button class="vp-btn" data-vp="tablet" title="Vista Tablet">📱 Tablet</button>
+      <button class="vp-btn" data-vp="mobile" title="Vista Móvil">📲 Móvil</button>
+    </div>
+  </aside>
+
+  <!-- =========================================================
+       SIMULADOR WEB
+       ========================================================= -->
+  <div class="simulator-wrapper">
+    <div class="preview-frame-container vp-desktop" id="previewContainer">
+
+      <!-- ===================================================
+           HEADER FLOWIX
+           =================================================== -->
+      <header class="flowix-header" id="mainHeader">
+        <div class="header-inner">
+          
+          <!-- LOGO DE FLOWIX (100% ESTÁTICO) -->
+          <a href="#" class="header-brand">
+            <div class="brand-symbol">
+              <span>&lt;/&gt;</span>
+            </div>
+            <div class="brand-text-block">
+              <div class="brand-name"><span>Flo</span><span class="brand-green">wix</span></div>
+              <div class="brand-subtitle">AGENCIA DIGITAL</div>
+            </div>
+          </a>
+
+          <!-- NAVEGACIÓN CENTRAL -->
+          <nav class="header-nav">
+            <ul class="nav-menu">
+              <li class="nav-item">
+                <a href="#inicio" class="nav-link">
+                  <span>Inicio</span>
+                  <span class="indicator-bar"></span>
+                </a>
+              </li>
+              <li class="nav-item has-dropdown">
+                <a href="#soluciones" class="nav-link">
+                  <span>Soluciones</span>
+                  <i data-lucide="chevron-down" class="chevron-icon"></i>
+                  <span class="indicator-bar"></span>
+                </a>
+                <div class="nav-dropdown">
+                  <a href="flowix-comercios.html" class="dropdown-item">
+                    <span class="dd-title">Flowix Comercios</span>
+                    <span class="dd-sub">Presencia & Captación local</span>
+                  </a>
+                  <a href="flowix-salud.html" class="dropdown-item">
+                    <span class="dd-title">Flowix Salud & Citas</span>
+                    <span class="dd-sub">Turnos & Agenda online 24/7</span>
+                  </a>
+                  <a href="flowix-tiendas.html" class="dropdown-item">
+                    <span class="dd-title">Flowix Tiendas</span>
+                    <span class="dd-sub">Ecommerce & Catálogo digital</span>
+                  </a>
+                  <a href="flowix-empresas.html" class="dropdown-item">
+                    <span class="dd-title">Flowix Empresas</span>
+                    <span class="dd-sub">Sistemas & Micro Apps a medida</span>
+                  </a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="#servicios-modulares" class="nav-link">
+                  <span>Servicios Modulares</span>
+                  <span class="indicator-bar"></span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#trabajos" class="nav-link">
+                  <span>Trabajos</span>
+                  <span class="indicator-bar"></span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#flowix-book" class="nav-link">
+                  <span>Flowix Book</span>
+                  <span class="indicator-bar"></span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- ACCIONES DERECHA -->
+          <div class="header-actions">
+            <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20agendar%20una%20demo%20para%20mi%20negocio." target="_blank" class="header-cta-btn">
+              <span>Hablemos</span>
+              <i data-lucide="arrow-right" class="cta-arrow"></i>
+            </a>
+
+            <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir menú de navegación">
+              <span class="bar bar-1"></span>
+              <span class="bar bar-2"></span>
+              <span class="bar bar-3"></span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div class="mobile-drawer" id="mobileDrawer">
+          <div class="mobile-drawer-inner">
+            <div class="mobile-menu-links">
+              <a href="#inicio" class="mobile-link"><span>Inicio</span><i data-lucide="chevron-right"></i></a>
+              <a href="#soluciones" class="mobile-link"><span>Soluciones</span><i data-lucide="chevron-right"></i></a>
+              <a href="#servicios-modulares" class="mobile-link"><span>Servicios Modulares</span><i data-lucide="chevron-right"></i></a>
+              <a href="#trabajos" class="mobile-link"><span>Trabajos</span><i data-lucide="chevron-right"></i></a>
+              <a href="#flowix-book" class="mobile-link"><span>Flowix Book</span><i data-lucide="chevron-right"></i></a>
+            </div>
+
+            <div class="mobile-cta-wrap">
+              <a href="https://wa.me/5491126730927" target="_blank" class="mobile-cta-btn">
+                <span>Hablemos por WhatsApp</span>
+                <i data-lucide="arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===================================================
+           MAIN CONTENT
+           =================================================== -->
+      <main class="preview-content">
+        
+        <!-- ===================================================
+             1. HERO SECTION
+             =================================================== -->
+        <section class="hero-canvas-section" id="inicio">
+          
+          <!-- FONDO DE ONDAS 3D CON DEGRADÉ SUAVE -->
+          <div class="hero-glow-backdrop"></div>
+          <div class="hero-gradient-scrim"></div>
+          <div class="hero-ambient-lights"></div>
+          <div class="grid-overlay"></div>
+
+          <!-- CONTENIDO DEL HERO -->
+          <div class="hero-container-inner">
+            <div class="hero-text-block">
+              
+              <div class="hero-tagline">
+                <span class="tagline-dot"></span>
+                CONSTRUIMOS MARCAS. AUTOMATIZAMOS VENTAS.
+              </div>
+
+              <h1 class="hero-heading">
+                Soluciones Digitales Que Generan <span class="highlight-green">Resultados Reales.</span>
+              </h1>
+
+              <p class="hero-description">
+                Agencia de infraestructura digital que potencia el crecimiento de tu comercio mediante landing pages de alta velocidad, turnos automáticos por WhatsApp y reputación en Google.
+              </p>
+
+              <!-- BOTONES CON ALTO CONTRASTE -->
+              <div class="hero-actions">
+                <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20agendar%20una%20demo%20para%20mi%20negocio." target="_blank" class="btn-primary-pill">
+                  <span>Agendar Demo</span>
+                  <i data-lucide="arrow-right" class="btn-arrow"></i>
+                </a>
+                
+                <a href="#servicios-modulares" class="btn-secondary-pill">
+                  <span>Nuestros Servicios</span>
+                  <i data-lucide="arrow-right" class="btn-arrow"></i>
+                </a>
+              </div>
+
+              <!-- Fila de 4 Métricas / Stats -->
+              <div class="hero-stats-row">
+                <div class="stat-card">
+                  <div class="stat-icon-box">
+                    <i data-lucide="users"></i>
+                  </div>
+                  <div class="stat-text-box">
+                    <div class="stat-number">+20</div>
+                    <div class="stat-label">Comercios Activos</div>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon-box">
+                    <i data-lucide="star"></i>
+                  </div>
+                  <div class="stat-text-box">
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">Satisfacción</div>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon-box">
+                    <i data-lucide="zap"></i>
+                  </div>
+                  <div class="stat-text-box">
+                    <div class="stat-number">&lt; 1s</div>
+                    <div class="stat-label">Carga Web</div>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon-box">
+                    <i data-lucide="bot"></i>
+                  </div>
+                  <div class="stat-text-box">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Turnos en Piloto</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===================================================
+             1.5. SECCIÓN SOLUCIONES (PACKS DE MARCA FLOWIX)
+             =================================================== -->
+        <section class="solutions-section" id="soluciones">
+          <div class="section-waves-layer waves-solutions"></div>
+          <div class="section-ambient-lights ambient-green-teal"></div>
+          <div class="grid-overlay"></div>
+          
+          <div class="solutions-inner-container">
+
+            <!-- Cabecera de Soluciones -->
+            <div class="solutions-header-block">
+              <span class="section-badge">SOLUCIONES INTEGRALES</span>
+              <h2 class="solutions-title">
+                Packs diseñados para <span class="highlight-green">escalar tu negocio.</span>
+              </h2>
+              <p class="solutions-subtitle">
+                Elegí la solución llave en mano que mejor se adapte a tu rubro. Combinamos diseño web de alta conversión, software propio y automatizaciones inteligentes.
+              </p>
+            </div>
+
+            <!-- Grid de 4 Packs de Soluciones -->
+            <div class="solutions-packs-grid">
+              
+              <!-- Pack 1: Flowix Comercios -->
+              <div class="pack-card" style="--pack-accent: #00CC6A;">
+                <div class="pack-header">
+                  <div class="pack-icon-row">
+                    <div class="pack-icon-box">
+                      <i data-lucide="store"></i>
+                    </div>
+                    <span class="pack-rubro-badge">Comercios & Servicios</span>
+                  </div>
+                  <h3 class="pack-name">Flowix Comercios</h3>
+                  <p class="pack-desc">
+                    Presencia digital de alto impacto y captación directa para negocios y profesionales locales.
+                  </p>
+                </div>
+
+                <div class="pack-features-list">
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>Landing Page High-Conversion (&lt; 1s)</span>
+                  </div>
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>Integración directa a WhatsApp</span>
+                  </div>
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>Optimización en Google Maps</span>
+                  </div>
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>1 Placa Smart NFC para mostrador</span>
+                  </div>
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>Dominio propio + Hosting de alta velocidad</span>
+                  </div>
+                </div>
+
+                <div class="pack-footer">
+                  <a href="flowix-comercios.html" class="btn-pack-outline" style="margin-bottom: 8px;">
+                    <span>Ver Más Información</span>
+                    <i data-lucide="arrow-up-right"></i>
+                  </a>
+                  <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20me%20interesa%20el%20pack%20Flowix%20Comercios." target="_blank" class="btn-pack-secondary">
+                    <span>Pedir Pack</span>
+                    <i data-lucide="arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Pack 2: Flowix Salud & Citas (POPULAR / DESTACADO) -->
+              <div class="pack-card pack-card-featured" style="--pack-accent: #06B6D4;">
+                <div class="pack-featured-tag" style="color: #06B6D4; border-color: rgba(6, 182, 212, 0.4); background: rgba(6, 182, 212, 0.15);">
+                  <i data-lucide="sparkles"></i>
+                  <span>MÁS ELEGIDO</span>
+                </div>
+
+                <div class="pack-header">
+                  <div class="pack-icon-row">
+                    <div class="pack-icon-box">
+                      <i data-lucide="calendar-check"></i>
+                    </div>
+                    <span class="pack-rubro-badge">Salud, Estética & Turnos</span>
+                  </div>
+                  <h3 class="pack-name">Flowix Salud & Citas</h3>
+                  <p class="pack-desc">
+                    Tu agenda 100% en piloto automático con recordatorios por WhatsApp y cero comisiones por reserva.
+                  </p>
+                </div>
+
+                <div class="pack-features-list">
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>Sitio Web Corporativo o Landing Médica</span>
+                  </div>
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span><strong>Flowix Book:</strong> Turnos online 24/7</span>
+                  </div>
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>WhatsApp Bot con recordatorios automáticos</span>
+                  </div>
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>Cobro de señas automáticas con Mercado Pago</span>
+                  </div>
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>2 Placas Smart NFC (Turnos + Google Reviews)</span>
+                  </div>
+                </div>
+
+                <div class="pack-footer">
+                  <a href="flowix-salud.html" class="btn-pack-outline" style="margin-bottom: 8px;">
+                    <span>Ver Más Información</span>
+                    <i data-lucide="arrow-up-right"></i>
+                  </a>
+                  <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20me%20interesa%20el%20pack%20Flowix%20Salud%20%26%20Citas." target="_blank" class="btn-pack-primary" style="background: #06B6D4; box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);">
+                    <span>Elegir Pack</span>
+                    <i data-lucide="arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Pack 3: Flowix Tiendas -->
+              <div class="pack-card" style="--pack-accent: #FF6B00;">
+                <div class="pack-header">
+                  <div class="pack-icon-row">
+                    <div class="pack-icon-box">
+                      <i data-lucide="shopping-bag"></i>
+                    </div>
+                    <span class="pack-rubro-badge">Ecommerce & Catálogo</span>
+                  </div>
+                  <h3 class="pack-name">Flowix Tiendas</h3>
+                  <p class="pack-desc">
+                    Catálogo digital de productos y venta online 24/7 sin comisiones abusivas por venta.
+                  </p>
+                </div>
+
+                <div class="pack-features-list">
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>Tienda Online / Catálogo autogestionable</span>
+                  </div>
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>Pasarelas de cobro (Mercado Pago / Tarjetas)</span>
+                  </div>
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>Pedidos directos y checkout por WhatsApp</span>
+                  </div>
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>Panel de control de stock y pedidos</span>
+                  </div>
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>1 Placa Smart NFC directa a la tienda</span>
+                  </div>
+                </div>
+
+                <div class="pack-footer">
+                  <a href="flowix-tiendas.html" class="btn-pack-outline" style="margin-bottom: 8px;">
+                    <span>Ver Más Información</span>
+                    <i data-lucide="arrow-up-right"></i>
+                  </a>
+                  <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20me%20interesa%20el%20pack%20Flowix%20Tiendas." target="_blank" class="btn-pack-secondary">
+                    <span>Elegir Pack</span>
+                    <i data-lucide="arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Pack 4: Flowix Empresas -->
+              <div class="pack-card" style="--pack-accent: #6366F1;">
+                <div class="pack-header">
+                  <div class="pack-icon-row">
+                    <div class="pack-icon-box">
+                      <i data-lucide="building-2"></i>
+                    </div>
+                    <span class="pack-rubro-badge">Empresas & Sistemas</span>
+                  </div>
+                  <h3 class="pack-name">Flowix Empresas</h3>
+                  <p class="pack-desc">
+                    Infraestructura web corporativa, portales inmobiliarios y micro apps a medida.
+                  </p>
+                </div>
+
+                <div class="pack-features-list">
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>Portal Web Corporativo / Inmobiliario</span>
+                  </div>
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>Micro Apps, cotizadores y paneles a medida</span>
+                  </div>
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>Automatizaciones avanzadas con IA y n8n</span>
+                  </div>
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>Base de datos dedicada y arquitectura Next.js</span>
+                  </div>
+                  <div class="pack-feature-item">
+                    <span class="pack-check-icon"><i data-lucide="check"></i></span>
+                    <span>Soporte prioritario y mantenimiento continuo</span>
+                  </div>
+                </div>
+
+                <div class="pack-footer">
+                  <a href="flowix-empresas.html" class="btn-pack-outline" style="margin-bottom: 8px;">
+                    <span>Ver Más Información</span>
+                    <i data-lucide="arrow-up-right"></i>
+                  </a>
+                  <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20me%20interesa%20el%20pack%20Flowix%20Empresas." target="_blank" class="btn-pack-secondary">
+                    <span>Elegir Pack</span>
+                    <i data-lucide="arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             2. SECCIÓN SERVICIOS MODULARES (CARRUSEL CUADRADO)
+             =================================================== -->
+        <section class="services-section" id="servicios-modulares">
+          <div class="section-waves-layer waves-services"></div>
+          <div class="section-ambient-lights ambient-cyan-blue"></div>
+          <div class="grid-overlay"></div>
+
+          <div class="services-inner-container">
+            
+            <!-- CABECERA DE SECCIÓN: Split con Flechas de Navegación -->
+            <div class="services-header-split">
+              <div class="services-header-left">
+                <span class="section-badge">QUÉ HACEMOS</span>
+                <h2 class="services-title">
+                  Servicios digitales que <span class="highlight-green">potencian tu negocio.</span>
+                </h2>
+                <p class="services-subtitle">
+                  Combinamos diseño web de alta conversión, automatizaciones con IA y tecnología local para entregar soluciones independientes que transforman visitas en clientes.
+                </p>
+              </div>
+              
+              <!-- Controles de Flechas del Carrusel de Servicios -->
+              <div class="carousel-nav-actions">
+                <button class="carousel-arrow-btn" id="servicesPrevBtn" aria-label="Servicio anterior">
+                  <i data-lucide="chevron-left"></i>
+                </button>
+                <button class="carousel-arrow-btn" id="servicesNextBtn" aria-label="Servicio siguiente">
+                  <i data-lucide="chevron-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- CONTENEDOR CARRUSEL HORIZONTAL FLUIDO (TARJETAS CUADRADAS) -->
+            <div class="services-carousel-wrapper" id="servicesCarousel">
+              
+              <!-- Card 1: Landing Page High-Conversion -->
+              <div class="service-slide-item">
+                <div class="service-card" style="--card-accent: #00CC6A;">
+                  <div class="service-card-top">
+                    <div class="service-icon-wrap">
+                      <i data-lucide="rocket"></i>
+                    </div>
+                    <span class="service-num">01</span>
+                  </div>
+                  <div class="service-card-body">
+                    <h3 class="service-name">Landing Pages High-Conversion</h3>
+                    <p class="service-desc">
+                      Páginas ligeras de carga ultra rápida (&lt; 1s), diseñadas para transformar visitas en turnos o compras.
+                    </p>
+                  </div>
+                  <div class="service-card-footer">
+                    <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20cotizar%20el%20servicio%20de%20Landing%20Page" target="_blank" class="service-card-link">
+                      <span>Cotizar módulo</span>
+                      <i data-lucide="arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2: Sitio Web Corporativo -->
+              <div class="service-slide-item">
+                <div class="service-card" style="--card-accent: #0EA5E9;">
+                  <div class="service-card-top">
+                    <div class="service-icon-wrap">
+                      <i data-lucide="monitor"></i>
+                    </div>
+                    <span class="service-num">02</span>
+                  </div>
+                  <div class="service-card-body">
+                    <h3 class="service-name">Sitio Web Corporativo</h3>
+                    <p class="service-desc">
+                      Presencia digital para empresas y clínicas que necesitan proyectar autoridad, catálogo y equipo.
+                    </p>
+                  </div>
+                  <div class="service-card-footer">
+                    <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20cotizar%20el%20servicio%20de%20Sitio%20Web%20Corporativo" target="_blank" class="service-card-link">
+                      <span>Cotizar módulo</span>
+                      <i data-lucide="arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3: Ecommerce & Tienda Online -->
+              <div class="service-slide-item">
+                <div class="service-card" style="--card-accent: #10B981;">
+                  <div class="service-card-top">
+                    <div class="service-icon-wrap">
+                      <i data-lucide="shopping-bag"></i>
+                    </div>
+                    <span class="service-num">03</span>
+                  </div>
+                  <div class="service-card-body">
+                    <h3 class="service-name">Ecommerce & Tienda Online</h3>
+                    <p class="service-desc">
+                      Catálogo digital con Mercado Pago y stock integrado para vender 24/7 sin comisiones por venta.
+                    </p>
+                  </div>
+                  <div class="service-card-footer">
+                    <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20cotizar%20el%20servicio%20de%20Ecommerce" target="_blank" class="service-card-link">
+                      <span>Cotizar módulo</span>
+                      <i data-lucide="arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4: Automatizaciones IA & WhatsApp Bots -->
+              <div class="service-slide-item">
+                <div class="service-card" style="--card-accent: #8B5CF6;">
+                  <div class="service-card-top">
+                    <div class="service-icon-wrap">
+                      <i data-lucide="bot"></i>
+                    </div>
+                    <span class="service-num">04</span>
+                  </div>
+                  <div class="service-card-body">
+                    <h3 class="service-name">Bots de WhatsApp & IA</h3>
+                    <p class="service-desc">
+                      Flujos inteligentes en n8n para responder consultas frecuentes, calificar y agendar automáticamente.
+                    </p>
+                  </div>
+                  <div class="service-card-footer">
+                    <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20cotizar%20el%20servicio%20de%20Automatizaciones%20IA" target="_blank" class="service-card-link">
+                      <span>Cotizar módulo</span>
+                      <i data-lucide="arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 5: Smart Signage & Placas NFC -->
+              <div class="service-slide-item">
+                <div class="service-card" style="--card-accent: #EC4899;">
+                  <div class="service-card-top">
+                    <div class="service-icon-wrap">
+                      <i data-lucide="radio"></i>
+                    </div>
+                    <span class="service-num">05</span>
+                  </div>
+                  <div class="service-card-body">
+                    <h3 class="service-name">Placas NFC & Smart Signage</h3>
+                    <p class="service-desc">
+                      Stickers y placas NFC para mostradores con QR dinámico directo a Google Maps o catálogo.
+                    </p>
+                  </div>
+                  <div class="service-card-footer">
+                    <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20cotizar%20el%20servicio%20de%20NFC%20Smart%20Signage" target="_blank" class="service-card-link">
+                      <span>Cotizar módulo</span>
+                      <i data-lucide="arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 6: Flowix Book (Turnos Online) -->
+              <div class="service-slide-item">
+                <div class="service-card" style="--card-accent: #00CC6A;">
+                  <div class="service-card-top">
+                    <div class="service-icon-wrap">
+                      <i data-lucide="calendar-check"></i>
+                    </div>
+                    <span class="service-num">06</span>
+                  </div>
+                  <div class="service-card-body">
+                    <h3 class="service-name">Flowix Book (Turnos Online)</h3>
+                    <p class="service-desc">
+                      Plataforma propia para agendamiento de citas, recordatorios automáticos y base de datos de clientes.
+                    </p>
+                  </div>
+                  <div class="service-card-footer">
+                    <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20cotizar%20el%20servicio%20de%20Flowix%20Book" target="_blank" class="service-card-link">
+                      <span>Cotizar módulo</span>
+                      <i data-lucide="arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 7: Micro Apps & Sistemas a Medida -->
+              <div class="service-slide-item">
+                <div class="service-card" style="--card-accent: #6366F1;">
+                  <div class="service-card-top">
+                    <div class="service-icon-wrap">
+                      <i data-lucide="layers"></i>
+                    </div>
+                    <span class="service-num">07</span>
+                  </div>
+                  <div class="service-card-body">
+                    <h3 class="service-name">Micro Apps & Sistemas Web</h3>
+                    <p class="service-desc">
+                      Herramientas interactivas, cotizadores en vivo, calculadoras y paneles de gestión interna ultraligeros.
+                    </p>
+                  </div>
+                  <div class="service-card-footer">
+                    <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20cotizar%20el%20servicio%20de%20Micro%20Apps" target="_blank" class="service-card-link">
+                      <span>Cotizar módulo</span>
+                      <i data-lucide="arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             3. SECCIÓN CARRUSEL DE TRABAJOS (CLIENTES REALES)
+             =================================================== -->
+        <section class="portfolio-section" id="trabajos">
+          <div class="section-waves-layer waves-portfolio"></div>
+          <div class="section-ambient-lights ambient-green-glow"></div>
+          <div class="grid-overlay"></div>
+
+          <div class="portfolio-inner-container">
+            
+            <!-- Cabecera con Botones de Navegación del Carrusel -->
+            <div class="portfolio-header-split">
+              <div class="portfolio-header-left">
+                <span class="section-badge">NUESTROS TRABAJOS</span>
+                <h2 class="portfolio-title">
+                  Transformamos ideas en <span class="highlight-green">experiencias de impacto.</span>
+                </h2>
+              </div>
+              
+              <!-- Controles de Flechas del Carrusel -->
+              <div class="carousel-nav-actions">
+                <button class="carousel-arrow-btn" id="carouselPrevBtn" aria-label="Proyecto anterior">
+                  <i data-lucide="chevron-left"></i>
+                </button>
+                <button class="carousel-arrow-btn" id="carouselNextBtn" aria-label="Proyecto siguiente">
+                  <i data-lucide="chevron-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- CONTENEDOR CARRUSEL HORIZONTAL FLUIDO -->
+            <div class="carousel-track-wrapper" id="portfolioCarousel">
+
+              <!-- PROYECTO 1: Tang Soo Do Escobar -->
+              <div class="carousel-slide-item">
+                <div class="project-showcase-card" style="--proj-accent: #f59e0b;">
+                  <div class="project-mockup-frame">
+                    <div class="mockup-browser-bar">
+                      <div class="browser-dots"><span></span><span></span><span></span></div>
+                      <div class="browser-address">tangsoodoescobar.com</div>
+                    </div>
+                    <div class="mockup-img-holder">
+                      <img src="portfolio/tangsoo.png" alt="Tang Soo Do Escobar — Captura Real" />
+                    </div>
+                    <div class="mockup-overlay">
+                      <span class="live-pill">Sitio en Vivo 🟢</span>
+                    </div>
+                  </div>
+
+                  <div class="project-info-row">
+                    <div class="project-meta">
+                      <span class="project-category">Deporte & Academia</span>
+                      <h3 class="project-name">Tang Soo Do Escobar</h3>
+                      <p class="project-desc-short">Landing de captación para clases y membresías</p>
+                    </div>
+                    <a href="https://www.tangsoodoescobar.com/" target="_blank" rel="noopener noreferrer" class="project-action-btn" aria-label="Visitar Tang Soo Do Escobar">
+                      <i data-lucide="arrow-up-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PROYECTO 2: Complejo Los Peques -->
+              <div class="carousel-slide-item">
+                <div class="project-showcase-card" style="--proj-accent: #00CC6A;">
+                  <div class="project-mockup-frame">
+                    <div class="mockup-browser-bar">
+                      <div class="browser-dots"><span></span><span></span><span></span></div>
+                      <div class="browser-address">complejolospeques.com</div>
+                    </div>
+                    <div class="mockup-img-holder">
+                      <img src="portfolio/peques.png" alt="Complejo Los Peques — Captura Real" />
+                    </div>
+                    <div class="mockup-overlay">
+                      <span class="live-pill">Sitio en Vivo 🟢</span>
+                    </div>
+                  </div>
+
+                  <div class="project-info-row">
+                    <div class="project-meta">
+                      <span class="project-category">Turismo & Cabañas</span>
+                      <h3 class="project-name">Complejo Los Peques</h3>
+                      <p class="project-desc-short">Web de reservas y hospedaje en Mar Azul</p>
+                    </div>
+                    <a href="https://www.complejolospeques.com/" target="_blank" rel="noopener noreferrer" class="project-action-btn" aria-label="Visitar Complejo Los Peques">
+                      <i data-lucide="arrow-up-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PROYECTO 3: Marroncelli — Puertas Únicas -->
+              <div class="carousel-slide-item">
+                <div class="project-showcase-card" style="--proj-accent: #C4A482;">
+                  <div class="project-mockup-frame">
+                    <div class="mockup-browser-bar">
+                      <div class="browser-dots"><span></span><span></span><span></span></div>
+                      <div class="browser-address">marroncelli-web.vercel.app</div>
+                    </div>
+                    <div class="mockup-img-holder">
+                      <img src="portfolio/marroncelli.png" alt="Marroncelli Puertas Únicas — Captura Real" />
+                    </div>
+                    <div class="mockup-overlay">
+                      <span class="live-pill">Sitio en Vivo 🟢</span>
+                    </div>
+                  </div>
+
+                  <div class="project-info-row">
+                    <div class="project-meta">
+                      <span class="project-category">Arquitectura & Diseño</span>
+                      <h3 class="project-name">Marroncelli Puertas</h3>
+                      <p class="project-desc-short">Puertas de interior de alta gama y sistemas de marcos</p>
+                    </div>
+                    <a href="https://marroncelli-web.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-action-btn" aria-label="Visitar Marroncelli">
+                      <i data-lucide="arrow-up-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PROYECTO 4: Bananas Agency -->
+              <div class="carousel-slide-item">
+                <div class="project-showcase-card" style="--proj-accent: #FBBF24;">
+                  <div class="project-mockup-frame">
+                    <div class="mockup-browser-bar">
+                      <div class="browser-dots"><span></span><span></span><span></span></div>
+                      <div class="browser-address">bananas-agency-sigma.vercel.app</div>
+                    </div>
+                    <div class="mockup-img-holder">
+                      <img src="portfolio/bananas.png" alt="Bananas Agency — Captura Real" />
+                    </div>
+                    <div class="mockup-overlay">
+                      <span class="live-pill">Sitio en Vivo 🟢</span>
+                    </div>
+                  </div>
+
+                  <div class="project-info-row">
+                    <div class="project-meta">
+                      <span class="project-category">Agencia & Marketing</span>
+                      <h3 class="project-name">Bananas Agency</h3>
+                      <p class="project-desc-short">Estrategia audiovisual y creación de contenido</p>
+                    </div>
+                    <a href="https://bananas-agency-sigma.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-action-btn" aria-label="Visitar Bananas Agency">
+                      <i data-lucide="arrow-up-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PROYECTO 5: Infinity Inmobiliaria -->
+              <div class="carousel-slide-item">
+                <div class="project-showcase-card" style="--proj-accent: #0EA5E9;">
+                  <div class="project-mockup-frame">
+                    <div class="mockup-browser-bar">
+                      <div class="browser-dots"><span></span><span></span><span></span></div>
+                      <div class="browser-address">inifinity-inmobiliaria-demo.vercel.app</div>
+                    </div>
+                    <div class="mockup-img-holder">
+                      <img src="portfolio/infinity.png" alt="Infinity Inmobiliaria — Captura Real" />
+                    </div>
+                    <div class="mockup-overlay">
+                      <span class="live-pill">Sitio en Vivo 🟢</span>
+                    </div>
+                  </div>
+
+                  <div class="project-info-row">
+                    <div class="project-meta">
+                      <span class="project-category">Real Estate & Inmuebles</span>
+                      <h3 class="project-name">Infinity Inmobiliaria</h3>
+                      <p class="project-desc-short">Portal de propiedades frente al Golfo Nuevo</p>
+                    </div>
+                    <a href="https://inifinity-inmobiliaria-demo.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-action-btn" aria-label="Visitar Infinity Inmobiliaria">
+                      <i data-lucide="arrow-up-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             3.5. SECCIÓN NUESTRO PROCESO (ESTRUCTURA DE REFERENCIA)
+             =================================================== -->
+        <section class="process-section" id="proceso">
+          <div class="section-waves-layer waves-process"></div>
+          <div class="section-ambient-lights ambient-indigo-glow"></div>
+          <div class="grid-overlay"></div>
+
+          <div class="process-inner-container">
+
+            <div class="process-banner-card">
+              
+              <!-- Columna Izquierda: Título y Badge -->
+              <div class="process-header-side">
+                <span class="process-badge">NUESTRO PROCESO</span>
+                <h2 class="process-title">
+                  Un proceso simple.<br />
+                  <span class="highlight-green">Resultados potentes.</span>
+                </h2>
+              </div>
+
+              <!-- Columna Derecha: Timeline de 4 Pasos -->
+              <div class="process-steps-timeline">
+                
+                <!-- Línea conectora horizontal punteada -->
+                <div class="process-connecting-line"></div>
+
+                <!-- Paso 01 -->
+                <div class="process-step-item">
+                  <div class="step-icon-bubble">
+                    <i data-lucide="message-square"></i>
+                  </div>
+                  <span class="step-num">01</span>
+                  <h3 class="step-title">Descubrimiento</h3>
+                  <p class="step-desc">
+                    Analizamos tu negocio, objetivos y desafíos para definir la solución ideal.
+                  </p>
+                </div>
+
+                <!-- Paso 02 -->
+                <div class="process-step-item">
+                  <div class="step-icon-bubble">
+                    <i data-lucide="lightbulb"></i>
+                  </div>
+                  <span class="step-num">02</span>
+                  <h3 class="step-title">Estrategia</h3>
+                  <p class="step-desc">
+                    Diseñamos una propuesta y arquitectura técnica a medida para maximizar conversión.
+                  </p>
+                </div>
+
+                <!-- Paso 03 -->
+                <div class="process-step-item">
+                  <div class="step-icon-bubble">
+                    <i data-lucide="pencil"></i>
+                  </div>
+                  <span class="step-num">03</span>
+                  <h3 class="step-title">Creación</h3>
+                  <p class="step-desc">
+                    Nuestro equipo diseña y desarrolla con precisión visual y tecnologías de alto rendimiento.
+                  </p>
+                </div>
+
+                <!-- Paso 04 -->
+                <div class="process-step-item">
+                  <div class="step-icon-bubble">
+                    <i data-lucide="rocket"></i>
+                  </div>
+                  <span class="step-num">04</span>
+                  <h3 class="step-title">Lanzamiento</h3>
+                  <p class="step-desc">
+                    Publicamos en producción, optimizamos y te acompañamos a escalar continuamente.
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             4. SECCIÓN FLOWIX BOOK (ESTRUCTURA DE REFERENCIA)
+             =================================================== -->
+        <section class="flowix-book-section" id="flowix-book">
+          <div class="flowix-book-inner">
+
+            <!-- Banner Panorámico con Imagen Cinematográfica de Fondo -->
+            <div class="book-banner-stage">
+              
+              <!-- Imagen de fondo de alta resolución -->
+              <div class="book-banner-bg" style="background-image: url('flowix-book-bg.jpg');"></div>
+              <div class="book-banner-scrim"></div>
+
+              <!-- Tarjeta Glassmórfica Flotante (Estructura de la Referencia) -->
+              <div class="book-floating-glass-card">
+                
+                <div class="book-badge-row">
+                  <span class="book-badge-dot"></span>
+                  <span class="book-badge-text">SOFTWARE PROPIO · 0% COMISIONES</span>
+                </div>
+
+                <h2 class="book-card-title">
+                  Flowix Book: Gestión de Turnos & Clientes en Piloto Automático.
+                </h2>
+
+                <p class="book-card-description">
+                  Mantené el control absoluto de tu agenda 24/7 sin pagar comisiones por turno agendado ni compartir tu base con la competencia. Agendamiento en 30 segundos, recordatorios por WhatsApp y señas online.
+                </p>
+
+                <!-- Puntos Clave de Valor -->
+                <div class="book-features-mini-grid">
+                  <div class="book-feature-item">
+                    <div class="feature-check-icon"><i data-lucide="check"></i></div>
+                    <span>0% comisiones por reserva</span>
+                  </div>
+                  <div class="book-feature-item">
+                    <div class="feature-check-icon"><i data-lucide="check"></i></div>
+                    <span>Recordatorios por WhatsApp</span>
+                  </div>
+                  <div class="book-feature-item">
+                    <div class="feature-check-icon"><i data-lucide="check"></i></div>
+                    <span>Integración Smart NFC & QR</span>
+                  </div>
+                  <div class="book-feature-item">
+                    <div class="feature-check-icon"><i data-lucide="check"></i></div>
+                    <span>Cobro de señas automáticas</span>
+                  </div>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="book-card-actions">
+                  <a href="flowix-book.html" class="btn-book-secondary">
+                    <span>Ver Más Información</span>
+                    <i data-lucide="arrow-up-right" class="btn-icon"></i>
+                  </a>
+                  <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20conocer%20m%C3%A1s%20y%20probar%20una%20demo%20de%20Flowix%20Book." target="_blank" class="btn-book-primary">
+                    <span>Agendar Demo</span>
+                    <i data-lucide="arrow-right" class="btn-arrow"></i>
+                  </a>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             5. SECCIÓN FINAL CTA (ESTRUCTURA DE REFERENCIA)
+             =================================================== -->
+        <section class="final-cta-section" id="contacto">
+          
+          <!-- Luces de Arco / Beams Curvos Cinemáticos -->
+          <div class="cta-glow-arcs-container">
+            <div class="cta-arc-beam arc-left"></div>
+            <div class="cta-arc-beam arc-right"></div>
+            <div class="cta-ambient-center"></div>
+          </div>
+
+          <div class="final-cta-inner">
+
+            <!-- Top Badge con Líneas Divisorias y Diamantes -->
+            <div class="cta-badge-wrapper">
+              <div class="badge-line-side">
+                <span class="diamond-dot"></span>
+                <span class="line-rule"></span>
+              </div>
+              
+              <div class="cta-badge-pill">
+                <span>Comenzá hoy</span>
+              </div>
+
+              <div class="badge-line-side">
+                <span class="line-rule"></span>
+                <span class="diamond-dot"></span>
+              </div>
+            </div>
+
+            <!-- Título Principal con Acentos de Marca -->
+            <h2 class="final-cta-title">
+              ¿Listo para transformar la <span class="highlight-green">presencia digital</span> de tu negocio?
+            </h2>
+
+            <!-- Bajada / Descripción -->
+            <p class="final-cta-desc">
+              Impulsamos tu marca con diseño web moderno de alto impacto, automatizaciones inteligentes y software propio sin comisiones. Hablemos de tu proyecto hoy mismo.
+            </p>
+
+            <!-- Botón CTA Central con Verde Neón de Marca -->
+            <div class="final-cta-btn-wrap">
+              <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20empezar%20mi%20proyecto%20con%20ustedes." target="_blank" class="btn-final-cta">
+                <span>Comenzar Ahora</span>
+                <i data-lucide="arrow-right" class="btn-arrow"></i>
+              </a>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             FOOTER FLOWIX (ESTRUCTURA DE 5 COLUMNAS DE REFERENCIA)
+             =================================================== -->
+        <footer class="flowix-footer">
+          <div class="footer-inner">
+            
+            <!-- Grid Principal de 5 Columnas -->
+            <div class="footer-main-grid">
+              
+              <!-- Columna 1: Brand & Social -->
+              <div class="footer-col-brand">
+                <a href="#inicio" class="footer-brand-logo">
+                  <div class="brand-symbol"><span>&lt;/&gt;</span></div>
+                  <div class="brand-text-block">
+                    <div class="brand-name"><span>Flo</span><span class="brand-green">wix</span></div>
+                    <div class="brand-subtitle">AGENCIA DIGITAL</div>
+                  </div>
+                </a>
+                
+                <p class="footer-brand-desc">
+                  Somos una agencia digital enfocada en crear productos web de alto rendimiento, automatizaciones con IA y software propio para potenciar tu negocio.
+                </p>
+
+                <!-- Botones Sociales Circulares -->
+                <div class="footer-social-circles">
+                  <a href="https://www.instagram.com/flowixagency/" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="Instagram" title="Instagram (@flowixagency)">
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                  </a>
+                  <a href="https://www.tiktok.com/@flowix.agency" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="TikTok" title="TikTok (@flowix.agency)">
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                      <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-2.909 2.868 2.894 2.894 0 0 1-2.891-2.868 2.894 2.894 0 0 1 2.891-2.869c.298 0 .584.045.856.126V9.458a6.347 6.347 0 0 0-.856-.058A6.34 6.34 0 0 0 3 15.74a6.34 6.34 0 0 0 6.324 6.34 6.34 6.34 0 0 0 6.324-6.34V9.088a8.212 8.212 0 0 0 4.941 1.638V7.28a4.834 4.834 0 0 1-1-.594z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Columna 2: Enlaces Rápidos (Quick Links) -->
+              <div class="footer-col-links">
+                <h4 class="footer-col-title">Enlaces Rápidos</h4>
+                <ul class="footer-links-list">
+                  <li><a href="#inicio">Inicio</a></li>
+                  <li><a href="#soluciones">Soluciones</a></li>
+                  <li><a href="#servicios-modulares">Servicios</a></li>
+                  <li><a href="#trabajos">Nuestros Trabajos</a></li>
+                  <li><a href="#proceso">Nuestro Proceso</a></li>
+                  <li><a href="#flowix-book">Flowix Book</a></li>
+                  <li><a href="#contacto">Contacto</a></li>
+                </ul>
+              </div>
+
+              <!-- Columna 3: Servicios (Services) -->
+              <div class="footer-col-links">
+                <h4 class="footer-col-title">Servicios</h4>
+                <ul class="footer-links-list">
+                  <li><a href="#servicios-modulares">Landing Pages</a></li>
+                  <li><a href="#servicios-modulares">Sitios Corporativos</a></li>
+                  <li><a href="#servicios-modulares">Ecommerce & Tiendas</a></li>
+                  <li><a href="#servicios-modulares">Bots & Automatización IA</a></li>
+                  <li><a href="#servicios-modulares">Placas Smart NFC</a></li>
+                  <li><a href="flowix-book.html">Flowix Book (Software)</a></li>
+                  <li><a href="#servicios-modulares">Micro Apps & Sistemas</a></li>
+                </ul>
+              </div>
+
+              <!-- Columna 4: Soluciones / Compañía (Company) -->
+              <div class="footer-col-links">
+                <h4 class="footer-col-title">Soluciones</h4>
+                <ul class="footer-links-list">
+                  <li><a href="flowix-comercios.html">Flowix Comercios</a></li>
+                  <li><a href="flowix-salud.html">Flowix Salud & Citas</a></li>
+                  <li><a href="flowix-tiendas.html">Flowix Tiendas</a></li>
+                  <li><a href="flowix-empresas.html">Flowix Empresas</a></li>
+                  <li><a href="#proceso">Metodología Flowix</a></li>
+                  <li><a href="#contacto">Consulta Estratégica</a></li>
+                </ul>
+              </div>
+
+              <!-- Columna 5: Contacto Directo (Get in Touch) -->
+              <div class="footer-col-contact">
+                <h4 class="footer-col-title">Contacto</h4>
+                <ul class="footer-contact-list">
+                  <li class="contact-item">
+                    <div class="contact-icon-box"><i data-lucide="phone"></i></div>
+                    <div class="contact-text-wrap">
+                      <span class="contact-label">WhatsApp / Teléfono</span>
+                      <a href="https://wa.me/5491126730927" target="_blank" class="contact-val">+54 9 11 2673-0927</a>
+                    </div>
+                  </li>
+                  <li class="contact-item">
+                    <div class="contact-icon-box"><i data-lucide="mail"></i></div>
+                    <div class="contact-text-wrap">
+                      <span class="contact-label">Email Oficial</span>
+                      <a href="mailto:aflowix@gmail.com" class="contact-val">aflowix@gmail.com</a>
+                    </div>
+                  </li>
+                  <li class="contact-item">
+                    <div class="contact-icon-box"><i data-lucide="map-pin"></i></div>
+                    <div class="contact-text-wrap">
+                      <span class="contact-label">Ubicación</span>
+                      <span class="contact-val">Buenos Aires, Argentina (Servicio Global)</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <!-- Fila Inferior de Copyright -->
+            <div class="footer-bottom-row">
+              <p class="footer-copy">© 2026 Flowix Agency. Todos los derechos reservados.</p>
+            </div>
+
+          </div>
+        </footer>
+
+      </main>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowix Salud & Citas — Turnos Online 24/7, WhatsApp Bot & 0% Comisiones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons Library -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="salud-styles.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       BARRA DE CONTROL SUPERIOR (TEST BENCH)
+       ========================================================= -->
+  <aside class="lab-toolbar">
+    <div class="lab-toolbar-left">
+      <div class="lab-badge badge-salud">
+        <span class="lab-dot dot-salud"></span>
+        FLOWIX SALUD & CITAS
+      </div>
+      <div class="lab-meta">
+        <span class="lab-title">Landing de Solución · Flowix Salud & Citas</span>
+        <span class="lab-sub">Pack Integral: Web Médica + Flowix Book + Bot WhatsApp + Señas</span>
+      </div>
+    </div>
+
+    <!-- Controles de Viewport / Responsive -->
+    <div class="lab-viewport-controls">
+      <a href="index.html" class="vp-back-btn" title="Volver a la web principal de Flowix">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span>Web Agencia</span>
+      </a>
+      <span class="vp-label">Vista:</span>
+      <button class="vp-btn active" data-vp="desktop" title="Vista Desktop">🖥️ Desktop</button>
+      <button class="vp-btn" data-vp="tablet" title="Vista Tablet">📱 Tablet</button>
+      <button class="vp-btn" data-vp="mobile" title="Vista Móvil">📲 Móvil</button>
+    </div>
+  </aside>
+
+  <!-- =========================================================
+       SIMULADOR WEB
+       ========================================================= -->
+  <div class="simulator-wrapper">
+    <div class="preview-frame-container vp-desktop" id="previewContainer">
+
+      <!-- ===================================================
+           HEADER FLOWIX SALUD & CITAS
+           =================================================== -->
+      <header class="flowix-header" id="mainHeader">
+        <div class="header-inner">
+          
+          <a href="index.html" class="header-brand">
+            <div class="brand-symbol symbol-salud">
+              <span>&lt;/&gt;</span>
+            </div>
+            <div class="brand-text-block">
+              <div class="brand-name"><span>Flo</span><span class="brand-green">wix</span> <span class="brand-pill-tag tag-salud">SALUD & CITAS</span></div>
+              <div class="brand-subtitle">GESTIÓN DE TURNOS EN PILOTO AUTOMÁTICO</div>
+            </div>
+          </a>
+
+          <!-- NAVEGACIÓN CENTRAL -->
+          <nav class="header-nav">
+            <ul class="nav-menu">
+              <li class="nav-item">
+                <a href="#inicio" class="nav-link"><span>Inicio</span><span class="indicator-bar"></span></a>
+              </li>
+              <li class="nav-item">
+                <a href="#diferencial" class="nav-link"><span>0% Comisiones</span><span class="indicator-bar"></span></a>
+              </li>
+              <li class="nav-item">
+                <a href="#que-incluye" class="nav-link"><span>Qué Incluye</span><span class="indicator-bar"></span></a>
+              </li>
+              <li class="nav-item">
+                <a href="#especialidades" class="nav-link"><span>Especialidades</span><span class="indicator-bar"></span></a>
+              </li>
+              <li class="nav-item">
+                <a href="#faq" class="nav-link"><span>Preguntas</span><span class="indicator-bar"></span></a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- ACCIONES DERECHA -->
+          <div class="header-actions">
+            <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20agendar%20una%20demo%20del%20pack%20Flowix%20Salud%20%26%20Citas." target="_blank" class="header-cta-btn">
+              <span>Pedir Pack</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+
+            <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir menú de navegación">
+              <span class="bar bar-1"></span>
+              <span class="bar bar-2"></span>
+              <span class="bar bar-3"></span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div class="mobile-drawer" id="mobileDrawer">
+          <div class="mobile-drawer-inner">
+            <div class="mobile-menu-links">
+              <a href="#inicio" class="mobile-link"><span>Inicio</span><i data-lucide="chevron-right"></i></a>
+              <a href="#diferencial" class="mobile-link"><span>Por qué 0% Comisiones</span><i data-lucide="chevron-right"></i></a>
+              <a href="#que-incluye" class="mobile-link"><span>Qué Incluye el Pack</span><i data-lucide="chevron-right"></i></a>
+              <a href="#especialidades" class="mobile-link"><span>Para Quién Es</span><i data-lucide="chevron-right"></i></a>
+              <a href="#faq" class="mobile-link"><span>Preguntas Frecuentes</span><i data-lucide="chevron-right"></i></a>
+              <a href="index.html" class="mobile-link"><span>← Volver a Flowix Agencia</span><i data-lucide="arrow-up-right"></i></a>
+            </div>
+
+            <div class="mobile-cta-wrap">
+              <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20el%20pack%20Flowix%20Salud%20%26%20Citas." target="_blank" class="mobile-cta-btn">
+                <span>Pedir Pack por WhatsApp</span>
+                <i data-lucide="arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===================================================
+           MAIN CONTENT
+           =================================================== -->
+      <main class="preview-content">
+        
+        <!-- ===================================================
+             1. HERO SECTION FLOWIX SALUD & CITAS
+             =================================================== -->
+        <section class="hero-canvas-section salud-hero-section" id="inicio">
+          
+          <div class="hero-glow-backdrop glow-salud"></div>
+          <div class="hero-gradient-scrim"></div>
+          <div class="hero-ambient-lights"></div>
+          <div class="grid-overlay"></div>
+
+          <div class="hero-container-inner salud-hero-grid">
+            
+            <div class="hero-text-block">
+              <div class="hero-tagline tagline-salud">
+                <span class="tagline-dot dot-salud"></span>
+                SISTEMA DE TURNOS PROPIO · 0% COMISIONES
+              </div>
+
+              <h1 class="hero-heading">
+                Tu agenda llena. Cero ausentismo. <span class="highlight-salud">Sin pagar comisiones por turno.</span>
+              </h1>
+
+              <p class="hero-description">
+                Pack integral para clínicas, consultorios y centros de estética: <strong>Sitio Web Profesional</strong>, plataforma de agendamiento <strong>Flowix Book 24/7</strong>, <strong>Bot de WhatsApp</strong> con recordatorios automáticos y <strong>cobro de señas online</strong> para garantizar que tus pacientes asistan.
+              </p>
+
+              <div class="hero-actions">
+                <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20contratar%20el%20Pack%20Flowix%20Salud%20%26%20Citas." target="_blank" class="btn-primary-pill">
+                  <span>Pedir Flowix Salud & Citas</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                
+                <a href="#que-incluye" class="btn-secondary-pill">
+                  <span>Ver Qué Incluye</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+                </a>
+              </div>
+
+              <!-- Fila de 4 Métricas Clave -->
+              <div class="hero-stats-row">
+                <div class="stat-card">
+                  <div class="stat-icon-box box-salud"><i data-lucide="user-check"></i></div>
+                  <div class="stat-text-box">
+                    <div class="stat-number">-90%</div>
+                    <div class="stat-label">Ausentismo (No-Show)</div>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon-box box-salud"><i data-lucide="clock"></i></div>
+                  <div class="stat-text-box">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Turnos en Piloto</div>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon-box box-salud"><i data-lucide="percent"></i></div>
+                  <div class="stat-text-box">
+                    <div class="stat-number">0%</div>
+                    <div class="stat-label">Comisiones x Turno</div>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon-box box-salud"><i data-lucide="database"></i></div>
+                  <div class="stat-text-box">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Base Propia y Privada</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Mockup Interactivo de Flowix Book & WhatsApp -->
+            <div class="salud-hero-visual">
+              <div class="salud-mockup-stack">
+                
+                <!-- Badge Flotante Superior -->
+                <div class="salud-floating-badge">
+                  <span class="floating-dot-salud"></span>
+                  <span>AGENDA EN VIVO 24/7</span>
+                </div>
+
+                <!-- Tarjeta Principal: Flowix Book App Screen -->
+                <div class="salud-glass-card">
+                  
+                  <div class="sgc-header">
+                    <div class="sgc-brand">
+                      <span class="sgc-dot"></span>
+                      <span>Flowix Book · Clínica Demo</span>
+                    </div>
+                    <span class="sgc-pill-active">En Línea 🟢</span>
+                  </div>
+
+                  <!-- Mini Flow de Agendamiento -->
+                  <div class="sgc-step-box">
+                    <div class="sgc-step-title">1. Seleccioná Especialista & Día</div>
+                    <div class="sgc-pro-row">
+                      <div class="sgc-avatar">👨‍⚕️</div>
+                      <div class="sgc-pro-meta">
+                        <strong>Dr. Alejandro Morales</strong>
+                        <span>Kinesiología & Rehabilitación</span>
+                      </div>
+                    </div>
+                    
+                    <div class="sgc-calendar-slots">
+                      <div class="slot-pill">10:00 hs</div>
+                      <div class="slot-pill active">11:30 hs ✓</div>
+                      <div class="slot-pill">15:00 hs</div>
+                      <div class="slot-pill">17:30 hs</div>
+                    </div>
+                  </div>
+
+                  <!-- Mensaje de Confirmación por WhatsApp Simulado -->
+                  <div class="sgc-wa-bubble">
+                    <div class="sgc-wa-top">
+                      <i data-lucide="message-circle" class="wa-icon"></i>
+                      <span>WhatsApp Bot Flowix</span>
+                      <small>Recién</small>
+                    </div>
+                    <p class="sgc-wa-msg">
+                      ¡Hola Franco! Tu turno para <strong>Kinesiología</strong> con el Dr. Morales el <strong>Jueves 11:30 hs</strong> quedó confirmado con éxito. ✅
+                    </p>
+                    <div class="sgc-wa-action">
+                      <span class="wa-btn-tag">✓ Agendado en Calendario</span>
+                    </div>
+                  </div>
+
+                  <div class="sgc-footer-chips">
+                    <span>💳 Seña con Mercado Pago</span>
+                    <span>🔔 Recordatorio 24hs antes</span>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- ===================================================
+             2. EL PROBLEMA DE LAS APPS TRADICIONALES VS FLOWIX
+             =================================================== -->
+        <section class="comparison-section" id="diferencial">
+          <div class="section-waves-layer waves-salud-alt"></div>
+          <div class="section-ambient-lights ambient-salud"></div>
+          <div class="grid-overlay"></div> <div class="section-waves-layer waves-salud-alt"></div>
+          <div class="section-ambient-lights ambient-salud"></div>
+          <div class="grid-overlay"></div><div class="section-inner-container">
+            
+            <div class="section-center-header">
+              <span class="section-badge">POR QUÉ FLOWIX</span>
+              <h2 class="section-main-title">
+                No alquiles tu clientela. <span class="highlight-salud">Sé dueño absoluto de tu sistema.</span>
+              </h2>
+              <p class="section-subtitle-center">
+                Las plataformas tradicionales de turnos te cobran por paciente nuevo y recomiendan a tus competidores abajo de tu perfil. Con Flowix, la tecnología y los pacientes son 100% tuyos.
+              </p>
+            </div>
+
+            <div class="comparison-grid">
+              
+              <!-- Tarjeta: Plataformas Tradicionales -->
+              <div class="comparison-card card-before">
+                <div class="comp-card-badge badge-red">❌ PLATAFORMAS DE TERCEROS (DOCTORALIA, ETC.)</div>
+                <h3 class="comp-card-title">El Sistema Alquilado</h3>
+                <ul class="comp-list">
+                  <li>
+                    <span class="comp-x">✕</span>
+                    <span>Te cobran comisiones abusivas por cada turno o suscripciones en dólares.</span>
+                  </li>
+                  <li>
+                    <span class="comp-x">✕</span>
+                    <span>Tus pacientes ven a otros profesionales de la competencia recomendados en la misma pantalla.</span>
+                  </li>
+                  <li>
+                    <span class="comp-x">✕</span>
+                    <span>No te dan una página web propia con tu marca y dominio.</span>
+                  </li>
+                  <li>
+                    <span class="comp-x">✕</span>
+                    <span>Si dejás de pagar, perdés tu historial, base de pacientes y configuración.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Tarjeta: Flowix Salud & Citas -->
+              <div class="comparison-card card-after">
+                <div class="comp-card-badge badge-cyan">🟢 CON FLOWIX SALUD & CITAS</div>
+                <h3 class="comp-card-title">Tu Propia Infraestructura Médica</h3>
+                <ul class="comp-list">
+                  <li>
+                    <span class="comp-check">✓</span>
+                    <span><strong>0% comisiones por turno agendado.</strong> El 100% del valor de la consulta queda en tu bolsillo.</span>
+                  </li>
+                  <li>
+                    <span class="comp-check">✓</span>
+                    <span><strong>Marca 100% exclusiva:</strong> tus pacientes solo te ven a vos y a tu equipo.</span>
+                  </li>
+                  <li>
+                    <span class="comp-check">✓</span>
+                    <span><strong>Sitio Web Corporativo propio</strong> con dominio personalizado y alta autoridad.</span>
+                  </li>
+                  <li>
+                    <span class="comp-check">✓</span>
+                    <span><strong>Base de datos privada:</strong> historial de pacientes, notas clínicas y números de teléfono son tuyos.</span>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             3. QUÉ INCLUYE EL PACK FLOWIX SALUD (4 PILARES)
+             =================================================== -->
+        <section class="pack-details-section" id="que-incluye">
+          <div class="section-waves-layer waves-salud-flow"></div>
+          <div class="section-ambient-lights ambient-salud"></div>
+          <div class="grid-overlay"></div> <div class="section-waves-layer waves-salud-flow"></div>
+          <div class="section-ambient-lights ambient-salud"></div>
+          <div class="grid-overlay"></div><div class="section-inner-container">
+            
+            <div class="section-center-header">
+              <span class="section-badge">TODO INCLUIDO</span>
+              <h2 class="section-main-title">
+                Los 4 Componentes del <span class="highlight-salud">Pack Flowix Salud & Citas</span>
+              </h2>
+              <p class="section-subtitle-center">
+                Infraestructura completa para digitalizar el circuito de atención de tu centro médico o consultorio.
+              </p>
+            </div>
+
+            <div class="pillars-grid">
+              
+              <!-- Pilar 1 -->
+              <div class="pillar-card" style="--pillar-accent: #06B6D4;">
+                <div class="pillar-number">01</div>
+                <div class="pillar-icon-box">
+                  <i data-lucide="monitor"></i>
+                </div>
+                <h3 class="pillar-title">Web Médica Corporativa</h3>
+                <p class="pillar-desc">
+                  Sitio web de alto impacto y velocidad (&lt; 1s). Muestra tus especialidades, equipo de profesionales, fotos de las instalaciones y ubicación en Google Maps.
+                </p>
+                <div class="pillar-tag-list">
+                  <span>Alta Autoridad</span>
+                  <span>Mobile First</span>
+                  <span>Dominio Propio</span>
+                </div>
+              </div>
+
+              <!-- Pilar 2 -->
+              <div class="pillar-card" style="--pillar-accent: #22D3EE;">
+                <div class="pillar-number">02</div>
+                <div class="pillar-icon-box">
+                  <i data-lucide="calendar-check"></i>
+                </div>
+                <h3 class="pillar-title">Flowix Book (Agenda 24/7)</h3>
+                <p class="pillar-desc">
+                  Motor de reservas propio. Los pacientes eligen especialidad, profesional y horario en 30 segundos sin llamadas ni mensajes manuales fuera de horario.
+                </p>
+                <div class="pillar-tag-list">
+                  <span>0% Comisiones</span>
+                  <span>Multi-Profesional</span>
+                  <span>Agenda Inteligente</span>
+                </div>
+              </div>
+
+              <!-- Pilar 3 -->
+              <div class="pillar-card" style="--pillar-accent: #06B6D4;">
+                <div class="pillar-number">03</div>
+                <div class="pillar-icon-box">
+                  <i data-lucide="bot"></i>
+                </div>
+                <h3 class="pillar-title">WhatsApp Bot & Recordatorios</h3>
+                <p class="pillar-desc">
+                  Envío automático de confirmaciones y recordatorios 24hs y 2hs antes de la cita. El paciente confirma o reprograma en 1 toque, reduciendo 90% el ausentismo.
+                </p>
+                <div class="pillar-tag-list">
+                  <span>Anti No-Show</span>
+                  <span>Respuestas 24/7</span>
+                  <span>Confirmación en 1 click</span>
+                </div>
+              </div>
+
+              <!-- Pilar 4 -->
+              <div class="pillar-card" style="--pillar-accent: #22D3EE;">
+                <div class="pillar-number">04</div>
+                <div class="pillar-icon-box">
+                  <i data-lucide="credit-card"></i>
+                </div>
+                <h3 class="pillar-title">Cobro de Señas & 2 Placas NFC</h3>
+                <p class="pillar-desc">
+                  Cobro de señas automáticas con Mercado Pago para asegurar la asistencia + 2 Placas Smart NFC (1 para recepción de turnos y 1 para captar Google Reviews).
+                </p>
+                <div class="pillar-tag-list">
+                  <span>Mercado Pago</span>
+                  <span>Señas Online</span>
+                  <span>2 Placas NFC</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             4. ESPECIALIDADES & PROFESIONES
+             =================================================== -->
+        <section class="rubros-section" id="especialidades">
+          <div class="section-waves-layer waves-salud-alt"></div>
+          <div class="section-ambient-lights ambient-salud"></div>
+          <div class="grid-overlay"></div> <div class="section-waves-layer waves-salud-alt"></div>
+          <div class="section-ambient-lights ambient-salud"></div>
+          <div class="grid-overlay"></div><div class="section-inner-container">
+            
+            <div class="section-center-header">
+              <span class="section-badge">ESPECIALIDADES</span>
+              <h2 class="section-main-title">
+                Diseñado para profesionales que <span class="highlight-salud">viven de su agenda.</span>
+              </h2>
+              <p class="section-subtitle-center">
+                Desde consultorios individuales hasta clínicas multisede con decenas de especialistas.
+              </p>
+            </div>
+
+            <div class="rubros-grid">
+              
+              <div class="rubro-pill-card">
+                <div class="rubro-icon"><i data-lucide="activity"></i></div>
+                <div class="rubro-name">Kinesiología & Fisioterapia</div>
+              </div>
+
+              <div class="rubro-pill-card">
+                <div class="rubro-icon"><i data-lucide="smile"></i></div>
+                <div class="rubro-name">Odontología & Ortodoncia</div>
+              </div>
+
+              <div class="rubro-pill-card">
+                <div class="rubro-icon"><i data-lucide="sparkles"></i></div>
+                <div class="rubro-name">Centros de Estética & Spa</div>
+              </div>
+
+              <div class="rubro-pill-card">
+                <div class="rubro-icon"><i data-lucide="heart-pulse"></i></div>
+                <div class="rubro-name">Consultorios Médicos</div>
+              </div>
+
+              <div class="rubro-pill-card">
+                <div class="rubro-icon"><i data-lucide="brain"></i></div>
+                <div class="rubro-name">Psicología & Psiquiatría</div>
+              </div>
+
+              <div class="rubro-pill-card">
+                <div class="rubro-icon"><i data-lucide="apple"></i></div>
+                <div class="rubro-name">Nutrición & Dietética</div>
+              </div>
+
+              <div class="rubro-pill-card">
+                <div class="rubro-icon"><i data-lucide="scissors"></i></div>
+                <div class="rubro-name">Peluquerías & Barberías VIP</div>
+              </div>
+
+              <div class="rubro-pill-card">
+                <div class="rubro-icon"><i data-lucide="building"></i></div>
+                <div class="rubro-name">Clínicas Multisede</div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             5. PROCESO DE PUESTA EN MARCHA (5 A 7 DÍAS)
+             =================================================== -->
+        <section class="process-section">
+          <div class="section-waves-layer waves-salud-flow"></div>
+          <div class="section-ambient-lights ambient-salud"></div>
+          <div class="grid-overlay"></div> <div class="section-waves-layer waves-salud-flow"></div>
+          <div class="section-ambient-lights ambient-salud"></div>
+          <div class="grid-overlay"></div><div class="process-inner-container">
+
+            <div class="process-banner-card">
+              
+              <div class="process-header-side">
+                <span class="process-badge">IMPLEMENTACIÓN EXPRESS</span>
+                <h2 class="process-title">
+                  Tu sistema médico activo en<br />
+                  <span class="highlight-salud">5 a 7 días hábiles.</span>
+                </h2>
+              </div>
+
+              <div class="process-steps-timeline">
+                <div class="process-connecting-line"></div>
+
+                <div class="process-step-item">
+                  <div class="step-icon-bubble"><i data-lucide="calendar"></i></div>
+                  <span class="step-num">01</span>
+                  <h3 class="step-title">Carga de Horarios</h3>
+                  <p class="step-desc">Definimos especialistas, servicios, precios de consulta y señas.</p>
+                </div>
+
+                <div class="process-step-item">
+                  <div class="step-icon-bubble"><i data-lucide="layout"></i></div>
+                  <span class="step-num">02</span>
+                  <h3 class="step-title">Web & Flowix Book</h3>
+                  <p class="step-desc">Diseñamos tu web médica y configuramos el motor de turnos.</p>
+                </div>
+
+                <div class="process-step-item">
+                  <div class="step-icon-bubble"><i data-lucide="bot"></i></div>
+                  <span class="step-num">03</span>
+                  <h3 class="step-title">Bot & Pagos</h3>
+                  <p class="step-desc">Conectamos el bot de WhatsApp y la pasarela de Mercado Pago.</p>
+                </div>
+
+                <div class="process-step-item">
+                  <div class="step-icon-bubble"><i data-lucide="rocket"></i></div>
+                  <span class="step-num">04</span>
+                  <h3 class="step-title">Lanzamiento</h3>
+                  <p class="step-desc">Te entregamos las 2 Placas NFC y publicamos en tu dominio propio.</p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             6. PREGUNTAS FRECUENTES (FAQ ACORDEÓN)
+             =================================================== -->
+        <section class="faq-section" id="faq">
+          <div class="section-waves-layer waves-salud"></div>
+          <div class="section-ambient-lights ambient-salud"></div>
+          <div class="grid-overlay"></div> <div class="section-waves-layer waves-salud"></div>
+          <div class="section-ambient-lights ambient-salud"></div>
+          <div class="grid-overlay"></div><div class="section-inner-container">
+            
+            <div class="section-center-header">
+              <span class="section-badge">DUDAS COMUNES</span>
+              <h2 class="section-main-title">
+                Preguntas <span class="highlight-salud">Frecuentes</span>
+              </h2>
+              <p class="section-subtitle-center">
+                Todo lo que necesitás saber sobre el Pack Flowix Salud & Citas.
+              </p>
+            </div>
+
+            <div class="faq-accordion-wrap">
+              
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>¿Realmente no pago comisiones por cada turno que se agenda?</span>
+                  <i data-lucide="chevron-down" class="faq-chevron"></i>
+                </button>
+                <div class="faq-answer">
+                  <p><strong>Exacto. 0% comisiones.</strong> El software Flowix Book y el sitio web se configuran para tu uso exclusivo. No cobramos comisiones porcentuales sobre tus honorarios ni por paciente nuevo.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>¿Cómo funciona el cobro de señas con Mercado Pago?</span>
+                  <i data-lucide="chevron-down" class="faq-chevron"></i>
+                </button>
+                <div class="faq-answer">
+                  <p>Podés configurar un monto fijo de seña (por ejemplo, el 30% o 50% de la consulta). Al agendar, el paciente abona la seña con tarjeta de débito, crédito o dinero en cuenta, y el dinero ingresa directamente a tu cuenta de Mercado Pago.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>¿Qué pasa si un paciente cancela o necesita reprogramar?</span>
+                  <i data-lucide="chevron-down" class="faq-chevron"></i>
+                </button>
+                <div class="faq-answer">
+                  <p>El paciente puede tocar el botón de "Reprogramar" desde el recordatorio de WhatsApp. El sistema libera automáticamente el horario anterior en tu agenda y permite que otro paciente reserve ese espacio.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>¿Se pueden configurar múltiples profesionales con horarios distintos?</span>
+                  <i data-lucide="chevron-down" class="faq-chevron"></i>
+                </button>
+                <div class="faq-answer">
+                  <p><strong>Sí.</strong> Cada especialista tiene su propia agenda con días, franjas horarias y duraciones de consulta independientes, todo unificado en tu misma página web.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>¿Es fácil de usar para pacientes que no son tecnológicos?</span>
+                  <i data-lucide="chevron-down" class="faq-chevron"></i>
+                </button>
+                <div class="faq-answer">
+                  <p>Está diseñado con la máxima simplicidad: se reserva en 3 toques desde el celular sin necesidad de crear usuarios ni recordar contraseñas complejas.</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             7. SECCIÓN FINAL CTA
+             =================================================== -->
+        <section class="final-cta-section" id="contacto">
+          <div class="section-waves-layer waves-salud-alt"></div>
+          <div class="section-ambient-lights ambient-salud"></div>
+          <div class="grid-overlay"></div> <div class="section-waves-layer waves-salud-alt"></div>
+          <div class="section-ambient-lights ambient-salud"></div>
+          <div class="grid-overlay"></div><div class="cta-glow-arcs-container">
+            <div class="cta-arc-beam arc-left"></div>
+            <div class="cta-arc-beam arc-right"></div>
+            <div class="cta-ambient-center"></div>
+          </div>
+
+          <div class="final-cta-inner">
+            <div class="cta-badge-wrapper">
+              <div class="badge-line-side"><span class="diamond-dot"></span><span class="line-rule"></span></div>
+              <div class="cta-badge-pill"><span>Piloto Automático</span></div>
+              <div class="badge-line-side"><span class="line-rule"></span><span class="diamond-dot"></span></div>
+            </div>
+
+            <h2 class="final-cta-title">
+              ¿Listo para transformar la gestión de turnos de <span class="highlight-salud">tu consultorio o clínica?</span>
+            </h2>
+
+            <p class="final-cta-desc">
+              Pedí hoy el Pack Flowix Salud & Citas. Web médica profesional, agenda Flowix Book 24/7, recordatorios por WhatsApp y cobro de señas sin comisiones.
+            </p>
+
+            <div class="final-cta-btn-wrap">
+              <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20contratar%20el%20Pack%20Flowix%20Salud%20%26%20Citas%20para%20mi%20centro%20m%C3%A9dico." target="_blank" class="btn-final-cta">
+                <span>Pedir Flowix Salud & Citas Ahora</span>
+                <i data-lucide="arrow-right" class="btn-arrow"></i>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================
+             FOOTER FLOWIX SALUD & CITAS
+             =================================================== -->
+        <footer class="flowix-footer">
+          <div class="footer-inner">
+            
+            <div class="footer-main-grid">
+              
+              <!-- Columna 1: Brand & Social -->
+              <div class="footer-col-brand">
+                <a href="index.html" class="footer-brand-logo">
+                  <div class="brand-symbol symbol-salud"><span>&lt;/&gt;</span></div>
+                  <div class="brand-text-block">
+                    <div class="brand-name"><span>Flo</span><span class="brand-green">wix</span> <span class="brand-pill-tag tag-salud">SALUD & CITAS</span></div>
+                    <div class="brand-subtitle">AGENCIA DIGITAL</div>
+                  </div>
+                </a>
+                
+                <p class="footer-brand-desc">
+                  Solución digital para clínicas, consultorios y profesionales. Agendamiento online 24/7 sin comisiones y cero ausentismo.
+                </p>
+
+                <!-- Botones Sociales Circulares -->
+                <div class="footer-social-circles">
+                  <a href="https://www.instagram.com/flowixagency/" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="Instagram" title="Instagram (@flowixagency)">
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                  </a>
+                  <a href="https://www.tiktok.com/@flowix.agency" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="TikTok" title="TikTok (@flowix.agency)">
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                      <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-2.909 2.868 2.894 2.894 0 0 1-2.891-2.868 2.894 2.894 0 0 1 2.891-2.869c.298 0 .584.045.856.126V9.458a6.347 6.347 0 0 0-.856-.058A6.34 6.34 0 0 0 3 15.74a6.34 6.34 0 0 0 6.324 6.34 6.34 6.34 0 0 0 6.324-6.34V9.088a8.212 8.212 0 0 0 4.941 1.638V7.28a4.834 4.834 0 0 1-1-.594z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Columna 2: Enlaces Rápidos -->
+              <div class="footer-col-links">
+                <h4 class="footer-col-title">Navegación</h4>
+                <ul class="footer-links-list">
+                  <li><a href="#inicio">Inicio</a></li>
+                  <li><a href="#diferencial">0% Comisiones</a></li>
+                  <li><a href="#que-incluye">Qué Incluye</a></li>
+                  <li><a href="#especialidades">Especialidades</a></li>
+                  <li><a href="#faq">Preguntas Frecuentes</a></li>
+                  <li><a href="index.html">← Web Agencia Flowix</a></li>
+                </ul>
+              </div>
+
+              <!-- Columna 3: Más Soluciones -->
+              <div class="footer-col-links">
+                <h4 class="footer-col-title">Otras Soluciones</h4>
+                <ul class="footer-links-list">
+                  <li><a href="flowix-comercios.html">Flowix Comercios</a></li>
+                  <li><a href="flowix-tiendas.html">Flowix Tiendas</a></li>
+                  <li><a href="flowix-empresas.html">Flowix Empresas</a></li>
+                  <li><a href="flowix-book.html">Flowix Book (Software)</a></li>
+                </ul>
+              </div>
+
+              <!-- Columna 4: Contacto Directo -->
+              <div class="footer-col-contact">
+                <h4 class="footer-col-title">Contacto</h4>
+                <ul class="footer-contact-list">
+                  <li class="contact-item">
+                    <div class="contact-icon-box box-salud"><i data-lucide="phone"></i></div>
+                    <div class="contact-text-wrap">
+                      <span class="contact-label">WhatsApp Directo</span>
+                      <a href="https://wa.me/5491126730927" target="_blank" class="contact-val">+54 9 11 2673-0927</a>
+                    </div>
+                  </li>
+                  <li class="contact-item">
+                    <div class="contact-icon-box box-salud"><i data-lucide="mail"></i></div>
+                    <div class="contact-text-wrap">
+                      <span class="contact-label">Email Oficial</span>
+                      <a href="mailto:aflowix@gmail.com" class="contact-val">aflowix@gmail.com</a>
+                    </div>
+                  </li>
+                  <li class="contact-item">
+                    <div class="contact-icon-box box-salud"><i data-lucide="map-pin"></i></div>
+                    <div class="contact-text-wrap">
+                      <span class="contact-label">Ubicación</span>
+                      <span class="contact-val">Buenos Aires, Argentina (Servicio Global)</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom-row">
+              <p class="footer-copy">© 2026 Flowix Agency. Todos los derechos reservados.</p>
+            </div>
+
+          </div>
+        </footer>
+
+      </main>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="salud.js"></script>
+</body>
+</html>

@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowix Comercios — Landing Page, Google Maps & Placas Smart NFC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons Library -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="comercios-styles.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       BARRA DE CONTROL SUPERIOR (TEST BENCH)
+       ========================================================= -->
+  <aside class="lab-toolbar">
+    <div class="lab-toolbar-left">
+      <div class="lab-badge">
+        <span class="lab-dot"></span>
+        FLOWIX COMERCIOS
+      </div>
+      <div class="lab-meta">
+        <span class="lab-title">Landing de Solución · Flowix Comercios</span>
+        <span class="lab-sub">Pack Integral: Landing Page + Google Maps + Placa Smart NFC</span>
+      </div>
+    </div>
+
+    <!-- Controles de Viewport / Responsive -->
+    <div class="lab-viewport-controls">
+      <a href="index.html" class="vp-back-btn" title="Volver a la web principal de Flowix">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span>Web Agencia</span>
+      </a>
+      <span class="vp-label">Vista:</span>
+      <button class="vp-btn active" data-vp="desktop" title="Vista Desktop">🖥️ Desktop</button>
+      <button class="vp-btn" data-vp="tablet" title="Vista Tablet">📱 Tablet</button>
+      <button class="vp-btn" data-vp="mobile" title="Vista Móvil">📲 Móvil</button>
+    </div>
+  </aside>
+
+  <!-- =========================================================
+       SIMULADOR WEB
+       ========================================================= -->
+  <div class="simulator-wrapper">
+    <div class="preview-frame-container vp-desktop" id="previewContainer">
+
+      <!-- ===================================================
+           HEADER FLOWIX COMERCIOS
+           =================================================== -->
+      <header class="flowix-header" id="mainHeader">
+        <div class="header-inner">
+          
+          <a href="index.html" class="header-brand">
+            <div class="brand-symbol">
+              <span>&lt;/&gt;</span>
+            </div>
+            <div class="brand-text-block">
+              <div class="brand-name"><span>Flo</span><span class="brand-green">wix</span> <span class="brand-pill-tag">COMERCIOS</span></div>
+              <div class="brand-subtitle">SOLUCIÓN INTEGRAL PARA LOCALES</div>
+            </div>
+          </a>
+
+          <!-- NAVEGACIÓN CENTRAL -->
+          <nav class="header-nav">
+            <ul class="nav-menu">
+              <li class="nav-item">
+                <a href="#inicio" class="nav-link"><span>Inicio</span><span class="indicator-bar"></span></a>
+              </li>
+              <li class="nav-item">
+                <a href="#que-incluye" class="nav-link"><span>Qué Incluye</span><span class="indicator-bar"></span></a>
+              </li>
+              <li class="nav-item">
+                <a href="#placa-nfc" class="nav-link"><span>Placa Smart NFC</span><span class="indicator-bar"></span></a>
+              </li>
+              <li class="nav-item">
+                <a href="#rubros" class="nav-link"><span>Rubros</span><span class="indicator-bar"></span></a>
+              </li>
+              <li class="nav-item">
+                <a href="#faq" class="nav-link"><span>Preguntas</span><span class="indicator-bar"></span></a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- ACCIONES DERECHA -->
+          <div class="header-actions">
+            <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20pedir%20el%20pack%20Flowix%20Comercios%20para%20mi%20negocio." target="_blank" class="header-cta-btn">
+              <span>Pedir Pack</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+
+            <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir menú de navegación">
+              <span class="bar bar-1"></span>
+              <span class="bar bar-2"></span>
+              <span class="bar bar-3"></span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div class="mobile-drawer" id="mobileDrawer">
+          <div class="mobile-drawer-inner">
+            <div class="mobile-menu-links">
+              <a href="#inicio" class="mobile-link"><span>Inicio</span><i data-lucide="chevron-right"></i></a>
+              <a href="#que-incluye" class="mobile-link"><span>Qué Incluye</span><i data-lucide="chevron-right"></i></a>
+              <a href="#placa-nfc" class="mobile-link"><span>Placa Smart NFC</span><i data-lucide="chevron-right"></i></a>
+              <a href="#rubros" class="mobile-link"><span>Para Quién Es</span><i data-lucide="chevron-right"></i></a>
+              <a href="#faq" class="mobile-link"><span>Preguntas Frecuentes</span><i data-lucide="chevron-right"></i></a>
+              <a href="index.html" class="mobile-link"><span>← Volver a Flowix Agencia</span><i data-lucide="arrow-up-right"></i></a>
+            </div>
+
+            <div class="mobile-cta-wrap">
+              <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20el%20pack%20Flowix%20Comercios." target="_blank" class="mobile-cta-btn">
+                <span>Pedir Pack por WhatsApp</span>
+                <i data-lucide="arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===================================================
+           MAIN CONTENT
+           =================================================== -->
+      <main class="preview-content">
+        
+        <!-- ===================================================
+             1. HERO SECTION FLOWIX COMERCIOS
+             =================================================== -->
+        <section class="hero-canvas-section comercios-hero-section" id="inicio">
+          
+          <div class="hero-glow-backdrop"></div>
+          <div class="hero-gradient-scrim"></div>
+          <div class="hero-ambient-lights"></div>
+          <div class="grid-overlay"></div>
+
+          <div class="hero-container-inner comercios-hero-grid">
+            
+            <div class="hero-text-block">
+              <div class="hero-tagline">
+                <span class="tagline-dot"></span>
+                PACK DIGITAL LLAVE EN MANO PARA TU NEGOCIO
+              </div>
+
+              <h1 class="hero-heading">
+                Multiplicá las consultas y ventas de tu <span class="highlight-green">comercio en tu zona.</span>
+              </h1>
+
+              <p class="hero-description">
+                Diseñamos tu <strong>Landing Page de carga ultra rápida (&lt; 1s)</strong>, optimizamos tu posicionamiento en <strong>Google Maps</strong> y te entregamos tu <strong>Placa Smart NFC</strong> para transformar clientes de mostrador en reseñas 5 estrellas y contactos en WhatsApp.
+              </p>
+
+              <div class="hero-actions">
+                <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20contratar%20el%20Pack%20Flowix%20Comercios." target="_blank" class="btn-primary-pill">
+                  <span>Pedir Flowix Comercios</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                
+                <a href="#que-incluye" class="btn-secondary-pill">
+                  <span>Ver Qué Incluye</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+                </a>
+              </div>
+
+              <!-- Fila de 4 Métricas Clave -->
+              <div class="hero-stats-row">
+                <div class="stat-card">
+                  <div class="stat-icon-box"><i data-lucide="map-pin"></i></div>
+                  <div class="stat-text-box">
+                    <div class="stat-number">+100%</div>
+                    <div class="stat-label">Visibilidad Local</div>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon-box"><i data-lucide="zap"></i></div>
+                  <div class="stat-text-box">
+                    <div class="stat-number">&lt; 1s</div>
+                    <div class="stat-label">Carga en Celular</div>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon-box"><i data-lucide="star"></i></div>
+                  <div class="stat-text-box">
+                    <div class="stat-number">5.0 ★</div>
+                    <div class="stat-label">Google Reviews</div>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon-box"><i data-lucide="shield-check"></i></div>
+                  <div class="stat-text-box">
+                    <div class="stat-number">0%</div>
+                    <div class="stat-label">Comisiones</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Mockup Visual Flotante de Flowix Comercios -->
+            <div class="comercios-hero-visual">
+              <div class="device-combo-card">
+                
+                <!-- Badge Flotante Superior -->
+                <div class="combo-badge-floating">
+                  <span class="combo-badge-dot"></span>
+                  <span>PACK 100% COMPLETO</span>
+                </div>
+
+                <!-- Tarjeta Frontal: Preview de la Placa NFC & Landing -->
+                <div class="visual-glass-card">
+                  <div class="visual-card-header">
+                    <div class="visual-nfc-icon">
+                      <i data-lucide="radio"></i>
+                    </div>
+                    <div class="visual-header-text">
+                      <span class="vht-title">Placa Smart NFC</span>
+                      <span class="vht-sub">Grabado láser + Chip Proximidad</span>
+                    </div>
+                  </div>
+
+                  <div class="visual-phone-preview">
+                    <div class="v-screen-bar">
+                      <div class="v-screen-dot"></div>
+                      <div class="v-screen-url">tucomercio.com</div>
+                    </div>
+                    <div class="v-screen-content">
+                      <div class="v-screen-badge">ABIERTO AHORA</div>
+                      <div class="v-screen-title">Tu Negocio Local</div>
+                      <div class="v-screen-btn">
+                        <i data-lucide="message-circle"></i>
+                        <span>Contactar por WhatsApp</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="visual-card-footer">
+                    <div class="v-pill-chip">✓ Google Maps 5★</div>
+                    <div class="v-pill-chip">✓ WhatsApp Directo</div>
+                    <div class="v-pill-chip">✓ Dominio Incluido</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- ===================================================
+             2. ANTES VS DESPUÉS (EL PROBLEMA Y LA SOLUCIÓN)
+             =================================================== -->
+        <section class="comparison-section">
+          <div class="section-waves-layer waves-comercios-alt"></div>
+          <div class="section-ambient-lights ambient-comercios"></div>
+          <div class="grid-overlay"></div> <div class="section-waves-layer waves-comercios-alt"></div>
+          <div class="section-ambient-lights ambient-comercios"></div>
+          <div class="grid-overlay"></div><div class="section-inner-container">
+            
+            <div class="section-center-header">
+              <span class="section-badge">LA DIFERENCIA FLOWIX</span>
+              <h2 class="section-main-title">
+                ¿Por qué los comercios tradicionales <span class="highlight-green">pierden clientes cada día?</span>
+              </h2>
+              <p class="section-subtitle-center">
+                Tus potenciales clientes buscan en Google Maps antes de ir al local o escribirte por WhatsApp. Si no te encuentran o tu web tarda en abrir, se van con tu competencia.
+              </p>
+            </div>
+
+            <div class="comparison-grid">
+              
+              <!-- Tarjeta: Comercio Tradicional -->
+              <div class="comparison-card card-before">
+                <div class="comp-card-badge badge-red">❌ SIN FLOWIX COMERCIOS</div>
+                <h3 class="comp-card-title">El Comercio Desconectado</h3>
+                <ul class="comp-list">
+                  <li>
+                    <span class="comp-x">✕</span>
+                    <span>Perfil de Google Maps abandonado o sin reseñas recientes.</span>
+                  </li>
+                  <li>
+                    <span class="comp-x">✕</span>
+                    <span>Sin página web o con un sitio lento que tarda más de 5 segundos en cargar.</span>
+                  </li>
+                  <li>
+                    <span class="comp-x">✕</span>
+                    <span>Pérdida de consultas fuera de horario por falta de links directos.</span>
+                  </li>
+                  <li>
+                    <span class="comp-x">✕</span>
+                    <span>Los clientes del mostrador se van sin dejar una reseña 5 estrellas.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Tarjeta: Con Flowix Comercios -->
+              <div class="comparison-card card-after">
+                <div class="comp-card-badge badge-green">🟢 CON FLOWIX COMERCIOS</div>
+                <h3 class="comp-card-title">El Comercio Líder de la Zona</h3>
+                <ul class="comp-list">
+                  <li>
+                    <span class="comp-check">✓</span>
+                    <span><strong>Perfil de Google Maps 100% optimizado</strong> para aparecer primero cuando buscan en tu barrio.</span>
+                  </li>
+                  <li>
+                    <span class="comp-check">✓</span>
+                    <span><strong>Landing Page ultra veloz (&lt; 1s)</strong> enfocada exclusivamente en recibir chats de WhatsApp.</span>
+                  </li>
+                  <li>
+                    <span class="comp-check">✓</span>
+                    <span><strong>Placa Smart NFC en mostrador:</strong> los clientes apoyan el celular y te dejan 5 estrellas al instante.</span>
+                  </li>
+                  <li>
+                    <span class="comp-check">✓</span>
+                    <span><strong>Dominio propio y hosting de alta velocidad</strong> incluido sin dolores de cabeza técnicos.</span>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             3. QUÉ INCLUYE EL PACK FLOWIX COMERCIOS (4 PILARES)
+             =================================================== -->
+        <section class="pack-details-section" id="que-incluye">
+          <div class="section-waves-layer waves-comercios-flow"></div>
+          <div class="section-ambient-lights ambient-comercios"></div>
+          <div class="grid-overlay"></div> <div class="section-waves-layer waves-comercios-flow"></div>
+          <div class="section-ambient-lights ambient-comercios"></div>
+          <div class="grid-overlay"></div><div class="section-inner-container">
+            
+            <div class="section-center-header">
+              <span class="section-badge">TODO INCLUIDO</span>
+              <h2 class="section-main-title">
+                Los 4 Pilares del <span class="highlight-green">Pack Flowix Comercios</span>
+              </h2>
+              <p class="section-subtitle-center">
+                Una solución integral armada de punta a punta. Te entregamos todo configurado, probado y funcionando en 5 a 7 días hábiles.
+              </p>
+            </div>
+
+            <div class="pillars-grid">
+              
+              <!-- Pilar 1 -->
+              <div class="pillar-card" style="--pillar-accent: #00CC6A;">
+                <div class="pillar-number">01</div>
+                <div class="pillar-icon-box">
+                  <i data-lucide="smartphone"></i>
+                </div>
+                <h3 class="pillar-title">Landing Page High-Conversion</h3>
+                <p class="pillar-desc">
+                  Diseñada con estructura mobile-first para que cualquier cliente que entre desde un celular encuentre tus servicios, fotos y botón de contacto en menos de 1 segundo.
+                </p>
+                <div class="pillar-tag-list">
+                  <span>Carga &lt; 1s</span>
+                  <span>Sin distracciones</span>
+                  <span>Mobile First</span>
+                </div>
+              </div>
+
+              <!-- Pilar 2 -->
+              <div class="pillar-card" style="--pillar-accent: #0EA5E9;">
+                <div class="pillar-number">02</div>
+                <div class="pillar-icon-box">
+                  <i data-lucide="map-pin"></i>
+                </div>
+                <h3 class="pillar-title">Optimización Google Maps (SEO Local)</h3>
+                <p class="pillar-desc">
+                  Configuramos técnicamente tu ficha de Google Mi Negocio con categorías correctas, palabras clave de tu localidad, fotos de alta calidad y enlace directo a tu web.
+                </p>
+                <div class="pillar-tag-list">
+                  <span>SEO Local</span>
+                  <span>Categorización</span>
+                  <span>Google Reviews</span>
+                </div>
+              </div>
+
+              <!-- Pilar 3 -->
+              <div class="pillar-card" style="--pillar-accent: #EC4899;">
+                <div class="pillar-number">03</div>
+                <div class="pillar-icon-box">
+                  <i data-lucide="radio"></i>
+                </div>
+                <h3 class="pillar-title">1 Placa Smart NFC para Mostrador</h3>
+                <p class="pillar-desc">
+                  Placa física premium con chip contactless y QR de respaldo. El cliente acerca su teléfono al pagar y se le abre directamente tu Google Maps para dejarte 5 estrellas.
+                </p>
+                <div class="pillar-tag-list">
+                  <span>Chip NFC</span>
+                  <span>QR Grabado</span>
+                  <span>Sin Apps Extras</span>
+                </div>
+              </div>
+
+              <!-- Pilar 4 -->
+              <div class="pillar-card" style="--pillar-accent: #8B5CF6;">
+                <div class="pillar-number">04</div>
+                <div class="pillar-icon-box">
+                  <i data-lucide="message-square"></i>
+                </div>
+                <h3 class="pillar-title">WhatsApp Directo & Dominio Propio</h3>
+                <p class="pillar-desc">
+                  Botones flotantes con mensajes preconfigurados según el servicio consultado, más tu dominio personalizado (.com o .com.ar) y hosting veloz bonificado por 1 año.
+                </p>
+                <div class="pillar-tag-list">
+                  <span>Dominio Propio</span>
+                  <span>Hosting SSD</span>
+                  <span>Chat Directo</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             4. SECCIÓN DESTACADA: LA PLACA SMART NFC EN ACCIÓN
+             =================================================== -->
+        <section class="nfc-showcase-section" id="placa-nfc">
+          <div class="section-waves-layer waves-comercios"></div>
+          <div class="section-ambient-lights ambient-comercios"></div>
+          <div class="grid-overlay"></div> <div class="section-waves-layer waves-comercios"></div>
+          <div class="section-ambient-lights ambient-comercios"></div>
+          <div class="grid-overlay"></div><div class="section-inner-container">
+
+            <div class="nfc-showcase-card">
+              
+              <div class="nfc-showcase-content">
+                <span class="nfc-mini-badge">TECNOLOGÍA CONTACTLESS</span>
+                <h2 class="nfc-showcase-title">
+                  Convertí visitas de mostrador en <span class="highlight-green">decenas de reseñas 5 estrellas.</span>
+                </h2>
+                <p class="nfc-showcase-desc">
+                  Pedir reseñas de palabra no funciona porque la gente se olvida. Con nuestra **Placa Smart NFC**, el cliente solo tiene que acercar su teléfono al mostrador mientras le cobrás. En 1 segundo se le abre la pantalla para calificar tu negocio.
+                </p>
+
+                <div class="nfc-steps-row">
+                  <div class="nfc-step">
+                    <div class="nfc-step-num">1</div>
+                    <div class="nfc-step-info">
+                      <strong>El cliente acerca su celular</strong>
+                      <span>A la placa sobre el mostrador</span>
+                    </div>
+                  </div>
+
+                  <div class="nfc-step">
+                    <div class="nfc-step-num">2</div>
+                    <div class="nfc-step-info">
+                      <strong>Se abre Google Maps</strong>
+                      <span>Sin descargar aplicaciones</span>
+                    </div>
+                  </div>
+
+                  <div class="nfc-step">
+                    <div class="nfc-step-num">3</div>
+                    <div class="nfc-step-info">
+                      <strong>Deja su reseña 5★</strong>
+                      <span>Tu negocio sube en el ranking</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="nfc-actions">
+                  <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20el%20pack%20Flowix%20Comercios%20con%20la%20Placa%20NFC." target="_blank" class="btn-primary-pill">
+                    <span>Pedir Pack con Placa NFC</span>
+                    <i data-lucide="arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="nfc-visual-stand">
+                <div class="nfc-plate-mockup">
+                  <div class="nfc-plate-top">
+                    <div class="plate-brand-logo"><span>Flo</span><span class="brand-green">wix</span></div>
+                    <div class="plate-wave-icon"><i data-lucide="radio"></i></div>
+                  </div>
+                  
+                  <div class="plate-center-circle">
+                    <div class="circle-waves"></div>
+                    <div class="circle-icon"><i data-lucide="smartphone"></i></div>
+                    <span class="circle-text">ACERCÁ TU CELULAR</span>
+                  </div>
+
+                  <div class="plate-bottom">
+                    <span class="plate-action-label">★ Calificanos en Google Maps ★</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             5. PARA QUÉ RUBROS ES IDEAL
+             =================================================== -->
+        <section class="rubros-section" id="rubros">
+          <div class="section-waves-layer waves-comercios-alt"></div>
+          <div class="section-ambient-lights ambient-comercios"></div>
+          <div class="grid-overlay"></div> <div class="section-waves-layer waves-comercios-alt"></div>
+          <div class="section-ambient-lights ambient-comercios"></div>
+          <div class="grid-overlay"></div><div class="section-inner-container">
+            
+            <div class="section-center-header">
+              <span class="section-badge">RUBROS & LOCALES</span>
+              <h2 class="section-main-title">
+                Adaptado a todo tipo de <span class="highlight-green">negocios y servicios.</span>
+              </h2>
+              <p class="section-subtitle-center">
+                Cualquier comercio que atienda público o preste servicios en su zona se beneficia de inmediato con este pack.
+              </p>
+            </div>
+
+            <div class="rubros-grid">
+              
+              <div class="rubro-pill-card">
+                <div class="rubro-icon"><i data-lucide="wrench"></i></div>
+                <div class="rubro-name">Talleres & Servicios Técnicos</div>
+              </div>
+
+              <div class="rubro-pill-card">
+                <div class="rubro-icon"><i data-lucide="scissors"></i></div>
+                <div class="rubro-name">Peluquerías & Barberías</div>
+              </div>
+
+              <div class="rubro-pill-card">
+                <div class="rubro-icon"><i data-lucide="utensils"></i></div>
+                <div class="rubro-name">Gastronomía & Bares</div>
+              </div>
+
+              <div class="rubro-pill-card">
+                <div class="rubro-icon"><i data-lucide="activity"></i></div>
+                <div class="rubro-name">Consultorios & Estética</div>
+              </div>
+
+              <div class="rubro-pill-card">
+                <div class="rubro-icon"><i data-lucide="home"></i></div>
+                <div class="rubro-name">Inmobiliarias & Arquitectura</div>
+              </div>
+
+              <div class="rubro-pill-card">
+                <div class="rubro-icon"><i data-lucide="dumbbell"></i></div>
+                <div class="rubro-name">Gimnasios & Academias</div>
+              </div>
+
+              <div class="rubro-pill-card">
+                <div class="rubro-icon"><i data-lucide="shopping-bag"></i></div>
+                <div class="rubro-name">Indumentaria & Showrooms</div>
+              </div>
+
+              <div class="rubro-pill-card">
+                <div class="rubro-icon"><i data-lucide="briefcase"></i></div>
+                <div class="rubro-name">Estudios Profesionales</div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             6. NUESTRO PROCESO (PASO A PASO EN 5 A 7 DÍAS)
+             =================================================== -->
+        <section class="process-section">
+          <div class="section-waves-layer waves-comercios-flow"></div>
+          <div class="section-ambient-lights ambient-comercios"></div>
+          <div class="grid-overlay"></div> <div class="section-waves-layer waves-comercios-flow"></div>
+          <div class="section-ambient-lights ambient-comercios"></div>
+          <div class="grid-overlay"></div><div class="process-inner-container">
+
+            <div class="process-banner-card">
+              
+              <div class="process-header-side">
+                <span class="process-badge">CÓMO TRABAJAMOS</span>
+                <h2 class="process-title">
+                  Tu comercio online en<br />
+                  <span class="highlight-green">5 a 7 días hábiles.</span>
+                </h2>
+              </div>
+
+              <div class="process-steps-timeline">
+                <div class="process-connecting-line"></div>
+
+                <div class="process-step-item">
+                  <div class="step-icon-bubble"><i data-lucide="message-square"></i></div>
+                  <span class="step-num">01</span>
+                  <h3 class="step-title">Reunión Express</h3>
+                  <p class="step-desc">Nos compartís tus fotos, logo y datos de contacto por WhatsApp.</p>
+                </div>
+
+                <div class="process-step-item">
+                  <div class="step-icon-bubble"><i data-lucide="layout"></i></div>
+                  <span class="step-num">02</span>
+                  <h3 class="step-title">Diseño & Maps</h3>
+                  <p class="step-desc">Maquetamos tu landing y optimizamos tu ficha de Google Maps.</p>
+                </div>
+
+                <div class="process-step-item">
+                  <div class="step-icon-bubble"><i data-lucide="radio"></i></div>
+                  <span class="step-num">03</span>
+                  <h3 class="step-title">Grabado NFC</h3>
+                  <p class="step-desc">Codificamos tu Placa Smart NFC y la preparamos para tu local.</p>
+                </div>
+
+                <div class="process-step-item">
+                  <div class="step-icon-bubble"><i data-lucide="rocket"></i></div>
+                  <span class="step-num">04</span>
+                  <h3 class="step-title">Lanzamiento</h3>
+                  <p class="step-desc">Publicamos tu web en tu dominio y te enviamos la placa lista para usar.</p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             7. PREGUNTAS FRECUENTES (FAQ ACORDEÓN)
+             =================================================== -->
+        <section class="faq-section" id="faq">
+          <div class="section-waves-layer waves-comercios"></div>
+          <div class="section-ambient-lights ambient-comercios"></div>
+          <div class="grid-overlay"></div> <div class="section-waves-layer waves-comercios"></div>
+          <div class="section-ambient-lights ambient-comercios"></div>
+          <div class="grid-overlay"></div><div class="section-inner-container">
+            
+            <div class="section-center-header">
+              <span class="section-badge">DUDAS COMUNES</span>
+              <h2 class="section-main-title">
+                Preguntas <span class="highlight-green">Frecuentes</span>
+              </h2>
+              <p class="section-subtitle-center">
+                Todo lo que necesitás saber antes de empezar con el Pack Flowix Comercios.
+              </p>
+            </div>
+
+            <div class="faq-accordion-wrap">
+              
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>¿Tengo que pagar mantenimiento mensual obligatorio?</span>
+                  <i data-lucide="chevron-down" class="faq-chevron"></i>
+                </button>
+                <div class="faq-answer">
+                  <p><strong>No.</strong> A diferencia de otras agencias o plataformas de suscripción, el sitio web y la placa NFC son 100% de tu propiedad. Solo tenés la renovación anual estándar de dominio y hosting.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>¿Cómo funciona exactamente la Placa Smart NFC?</span>
+                  <i data-lucide="chevron-down" class="faq-chevron"></i>
+                </button>
+                <div class="faq-answer">
+                  <p>Funciona con la misma tecnología que las tarjetas de débito o transporte (contactless). Tu cliente solo apoya su celular (iPhone o Android) sobre la placa y se le abre automáticamente tu ficha de Google Maps para dejarte 5 estrellas, sin descargar ninguna app.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>¿Cuánto tarda en estar todo listo y funcionando?</span>
+                  <i data-lucide="chevron-down" class="faq-chevron"></i>
+                </button>
+                <div class="faq-answer">
+                  <p>El tiempo promedio de entrega es de <strong>5 a 7 días hábiles</strong> desde que nos enviás la información de tu negocio (fotos, logo y servicios).</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>¿Puedo sumar turnos online o catálogo más adelante?</span>
+                  <i data-lucide="chevron-down" class="faq-chevron"></i>
+                </button>
+                <div class="faq-answer">
+                  <p><strong>¡Por supuesto!</strong> Toda la arquitectura de Flowix es modular. Si en el futuro querés sumar el sistema de turnos <em>Flowix Book</em>, catálogo con Mercado Pago o bots con IA, se integran sobre tu misma web sin tener que empezar de cero.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span>¿Qué necesito tener listo para empezar?</span>
+                  <i data-lucide="chevron-down" class="faq-chevron"></i>
+                </button>
+                <div class="faq-answer">
+                  <p>Solo necesitás tu logo, un teléfono de WhatsApp para recibir consultas, fotos de tu local o productos y la lista de servicios principales que ofrecés. Del resto nos encargamos nosotros.</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ===================================================
+             8. SECCIÓN FINAL CTA
+             =================================================== -->
+        <section class="final-cta-section" id="contacto">
+          <div class="section-waves-layer waves-comercios-alt"></div>
+          <div class="section-ambient-lights ambient-comercios"></div>
+          <div class="grid-overlay"></div> <div class="section-waves-layer waves-comercios-alt"></div>
+          <div class="section-ambient-lights ambient-comercios"></div>
+          <div class="grid-overlay"></div><div class="cta-glow-arcs-container">
+            <div class="cta-arc-beam arc-left"></div>
+            <div class="cta-arc-beam arc-right"></div>
+            <div class="cta-ambient-center"></div>
+          </div>
+
+          <div class="final-cta-inner">
+            <div class="cta-badge-wrapper">
+              <div class="badge-line-side"><span class="diamond-dot"></span><span class="line-rule"></span></div>
+              <div class="cta-badge-pill"><span>Tu comercio en el mapa</span></div>
+              <div class="badge-line-side"><span class="line-rule"></span><span class="diamond-dot"></span></div>
+            </div>
+
+            <h2 class="final-cta-title">
+              ¿Listo para que tu comercio sea el <span class="highlight-green">referente digital</span> de tu zona?
+            </h2>
+
+            <p class="final-cta-desc">
+              Pedí hoy el Pack Flowix Comercios. Landing page de alta velocidad, optimización en Google Maps y tu Placa Smart NFC lista para tu mostrador.
+            </p>
+
+            <div class="final-cta-btn-wrap">
+              <a href="https://wa.me/5491126730927?text=Hola%20Flowix%2C%20quiero%20contratar%20el%20Pack%20Flowix%20Comercios%20para%20mi%20negocio." target="_blank" class="btn-final-cta">
+                <span>Pedir Flowix Comercios Ahora</span>
+                <i data-lucide="arrow-right" class="btn-arrow"></i>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================
+             FOOTER FLOWIX COMERCIOS
+             =================================================== -->
+        <footer class="flowix-footer">
+          <div class="footer-inner">
+            
+            <div class="footer-main-grid">
+              
+              <!-- Columna 1: Brand & Social -->
+              <div class="footer-col-brand">
+                <a href="index.html" class="footer-brand-logo">
+                  <div class="brand-symbol"><span>&lt;/&gt;</span></div>
+                  <div class="brand-text-block">
+                    <div class="brand-name"><span>Flo</span><span class="brand-green">wix</span> <span class="brand-pill-tag">COMERCIOS</span></div>
+                    <div class="brand-subtitle">AGENCIA DIGITAL</div>
+                  </div>
+                </a>
+                
+                <p class="footer-brand-desc">
+                  Solución digital para comercios locales y profesionales. Multiplicamos tu visibilidad en Google y tus consultas en WhatsApp.
+                </p>
+
+                <!-- Botones Sociales Circulares -->
+                <div class="footer-social-circles">
+                  <a href="https://www.instagram.com/flowixagency/" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="Instagram" title="Instagram (@flowixagency)">
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                  </a>
+                  <a href="https://www.tiktok.com/@flowix.agency" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="TikTok" title="TikTok (@flowix.agency)">
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                      <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-2.909 2.868 2.894 2.894 0 0 1-2.891-2.868 2.894 2.894 0 0 1 2.891-2.869c.298 0 .584.045.856.126V9.458a6.347 6.347 0 0 0-.856-.058A6.34 6.34 0 0 0 3 15.74a6.34 6.34 0 0 0 6.324 6.34 6.34 6.34 0 0 0 6.324-6.34V9.088a8.212 8.212 0 0 0 4.941 1.638V7.28a4.834 4.834 0 0 1-1-.594z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Columna 2: Enlaces Rápidos -->
+              <div class="footer-col-links">
+                <h4 class="footer-col-title">Navegación</h4>
+                <ul class="footer-links-list">
+                  <li><a href="#inicio">Inicio</a></li>
+                  <li><a href="#que-incluye">Qué Incluye</a></li>
+                  <li><a href="#placa-nfc">Placa Smart NFC</a></li>
+                  <li><a href="#rubros">Rubros</a></li>
+                  <li><a href="#faq">Preguntas Frecuentes</a></li>
+                  <li><a href="index.html">← Web Agencia Flowix</a></li>
+                </ul>
+              </div>
+
+              <!-- Columna 3: Más Soluciones -->
+              <div class="footer-col-links">
+                <h4 class="footer-col-title">Otras Soluciones</h4>
+                <ul class="footer-links-list">
+                  <li><a href="flowix-salud.html">Flowix Salud & Citas</a></li>
+                  <li><a href="flowix-tiendas.html">Flowix Tiendas</a></li>
+                  <li><a href="flowix-empresas.html">Flowix Empresas</a></li>
+                  <li><a href="flowix-book.html">Flowix Book (Turnos)</a></li>
+                </ul>
+              </div>
+
+              <!-- Columna 4: Contacto Directo -->
+              <div class="footer-col-contact">
+                <h4 class="footer-col-title">Contacto</h4>
+                <ul class="footer-contact-list">
+                  <li class="contact-item">
+                    <div class="contact-icon-box"><i data-lucide="phone"></i></div>
+                    <div class="contact-text-wrap">
+                      <span class="contact-label">WhatsApp Directo</span>
+                      <a href="https://wa.me/5491126730927" target="_blank" class="contact-val">+54 9 11 2673-0927</a>
+                    </div>
+                  </li>
+                  <li class="contact-item">
+                    <div class="contact-icon-box"><i data-lucide="mail"></i></div>
+                    <div class="contact-text-wrap">
+                      <span class="contact-label">Email Oficial</span>
+                      <a href="mailto:aflowix@gmail.com" class="contact-val">aflowix@gmail.com</a>
+                    </div>
+                  </li>
+                  <li class="contact-item">
+                    <div class="contact-icon-box"><i data-lucide="map-pin"></i></div>
+                    <div class="contact-text-wrap">
+                      <span class="contact-label">Ubicación</span>
+                      <span class="contact-val">Buenos Aires, Argentina (Servicio Global)</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom-row">
+              <p class="footer-copy">© 2026 Flowix Agency. Todos los derechos reservados.</p>
+            </div>
+
+          </div>
+        </footer>
+
+      </main>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="comercios.js"></script>
+</body>
+</html>

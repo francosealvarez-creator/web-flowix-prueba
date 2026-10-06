@@ -1,0 +1,993 @@
+/* =========================================================
+   ESTILOS DEDICADOS · FLOWIX COMERCIOS LANDING
+   ========================================================= */
+
+.brand-pill-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--neon-green);
+  background: rgba(0, 204, 106, 0.12);
+  border: 1px solid rgba(0, 204, 106, 0.3);
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-left: 6px;
+  vertical-align: middle;
+  letter-spacing: 0.06em;
+}
+
+.vp-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--neon-green);
+  background: rgba(0, 204, 106, 0.08);
+  border: 1px solid rgba(0, 204, 106, 0.25);
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-right: 12px;
+  transition: all 0.2s ease;
+}
+
+.vp-back-btn:hover {
+  background: var(--neon-green);
+  color: #000;
+}
+
+/* HERO COMERCIOS */
+.comercios-hero-section {
+  min-height: 700px;
+}
+
+.comercios-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+}
+
+.comercios-hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.device-combo-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+}
+
+.combo-badge-floating {
+  position: absolute;
+  top: -16px;
+  right: -10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #000;
+  border: 1px solid var(--neon-green);
+  color: var(--neon-green);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  box-shadow: 0 0 20px rgba(0, 204, 106, 0.4);
+  z-index: 10;
+}
+
+.combo-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--neon-green);
+  box-shadow: 0 0 8px var(--neon-green);
+}
+
+.visual-glass-card {
+  background: rgba(15, 18, 28, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 204, 106, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.visual-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.visual-nfc-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(0, 204, 106, 0.15);
+  border: 1px solid rgba(0, 204, 106, 0.35);
+  color: var(--neon-green);
+  display: grid;
+  place-items: center;
+}
+
+.visual-header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.vht-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.vht-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.visual-phone-preview {
+  background: #090b12;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.v-screen-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 6px 12px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+
+.v-screen-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--neon-green);
+}
+
+.v-screen-url {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.v-screen-content {
+  text-align: center;
+  padding: 12px 6px;
+}
+
+.v-screen-badge {
+  display: inline-block;
+  background: rgba(0, 204, 106, 0.15);
+  color: var(--neon-green);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  margin-bottom: 8px;
+}
+
+.v-screen-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.v-screen-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #25D366;
+  color: #000;
+  font-weight: 700;
+  font-size: 12.5px;
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+.visual-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.v-pill-chip {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+/* SECCIÓN COMPARACIÓN (ANTES VS DESPUÉS) */
+.comparison-section {
+  padding: 100px 44px;
+  background: #06060a;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.section-inner-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-center-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px;
+}
+
+.section-main-title {
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 800;
+  letter-spacing: -1.2px;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+.section-subtitle-center {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.comparison-card {
+  border-radius: 24px;
+  padding: 36px 30px;
+  position: relative;
+  backdrop-filter: blur(16px);
+}
+
+.card-before {
+  background: rgba(25, 12, 14, 0.5);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.card-after {
+  background: rgba(10, 24, 18, 0.6);
+  border: 1.5px solid rgba(0, 204, 106, 0.4);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 204, 106, 0.12);
+}
+
+.comp-card-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.badge-red {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.badge-green {
+  background: rgba(0, 204, 106, 0.15);
+  color: var(--neon-green);
+  border: 1px solid rgba(0, 204, 106, 0.3);
+}
+
+.comp-card-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 22px;
+}
+
+.comp-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comp-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.comp-x {
+  color: #ef4444;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.comp-check {
+  color: var(--neon-green);
+  font-weight: 800;
+  font-size: 16px;
+}
+
+/* 4 PILARES */
+.pack-details-section {
+  padding: 100px 44px;
+  background: #040407;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.pillar-card {
+  background: rgba(13, 15, 24, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-6px);
+  background: rgba(18, 22, 34, 0.95);
+  border-color: rgba(0, 204, 106, 0.4);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+}
+
+.pillar-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.25);
+  margin-bottom: 14px;
+}
+
+.pillar-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  place-items: center;
+  color: var(--pillar-accent, #00CC6A);
+  margin-bottom: 20px;
+}
+
+.pillar-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.pillar-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.pillar-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pillar-tag-list span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  color: var(--neon-green);
+  background: rgba(0, 204, 106, 0.1);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+/* PLACA SMART NFC SHOWCASE */
+.nfc-showcase-section {
+  padding: 100px 44px;
+  background: #050508;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nfc-showcase-card {
+  background: linear-gradient(135deg, rgba(14, 20, 32, 0.9) 0%, rgba(8, 10, 16, 0.95) 100%);
+  border: 1px solid rgba(0, 204, 106, 0.3);
+  border-radius: 28px;
+  padding: 56px 48px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 48px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 50px rgba(0, 204, 106, 0.1);
+}
+
+.nfc-mini-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--neon-green);
+  letter-spacing: 0.1em;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.nfc-showcase-title {
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.nfc-showcase-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+
+.nfc-steps-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.nfc-step {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nfc-step-num {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--neon-green);
+  color: #000;
+  font-weight: 800;
+  font-size: 15px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.nfc-step-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.nfc-step-info strong {
+  font-size: 14.5px;
+  color: #fff;
+}
+
+.nfc-step-info span {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.nfc-visual-stand {
+  display: flex;
+  justify-content: center;
+}
+
+.nfc-plate-mockup {
+  width: 280px;
+  height: 360px;
+  background: #000;
+  border: 2px solid rgba(0, 204, 106, 0.6);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 204, 106, 0.35);
+  position: relative;
+}
+
+.nfc-plate-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.plate-brand-logo {
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.plate-wave-icon {
+  color: var(--neon-green);
+}
+
+.plate-center-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.circle-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(0, 204, 106, 0.15);
+  border: 2px solid var(--neon-green);
+  display: grid;
+  place-items: center;
+  color: var(--neon-green);
+  font-size: 28px;
+  box-shadow: 0 0 24px rgba(0, 204, 106, 0.4);
+}
+
+.circle-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+
+.plate-action-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--neon-green);
+}
+
+/* RUBROS GRID */
+.rubros-section {
+  padding: 90px 44px;
+  background: #040407;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.rubros-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.rubro-pill-card {
+  background: rgba(15, 18, 28, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: all 0.25s ease;
+}
+
+.rubro-pill-card:hover {
+  transform: translateY(-4px);
+  background: rgba(20, 26, 40, 0.9);
+  border-color: var(--neon-green);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.rubro-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(0, 204, 106, 0.1);
+  color: var(--neon-green);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.rubro-name {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* FAQ SECTION */
+.faq-section {
+  padding: 100px 44px;
+  background: #06060a;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.faq-accordion-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: rgba(15, 18, 28, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.faq-item.active {
+  background: rgba(18, 24, 38, 0.9);
+  border-color: rgba(0, 204, 106, 0.4);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.faq-chevron {
+  transition: transform 0.3s ease;
+  color: var(--neon-green);
+  flex-shrink: 0;
+}
+
+.faq-item.active .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 24px 22px;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+
+/* =========================================================
+   RESPONSIVE EN EL SIMULADOR (TABLET & MOBILE)
+   ========================================================= */
+.preview-frame-container.vp-tablet .comercios-hero-grid,
+.preview-frame-container.vp-tablet .nfc-showcase-card  {
+  grid-template-columns: 1fr !important;
+  gap: 36px !important;
+}
+
+.preview-frame-container.vp-tablet .comparison-grid {
+  grid-template-columns: 1fr !important;
+  gap: 20px !important;
+}
+
+.preview-frame-container.vp-tablet .pillars-grid,
+.preview-frame-container.vp-tablet .rubros-grid {
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 18px !important;
+}
+
+.preview-frame-container.vp-tablet .header-nav,
+.preview-frame-container.vp-tablet .header-cta-btn {
+  display: none !important;
+}
+
+.preview-frame-container.vp-tablet .mobile-toggle {
+  display: flex !important;
+}
+
+.preview-frame-container.vp-tablet .process-banner-card {
+  grid-template-columns: 1fr !important;
+  gap: 32px !important;
+  padding: 36px 24px !important;
+}
+
+.preview-frame-container.vp-tablet .process-steps-timeline {
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 24px !important;
+}
+
+.preview-frame-container.vp-tablet .process-connecting-line {
+  display: none !important;
+}
+
+/* Mobile Simulator */
+.preview-frame-container.vp-mobile .comercios-hero-grid,
+.preview-frame-container.vp-mobile .comparison-grid,
+.preview-frame-container.vp-mobile .pillars-grid,
+.preview-frame-container.vp-mobile .rubros-grid,
+.preview-frame-container.vp-mobile .nfc-showcase-card,
+.preview-frame-container.vp-mobile .process-banner-card,
+.preview-frame-container.vp-mobile .process-steps-timeline {
+  grid-template-columns: 1fr !important;
+  gap: 20px !important;
+}
+
+.preview-frame-container.vp-mobile .hero-canvas-section,
+.preview-frame-container.vp-mobile .comparison-section,
+.preview-frame-container.vp-mobile .pack-details-section,
+.preview-frame-container.vp-mobile .nfc-showcase-section,
+.preview-frame-container.vp-mobile .rubros-section,
+.preview-frame-container.vp-mobile .process-section,
+.preview-frame-container.vp-mobile .faq-section,
+.preview-frame-container.vp-mobile .final-cta-section {
+  padding: 45px 16px 55px !important;
+}
+
+.preview-frame-container.vp-mobile .header-inner {
+  padding: 0 16px !important;
+  height: 68px !important;
+}
+
+.preview-frame-container.vp-mobile .header-nav,
+.preview-frame-container.vp-mobile .header-cta-btn {
+  display: none !important;
+}
+
+.preview-frame-container.vp-mobile .mobile-toggle {
+  display: flex !important;
+}
+
+.preview-frame-container.vp-mobile .hero-heading {
+  font-size: clamp(26px, 6.5vw, 34px) !important;
+}
+
+.preview-frame-container.vp-mobile .hero-actions {
+  flex-direction: column !important;
+  width: 100% !important;
+}
+
+.preview-frame-container.vp-mobile .btn-primary-pill,
+.preview-frame-container.vp-mobile .btn-secondary-pill,
+.preview-frame-container.vp-mobile .btn-final-cta {
+  width: 100% !important;
+  justify-content: center !important;
+}
+
+.preview-frame-container.vp-mobile .process-connecting-line {
+  display: none !important;
+}
+
+.preview-frame-container.vp-mobile .nfc-steps-row {
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+
+.preview-frame-container.vp-mobile .nfc-showcase-card {
+  padding: 28px 18px !important;
+}
+
+.preview-frame-container.vp-mobile .footer-main-grid {
+  grid-template-columns: 1fr !important;
+  gap: 32px !important;
+}
+
+.preview-frame-container.vp-mobile .footer-bottom-row {
+  flex-direction: column !important;
+  gap: 12px !important;
+  text-align: center !important;
+}
+
+/* =========================================================
+   MEDIA QUERIES AUTOMÁTICAS PARA DISPOSITIVOS REALES
+   ========================================================= */
+@media (max-width: 900px) {
+  .simulator-wrapper {
+    padding: 0 !important;
+    height: calc(100vh - 54px) !important;
+  }
+  .preview-frame-container {
+    border-radius: 0 !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .lab-toolbar {
+    padding: 8px 12px !important;
+    height: auto !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  .lab-meta .lab-sub {
+    display: none !important;
+  }
+  .header-nav {
+    display: none !important;
+  }
+  .header-cta-btn {
+    display: none !important;
+  }
+  .mobile-toggle {
+    display: flex !important;
+  }
+  .comercios-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+  .comparison-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 18px !important;
+  }
+  .rubros-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+  }
+  .nfc-showcase-card {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .process-banner-card {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .process-steps-timeline {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+  .process-connecting-line {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .lab-toolbar-left .lab-meta {
+    display: none !important;
+  }
+  .vp-label {
+    display: none !important;
+  }
+  .hero-canvas-section,
+  .comparison-section,
+  .pack-details-section,
+  .nfc-showcase-section,
+  .rubros-section,
+  .process-section,
+  .faq-section,
+  .final-cta-section {
+    padding: 45px 16px 55px !important;
+  }
+  .pillars-grid,
+  .rubros-grid,
+  .process-steps-timeline {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .hero-heading,
+  .section-main-title {
+    font-size: clamp(26px, 6.5vw, 34px) !important;
+  }
+  .nfc-steps-row {
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+  .hero-actions {
+    flex-direction: column !important;
+  }
+  .btn-primary-pill,
+  .btn-secondary-pill,
+  .btn-final-cta {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .footer-main-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}
+
+
+
+/* =========================================================
+   CAPAS DE ONDAS 3D Y AMBIENTE LUMINOSO · COMERCIOS
+   ========================================================= */
+.hero-glow-backdrop {
+  background-image: url('bg-waves-comercios.jpg') !important;
+  background-size: cover !important;
+  background-position: center right !important;
+  background-repeat: no-repeat !important;
+  opacity: 0.85 !important;
+  filter: saturate(135%) contrast(105%) !important;
+}
+
+.section-waves-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.waves-comercios {
+  background-image: url('bg-waves-comercios.jpg');
+  background-position: center 30%;
+  opacity: 0.42;
+  filter: saturate(135%) contrast(105%);
+}
+
+.waves-comercios-alt {
+  background-image: url('bg-waves-comercios-alt.jpg');
+  background-position: center 50%;
+  opacity: 0.40;
+  filter: saturate(135%) contrast(105%);
+}
+
+.waves-comercios-flow {
+  background-image: url('bg-waves-comercios-flow.jpg');
+  background-position: center 70%;
+  opacity: 0.44;
+  filter: saturate(140%) contrast(110%);
+}
+
+.section-ambient-lights {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ambient-comercios {
+  background: radial-gradient(circle at 80% 20%, rgba(0, 204, 106, 0.16) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(0, 232, 122, 0.12) 0%, transparent 50%);
+}
+
+.comparison-section,
+.pack-details-section,
+.nfc-showcase-section,
+.rubros-section,
+.process-section,
+.faq-section,
+.final-cta-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-inner-container,
+.process-inner-container,
+.final-cta-inner {
+  position: relative;
+  z-index: 2;
+}
+
