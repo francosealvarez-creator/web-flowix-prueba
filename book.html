@@ -1,0 +1,790 @@
+<!DOCTYPE html><html class="dark" lang="es" style=""><head><title>Flowix Book | Sistema de Turnos & Gestión 24/7</title><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
+.flowix-bg-grid {
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(to right, rgba(0, 204, 106, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 204, 106, 0.05) 1px, transparent 1px);
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 25%, #000 25%, transparent 95%);
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 25%, #000 25%, transparent 95%);
+}
+.flowix-bg-dots {
+  background-size: 24px 24px;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 50%, #000 20%, transparent 95%);
+  mask-image: radial-gradient(ellipse 90% 85% at 50% 50%, #000 20%, transparent 95%);
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(18px, -18px, 0) scale(1.05); }
+}
+.animate-float-slow {
+  animation: floatSlow 12s ease-in-out infinite;
+}
+html {
+  scroll-behavior: smooth;
+}
+.faq-content {
+  display: grid !important;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  padding-top: 0 !important;
+  overflow: hidden;
+  transition:
+    grid-template-rows 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    padding-top 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.faq-content > p {
+  min-height: 0;
+  overflow: hidden;
+}
+.faq-item {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+.faq-item:hover {
+  border-color: rgba(0, 204, 106, 0.3);
+  transform: translateY(-2px);
+}
+.faq-item.faq-open {
+  border-color: rgba(0, 204, 106, 0.45);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 24px rgba(0, 204, 106, 0.14);
+}
+.faq-item.faq-open .faq-content {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  padding-top: 1rem !important;
+}
+.faq-icon {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.faq-item.faq-open .faq-icon {
+  transform: rotate(180deg);
+}
+.fluid-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.45s ease !important;
+}
+.fluid-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: rgba(0, 204, 106, 0.38);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 26px rgba(0, 204, 106, 0.16);
+}
+.reveal-item {
+  opacity: 0;
+  transform: translateY(32px) scale(0.975);
+  filter: blur(8px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0px);
+}
+</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-bright": "#333b33", "on-error": "#690005", "on-secondary-fixed-variant": "#004e5c", "tertiary-fixed": "#ffdbd0", "inverse-surface": "#dce5d9", "secondary-container": "#03b5d3", "secondary-fixed": "#acedff", "on-primary-container": "#004f25", "on-surface": "#dce5d9", "on-tertiary": "#5c1901", "on-tertiary-fixed-variant": "#7a2f13", "surface-container": "#19221a", "on-secondary": "#003640", "on-background": "#dce5d9", "tertiary-fixed-dim": "#ffb59c", "primary": "#41e983", "on-tertiary-fixed": "#390c00", "on-error-container": "#ffdad6", "surface-dim": "#0d150f", "surface-container-low": "#151d16", "on-primary-fixed": "#00210c", "on-tertiary-container": "#772d11", "on-primary-fixed-variant": "#005227", "primary-container": "#00cc6a", "inverse-primary": "#006d36", "surface-container-lowest": "#08100a", "on-secondary-fixed": "#001f26", "tertiary": "#ffbea9", "on-primary": "#003919", "outline-variant": "#3c4a3e", "primary-fixed-dim": "#37e27d", "background": "#0d150f", "surface-tint": "#37e27d", "outline": "#859586", "surface-container-high": "#242c24", "secondary": "#4cd7f6", "surface-variant": "#2e372f", "inverse-on-surface": "#2a322b", "error": "#ffb4ab", "on-surface-variant": "#bbcbba", "on-secondary-container": "#00424e", "error-container": "#93000a", "primary-fixed": "#61ff98", "tertiary-container": "#ff9672", "secondary-fixed-dim": "#4cd7f6", "surface-container-highest": "#2e372f", "surface": "#0d150f" }, "borderRadius": { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, "spacing": { "margin": "2rem", "space-xl": "2.5rem", "gutter": "1.5rem", "space-lg": "1.5rem", "space-md": "1rem", "space-xs": "0.25rem", "space-2xl": "4rem", "margin-mobile": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "body-sm": ["Plus Jakarta Sans"], "display": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "display-mobile": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-caps": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"] }, "fontSize": { "body-sm": ["0.875rem", { "lineHeight": "1.45", "letterSpacing": "0", "fontWeight": "400" }], "display": ["3.75rem", { "lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800" }], "headline-sm": ["1.25rem", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600" }], "body-lg": ["1.125rem", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }], "display-mobile": ["2.25rem", { "lineHeight": "1.15", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-lg-mobile": ["1.75rem", { "lineHeight": "1.25", "letterSpacing": "-0.015em", "fontWeight": "700" }], "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0", "fontWeight": "600" }], "headline-md": ["1.75rem", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-caps": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.08em", "fontWeight": "700" }], "body-md": ["1rem", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }], "headline-lg": ["2.5rem", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } };</script></head><body class="bg-[#060b08] font-body-md text-on-surface min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container"><div class="fixed inset-0 pointer-events-none z-0 overflow-hidden"><div class="absolute inset-0 flowix-bg-grid"></div><div class="absolute inset-0 flowix-bg-dots opacity-50"></div><div class="absolute -top-48 left-1/2 -translate-x-1/2 w-[960px] h-[460px] bg-gradient-to-b from-[#00cc6a]/22 via-[#41e983]/8 to-transparent rounded-full blur-[130px]"></div><div class="absolute top-0 left-1/2 -translate-x-1/2 w-[75%] max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-[#00cc6a]/50 to-transparent"></div><div class="absolute top-[28%] -left-56 w-[560px] h-[560px] bg-[#00cc6a]/10 rounded-full blur-[150px] animate-float-slow"></div><div class="absolute top-[52%] -right-56 w-[520px] h-[520px] bg-[#03b5d3]/8 rounded-full blur-[150px] animate-float-slow" style="animation-delay: -6s;"></div><div class="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[820px] h-[360px] bg-[#00cc6a]/12 rounded-full blur-[140px]"></div></div><!-- Main Standardized Navbar -->
+<!-- Floating Header Wrapper inspired by n8n -->
+<!-- Main Standardized Navbar -->
+<header class="w-full pt-6 px-4 md:px-6 relative z-50">
+  <div class="max-w-7xl mx-auto rounded-2xl bg-[#0f1712]/90 backdrop-blur-md border border-white/10 px-5 py-2.5 flex items-center justify-between shadow-[0_12px_40px_rgba(0,0,0,0.65)] relative">
+    <div class="flex items-center gap-6 shrink-0">
+      <a class="flex items-center gap-2.5 group" href="index.html">
+        <div class="w-8 h-8 rounded-lg bg-[#142319] border border-[#00cc6a]/30 flex items-center justify-center text-[#00cc6a] shrink-0 group-hover:scale-105 group-hover:border-[#00cc6a] transition-all shadow-[0_0_12px_rgba(0,204,106,0.2)]">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#00cc6a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
+        <span class="text-lg font-bold tracking-tight text-white group-hover:text-white transition-colors">Flo<span class="text-[#00cc6a]">wix</span></span>
+      </a>
+    </div>
+
+    <nav class="hidden lg:flex items-center gap-7 whitespace-nowrap">
+      <a class="inline-flex items-center text-sm font-medium text-slate-300 hover:text-white transition-colors leading-none" href="index.html">
+        Inicio
+      </a>
+      <a class="inline-flex items-center text-sm font-medium text-slate-300 hover:text-white transition-colors leading-none" href="index.html#servicios-modulares">
+        Servicios Modulares
+      </a>
+      <a class="inline-flex items-center text-sm font-medium text-slate-300 hover:text-white transition-colors leading-none" href="portfolio.html">
+        Portfolio Web
+      </a>
+      <a class="inline-flex items-center text-sm font-semibold text-[#41e983] transition-colors leading-none" href="flowix-book.html">
+        Flowix Book
+      </a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a class="inline-flex items-center justify-center font-semibold text-sm px-4 py-2 rounded-lg bg-[#00cc6a] hover:bg-[#00b35c] text-[#08100a] transition-all shadow-[0_0_16px_rgba(0,204,106,0.35)] hover:shadow-[0_0_22px_rgba(0,204,106,0.5)] active:scale-[0.98] leading-none" href="https://wa.me/5491126730927?text=Hola%20Flowix,%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener noreferrer">
+        Hablemos
+      </a>
+      <button id="mobileMenuToggle" aria-label="Abrir menú" class="lg:hidden inline-flex items-center justify-center p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
+        <span class="material-symbols-outlined text-[22px]">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="hidden lg:hidden max-w-7xl mx-auto mt-2 rounded-xl bg-[#0f1712]/95 backdrop-blur-xl border border-white/10 p-4 shadow-2xl">
+    <div class="flex flex-col gap-3">
+      <a class="px-3 py-2 rounded-lg text-slate-200 hover:bg-white/5" href="index.html">Inicio</a>
+      <a class="px-3 py-2 rounded-lg text-slate-200 hover:bg-white/5" href="index.html#servicios-modulares">Servicios Modulares</a>
+      <a class="px-3 py-2 rounded-lg text-slate-200 hover:bg-white/5" href="portfolio.html">Portfolio Web</a>
+      <a class="px-3 py-2 rounded-lg bg-[#00cc6a]/15 text-[#41e983] font-semibold" href="flowix-book.html">Flowix Book</a>
+      <a class="mt-2 text-center py-2.5 rounded-lg bg-[#00cc6a] text-[#08100a] font-bold text-sm shadow-[0_0_15px_rgba(0,204,106,0.3)]" href="https://wa.me/5491126730927?text=Hola%20Flowix,%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener noreferrer">Hablemos por WhatsApp</a>
+    </div>
+  </div>
+</header>
+<script>
+  (function() {
+    const btn = document.getElementById('mobileMenuToggle');
+    const menu = document.getElementById('mobileMenu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+    }
+  })();
+</script><main class="relative z-10 w-full pt-20 bg-transparent min-h-screen"><div class="flex flex-col w-full">
+<!-- HERO SECTION -->
+<section class="relative w-full pt-space-xl pb-space-2xl overflow-hidden">
+<!-- Glow Backdrop Effect -->
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+<!-- Top Badge -->
+<div class="flex justify-center mb-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high/80 backdrop-blur-md shadow-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">SOFTWARE PROPIO • 0% COMISIONES POR TURNO</span>
+</div>
+</div>
+<!-- Main Headline & Subtitle -->
+<div class="text-center max-w-4xl mx-auto mb-space-xl">
+<h1 class="font-display text-display max-md:font-display-mobile max-md:text-display-mobile text-on-surface tracking-tight leading-tight">
+          Gestionar tus turnos y clientes es <span class="text-primary drop-shadow-[0_0_24px_rgba(65,233,131,0.35)]">más simple</span> con un sistema propio.
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mt-space-md leading-relaxed">Decile adiós a los cientos de mensajes manuales de WhatsApp. Centralizá tu agenda 24/7 con confirmación instantánea y agendamiento sin intermediarios, sin pagar comisiones por reserva ni compartir clientes con tu competencia.</p>
+<!-- CTA Buttons -->
+<div class="flex flex-wrap items-center justify-center gap-space-md mt-space-lg">
+<a class="inline-flex items-center gap-space-xs px-space-xl py-space-md rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md font-bold shadow-[0_0_28px_rgba(0,204,106,0.4)] hover:shadow-[0_0_36px_rgba(0,204,106,0.65)] hover:scale-[1.02] transition-all" href="https://wa.me/5491126730927?text=Hola%20Flowix!%20Quiero%20conocer%20m%C3%A1s%20sobre%20Flowix%20Book" rel="noopener noreferrer" target="_blank">
+<span class="">Pedir Flowix Book</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-space-xs px-space-xl py-space-md rounded-full bg-surface-container-high/90 text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-variant hover:text-primary transition-all" href="#demo-interactiva">
+<span class="material-symbols-outlined text-[20px]">play_circle</span>
+<span class="">Ver Demo Interactiva</span>
+</a>
+</div>
+</div>
+<!-- Live Mockup Component -->
+<div class="max-w-3xl mx-auto relative rounded-xl bg-surface-container-lowest/90 backdrop-blur-2xl p-space-md md:p-space-lg shadow-[0_20px_50px_rgba(0,0,0,0.7)]" id="demo-interactiva">
+<!-- Terminal Header -->
+<div class="flex items-center justify-between pb-space-md mb-space-md bg-surface-container-lowest">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-[#eab308]"></div>
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="font-label-caps text-label-caps text-outline ml-2">flowix-book // live_booking_preview</span>
+</div>
+<span class="inline-flex items-center gap-1 font-label-caps text-label-caps text-primary px-space-xs py-0.5 rounded-full bg-primary/10">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            LIVE DEMO
+          </span>
+</div>
+<!-- Booking Widget Window -->
+<div class="rounded-lg bg-surface-container-low p-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Agenda Disponible Hoy</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Agenda nativa propia con confirmación instantánea en pantalla</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-primary-container/20 text-primary font-label-caps text-label-caps self-start sm:self-auto">
+              98% Ocupación
+            </span>
+</div>
+<!-- Time Slots Interactive Row -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm mb-space-lg" id="time-slots">
+<button class="slot-btn py-space-sm px-space-md rounded-DEFAULT font-label-md text-label-md text-on-surface-variant bg-surface-container hover:bg-surface-container-high transition-all text-center" type="button">
+              10:00 hs
+            </button>
+<button class="slot-btn py-space-sm px-space-md rounded-DEFAULT font-label-md text-label-md text-on-surface-variant bg-surface-container hover:bg-surface-container-high transition-all text-center" type="button">
+              12:30 hs
+            </button>
+<button class="slot-btn active py-space-sm px-space-md rounded-DEFAULT font-label-md text-label-md bg-primary text-on-primary font-bold shadow-[0_0_20px_rgba(65,233,131,0.5)] transition-all flex items-center justify-center gap-1" type="button">
+<span class="">16:30 hs</span>
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+<button class="slot-btn py-space-sm px-space-md rounded-DEFAULT font-label-md text-label-md text-on-surface-variant bg-surface-container hover:bg-surface-container-high transition-all text-center" type="button">
+              17:15 hs
+            </button>
+</div>
+<!-- System Confirmation Bubble -->
+<div class="rounded-lg bg-surface-container p-space-md flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary uppercase">Flowix Book // Confirmación Instantánea</span>
+<span class="font-label-caps text-label-caps text-outline">Ahora mismo</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-1 leading-snug">¡Tu turno ha sido confirmado en el momento! Reserva registrada en la agenda del local.</p>
+</div>
+</div>
+</div>
+<!-- Micro stats strip -->
+<div class="flex items-center justify-around pt-space-md mt-space-md text-center">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-caps text-label-caps">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+            0% comisiones
+          </div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-caps text-label-caps">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+            &lt; 0.8s respuesta
+          </div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-caps text-label-caps"><span class="w-2 h-2 rounded-full bg-tertiary"></span>
+            Agenda Propia 100% Independiente</div>
+</div>
+</div>
+</div>
+</section>
+<!-- METRICS / SOCIAL PROOF STRIP -->
+<section class="w-full py-space-xl bg-[#08100a]/45 backdrop-blur-[2px] border-y border-white/[0.04] relative">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Metric 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-center items-center text-center">
+<span class="font-display text-display text-primary leading-none tracking-tight">+20k</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold mt-space-xs">Turnos Procesados</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Sin saturar tus líneas</span>
+</div>
+<!-- Metric 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-center items-center text-center">
+<span class="font-display text-display text-primary leading-none tracking-tight">0%</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold mt-space-xs">Comisiones por Reserva</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">El 100% de la ganancia es tuya</span>
+</div>
+<!-- Metric 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-center items-center text-center">
+<span class="font-display text-display text-primary leading-none tracking-tight">&lt; 1s</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold mt-space-xs">Carga en Celular</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Optimizado Mobile-First</span>
+</div>
+<!-- Metric 4 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-center items-center text-center">
+<span class="font-display text-display text-primary leading-none tracking-tight">24/7</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold mt-space-xs">Agenda Automática</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Tus clientes reservan de noche</span>
+</div>
+</div>
+</div>
+</section>
+<!-- FEATURES / CORE PILLARS (Bento Grid) -->
+<section class="w-full py-space-2xl bg-transparent">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+<!-- Section Header -->
+<div class="max-w-3xl mb-space-2xl">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-high mb-space-sm">
+<span class="font-label-caps text-label-caps text-primary tracking-wider uppercase">INGENIERÍA MODULAR</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg max-md:font-headline-lg-mobile max-md:text-headline-lg-mobile text-on-surface font-bold tracking-tight">
+          Las herramientas que tu local necesita cada día
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">Diseñado para barberías, peluquerías, centros de estética, masajes, nail studios, depilación, spas y estudios de tattoo.</p>
+</div>
+<!-- Bento Grid (4 Pillars) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Pillar 01 -->
+<div class="rounded-xl bg-surface-container-low/90 p-space-xl flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<div class="flex items-center justify-between mb-space-lg">
+<span class="font-label-caps text-label-caps text-primary bg-primary/10 px-space-md py-space-xs rounded-full font-bold">PILAR 01</span>
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">edit_calendar</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-space-sm">Agenda con Reserva de Turnos 24/7</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-lg">
+              Configuración milimétrica de cupos, franjas horarias activas, feriados, bloqueo de fechas y confirmación inmediata sin intervención humana.
+            </p>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-lowest">
+<div class="flex items-center justify-between text-on-surface-variant font-label-caps text-label-caps pb-2">
+<span class="">DISPONIBILIDAD SEMANAL</span>
+<span class="text-primary font-bold">ACTIVO</span>
+</div>
+<div class="flex gap-1.5 pt-2">
+<div class="h-2 flex-1 rounded-full bg-primary"></div>
+<div class="h-2 flex-1 rounded-full bg-primary"></div>
+<div class="h-2 flex-1 rounded-full bg-primary"></div>
+<div class="h-2 flex-1 rounded-full bg-primary"></div>
+<div class="h-2 flex-1 rounded-full bg-primary"></div>
+<div class="h-2 flex-1 rounded-full bg-surface-variant"></div>
+<div class="h-2 flex-1 rounded-full bg-surface-variant"></div>
+</div>
+</div>
+</div>
+<!-- Pillar 02 -->
+<div class="rounded-xl bg-surface-container-low/90 p-space-xl flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<div class="flex items-center justify-between mb-space-lg">
+<span class="font-label-caps text-label-caps text-primary bg-primary/10 px-space-md py-space-xs rounded-full font-bold">PILAR 02</span>
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">group</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-space-sm">Gestión Integral de Clientes</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-lg">
+              Historial completo de visitas, datos de contacto, notas personalizadas y fidelización de cada cliente centralizados en un único panel ordenado.
+            </p>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-lowest flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">badge</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Historial &amp; Ficha Digital</span>
+</div>
+<span class="font-label-caps text-label-caps text-primary bg-primary/10 px-space-sm py-0.5 rounded-full font-bold">100% Propia</span>
+</div>
+</div>
+<!-- Pillar 03 -->
+<div class="rounded-xl bg-surface-container-low/90 p-space-xl flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<div class="flex items-center justify-between mb-space-lg">
+<span class="font-label-caps text-label-caps text-primary bg-primary/10 px-space-md py-space-xs rounded-full font-bold">PILAR 03</span>
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">point_of_sale</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-space-sm">Control de Caja &amp; Movimientos</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-lg">
+              Registro diario de ingresos, egresos por turno o servicio y balance en tiempo real para que conozcas la salud financiera de tu negocio sin planillas complejas.
+            </p>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-lowest flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Balance en Tiempo Real</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-primary bg-primary px-space-sm py-0.5 rounded-full font-bold">Cierre Automático</span>
+</div>
+</div>
+<!-- Pillar 04 -->
+<div class="rounded-xl bg-surface-container-low/90 p-space-xl flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<div class="flex items-center justify-between mb-space-lg">
+<span class="font-label-caps text-label-caps text-primary bg-primary/10 px-space-md py-space-xs rounded-full font-bold">PILAR 04</span>
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">receipt_long</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-space-sm">Gestión de Servicios &amp; Comisiones</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-lg">
+              Parametrización de catálogo con duraciones y precios por profesional, más liquidación y cálculo automático de comisiones para tu equipo de trabajo.
+            </p>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-lowest flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase">CATÁLOGO PARAMETRIZABLE</span>
+<span class="font-label-caps text-label-caps text-primary font-bold">CÁLCULO AUTOMÁTICO</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- COMPARISON TABLE (Flowix vs Tradicionales) -->
+<section class="w-full py-space-2xl bg-[#08100a]/45 backdrop-blur-[2px] border-y border-white/[0.04] relative">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+<!-- Section Headline -->
+<div class="text-center max-w-3xl mx-auto mb-space-2xl">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">TRANSPARENCIA TOTAL</span>
+<h2 class="font-headline-lg text-headline-lg max-md:font-headline-lg-mobile max-md:text-headline-lg-mobile text-on-surface font-bold tracking-tight mt-space-xs">
+          Comparanos con otros sistemas tradicionales
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">Diseñado para barberías, peluquerías, centros de estética, masajes, nail studios, depilación, spas y estudios de tattoo.</p>
+</div>
+<!-- Comparison Matrix -->
+<div class="max-w-4xl mx-auto rounded-xl bg-surface-container-low overflow-hidden shadow-2xl">
+<div class="grid grid-cols-1 md:grid-cols-3 p-space-lg bg-surface-container-high">
+<div class="font-label-caps text-label-caps text-outline uppercase font-bold self-center">Parámetro Clave</div>
+<div class="font-label-md text-label-md text-on-surface-variant font-bold mt-2 md:mt-0">Sistemas Tradicionales (AgendaPro, TuTurno, etc.)</div>
+<div class="font-label-md text-label-md text-primary font-bold mt-2 md:mt-0 flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+            Flowix Book (Software Propio)
+          </div>
+</div>
+<!-- Row 1 -->
+<div class="grid grid-cols-1 md:grid-cols-3 p-space-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold self-center">Comisiones por Turno</div>
+<div class="font-body-md text-body-md text-on-surface-variant mt-1 md:mt-0">
+            Cobran porcentajes mensuales por reserva y costo variable por empleado agregado.
+          </div>
+<div class="font-body-md text-body-md text-primary font-bold mt-1 md:mt-0 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+            0% comisiones siempre. Tu facturación es 100% tuya.
+          </div>
+</div>
+<!-- Row 2 -->
+<div class="grid grid-cols-1 md:grid-cols-3 p-space-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold self-center">Base de Clientes</div>
+<div class="font-body-md text-body-md text-on-surface-variant mt-1 md:mt-0">
+            Ponen a tu negocio dentro de un marketplace donde tu competencia directa aparece al lado.
+          </div>
+<div class="font-body-md text-body-md text-primary font-bold mt-1 md:mt-0 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+            100% privada bajo tu propio dominio y marca.
+          </div>
+</div>
+<!-- Row 3 -->
+<div class="grid grid-cols-1 md:grid-cols-3 p-space-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold self-center">Hardware Físico</div>
+<div class="font-body-md text-body-md text-on-surface-variant mt-1 md:mt-0">
+            Solo ofrecen un panel web genérico sin presencia física en tu salón o mostrador.
+          </div>
+<div class="font-body-md text-body-md text-primary font-bold mt-1 md:mt-0 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">contactless</span>
+            Placas Smart NFC de acrílico para recepción incluidas.
+          </div>
+</div>
+<!-- Row 4 -->
+<div class="grid grid-cols-1 md:grid-cols-3 p-space-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold self-center">Soporte y Atención</div>
+<div class="font-body-md text-body-md text-on-surface-variant mt-1 md:mt-0">
+            Tickets de soporte lentos y atención por mail sin trato personalizado.
+          </div>
+<div class="font-body-md text-body-md text-primary font-bold mt-1 md:mt-0 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">forum</span>
+            Soporte directo por WhatsApp con los desarrolladores.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- BUSINESS SECTORS / ADAPTED INDUSTRIES -->
+<section class="w-full py-space-2xl bg-transparent">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+<div class="text-center max-w-3xl mx-auto mb-space-2xl">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">VERSATILIDAD TÉCNICA</span>
+<h2 class="font-headline-lg text-headline-lg max-md:font-headline-lg-mobile max-md:text-headline-lg-mobile text-on-surface font-bold tracking-tight mt-space-xs">
+          Adaptado al flujo real de tu negocio
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">Diseñado para barberías, peluquerías, centros de estética, masajes, nail studios, depilación, spas y estudios de tattoo.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Sector 1: Barbería -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[28px]">content_cut</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-xs">Barbería</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Cortes, barbas, afeitados
+            </p>
+</div>
+<span class="font-label-caps text-label-caps text-primary mt-space-md block font-bold">Agenda barberos →</span>
+</div>
+<!-- Sector 2: Peluquería -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[28px]">styler</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-xs">Peluquería</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Cortes, tinturas, peinados
+            </p>
+</div>
+<span class="font-label-caps text-label-caps text-primary mt-space-md block font-bold">Por estilista →</span>
+</div>
+<!-- Sector 3: Centro de estética -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[28px]">auto_awesome</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-xs">Centro de estética</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Faciales, tratamientos corporales
+            </p>
+</div>
+<span class="font-label-caps text-label-caps text-primary mt-space-md block font-bold">Control sesiones →</span>
+</div>
+<!-- Sector 4: Centro de masajes -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[28px]">self_improvement</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-xs">Centro de masajes</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Masajes relajantes y terapéuticos
+            </p>
+</div>
+<span class="font-label-caps text-label-caps text-primary mt-space-md block font-bold">Gestión cabinas →</span>
+</div>
+<!-- Sector 5: Nail Studio -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[28px]">brush</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-xs">Nail Studio</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Manicura, pedicura, uñas acrílicas
+            </p>
+</div>
+<span class="font-label-caps text-label-caps text-primary mt-space-md block font-bold">Box y turnos →</span>
+</div>
+<!-- Sector 6: Centro de depilación -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[28px]">flash_on</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-xs">Centro de depilación</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Láser, cera, depilación definitiva
+            </p>
+</div>
+<span class="font-label-caps text-label-caps text-primary mt-space-md block font-bold">Zonas y packs →</span>
+</div>
+<!-- Sector 7: Spa -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[28px]">spa</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-xs">Spa</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Circuitos, tratamientos, bienestar
+            </p>
+</div>
+<span class="font-label-caps text-label-caps text-primary mt-space-md block font-bold">Circuitos relax →</span>
+</div>
+<!-- Sector 8: Estudio de tattoo -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col justify-between hover:bg-surface-container transition-all">
+<div>
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[28px]">palette</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-xs">Estudio de tattoo</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Tattoos, piercings, arte corporal
+            </p>
+</div>
+<span class="font-label-caps text-label-caps text-primary mt-space-md block font-bold">Por artista →</span>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ SECTION -->
+<section class="w-full py-space-2xl bg-[#08100a]/45 backdrop-blur-[2px] border-y border-white/[0.04]">
+<div class="max-w-4xl mx-auto px-margin-mobile md:px-margin">
+<div class="text-center mb-space-2xl">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">PREGUNTAS FRECUENTES</span>
+<h2 class="font-headline-lg text-headline-lg max-md:font-headline-lg-mobile max-md:text-headline-lg-mobile text-on-surface font-bold tracking-tight mt-space-xs">
+          Respuestas claras sobre Flowix Book
+        </h2>
+</div>
+<div class="flex flex-col gap-space-md" id="faq-accordion">
+<!-- FAQ 1 -->
+<div class="rounded-lg bg-surface-container-low p-space-lg cursor-pointer faq-item transition-all" onclick="toggleFaq(this)">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold pr-space-md">¿Tengo que pagar comisiones por cada turno reservado?</h3>
+<span class="material-symbols-outlined text-primary text-[24px] faq-icon shrink-0">expand_more</span>
+</div>
+<div class="faq-content hidden pt-space-md">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              No. Jamás cobramos porcentaje ni comisiones sobre tus ventas. Pagás únicamente la implementación o el mantenimiento fijo acordado. Todo lo que tus clientes abonen ingresa al 100% a tus cuentas.
+            </p>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="rounded-lg bg-surface-container-low p-space-lg cursor-pointer faq-item transition-all" onclick="toggleFaq(this)">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold pr-space-md">¿Cómo reciben mis clientes la confirmación del turno?</h3>
+<span class="material-symbols-outlined text-primary text-[24px] faq-icon shrink-0">expand_more</span>
+</div>
+<div class="faq-content hidden pt-space-md">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">La reserva se confirma en el momento directamente por el propio sistema. Cuando un cliente elige el servicio, profesional y horario disponible, Flowix Book valida la disponibilidad en tiempo real y le muestra al instante en pantalla el comprobante con todos los detalles de su turno confirmado.</p>
+</div>
+</div>
+<!-- FAQ 3 -->
+<div class="rounded-lg bg-surface-container-low p-space-lg cursor-pointer faq-item transition-all" onclick="toggleFaq(this)"><div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold pr-space-md">¿Cómo funciona la agenda propia de Flowix Book?</h3>
+<span class="material-symbols-outlined text-primary text-[24px] faq-icon shrink-0">expand_more</span>
+</div>
+<div class="faq-content hidden pt-space-md">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Flowix Book cuenta con su propio sistema de agenda nativo y centralizado, 100% independiente. Cada turno reservado, modificado o cancelado impacta directamente en tu plataforma propia en tiempo real, bloqueando el horario al instante para evitar superposiciones sin depender de calendarios externos ni integraciones complejas.</p>
+</div></div>
+<!-- FAQ 4 -->
+<div class="rounded-lg bg-surface-container-low p-space-lg cursor-pointer faq-item transition-all" onclick="toggleFaq(this)">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold pr-space-md">¿Funciona en cualquier celular o requiere descargar una App?</h3>
+<span class="material-symbols-outlined text-primary text-[24px] faq-icon shrink-0">expand_more</span>
+</div>
+<div class="faq-content hidden pt-space-md">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Es una Progressive Web App ultraligera. No obliga a tus clientes a bajar apps pesadas desde Play Store o App Store. Acceden desde un enlace web, el perfil de Instagram o aproximando el celular a la placa NFC en tu local. Carga en menos de 1 segundo.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FINAL CTA SECTION (Exact Flowix Style) -->
+<section class="w-full py-space-2xl bg-transparent relative overflow-hidden text-center">
+<!-- Emerald Radial Glow -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-[600px] h-[350px] bg-primary/20 rounded-full blur-[140px]"></div>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto px-margin-mobile md:px-margin">
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high/80 mb-space-md">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">COMENZÁ HOY</span>
+</div>
+<h2 class="font-display text-display max-md:font-display-mobile max-md:text-display-mobile text-on-surface tracking-tight leading-tight mb-space-md">
+        ¿Listo para transformar la <span class="text-primary drop-shadow-[0_0_24px_rgba(65,233,131,0.5)]">presencia digital</span> de tu negocio?
+      </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-space-xl leading-relaxed">
+        Impulsamos tu marca con diseño web moderno de alto impacto, automatizaciones inteligentes y software propio sin comisiones. Hablemos de tu proyecto hoy mismo.
+      </p>
+<div class="flex justify-center">
+<a class="inline-flex items-center gap-space-xs px-space-xl py-space-md rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md font-bold shadow-[0_0_32px_rgba(0,204,106,0.5)] hover:shadow-[0_0_48px_rgba(0,204,106,0.8)] hover:scale-[1.03] transition-all" href="https://wa.me/5491126730927?text=Hola%20Flowix!%20Quiero%20comenzar%20con%20Flowix%20Book" rel="noopener noreferrer" target="_blank">
+<span class="">Comenzar Ahora</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Interactive JavaScript for Live Booking Slots and Accordion -->
+<script>
+    function toggleFaq(card) {
+      const isOpen = card.classList.contains('faq-open');
+
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('faq-open'));
+
+      if (!isOpen) {
+        card.classList.add('faq-open');
+      }
+    }
+
+    // Time slots selection interaction with live confirmation feedback
+    document.querySelectorAll('.slot-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const slotTime = this.textContent.replace('check', '').trim();
+        document.querySelectorAll('.slot-btn').forEach(b => {
+          const t = b.textContent.replace('check', '').trim();
+          b.className = 'slot-btn py-space-sm px-space-md rounded-DEFAULT font-label-md text-label-md text-on-surface-variant bg-surface-container hover:bg-surface-container-high transition-all duration-300 text-center';
+          b.textContent = t;
+        });
+        this.className = 'slot-btn active py-space-sm px-space-md rounded-DEFAULT font-label-md text-label-md bg-primary text-on-primary font-bold shadow-[0_0_20px_rgba(65,233,131,0.5)] transition-all duration-300 flex items-center justify-center gap-1 scale-[1.03]';
+        this.innerHTML = `<span>${slotTime}</span><span class="material-symbols-outlined text-[16px]">check</span>`;
+
+        const confirmBox = document.querySelector('#demo-interactiva .bg-surface-container.p-space-md');
+        const confirmText = confirmBox ? confirmBox.querySelector('p') : null;
+        if (confirmText) {
+          confirmText.textContent = `¡Tu turno de las ${slotTime} ha sido confirmado en el momento! Reserva registrada en la agenda del local.`;
+        }
+        if (confirmBox) {
+          confirmBox.style.transition = 'transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease';
+          confirmBox.style.transform = 'scale(1.02)';
+          confirmBox.style.boxShadow = '0 0 26px rgba(0, 204, 106, 0.25)';
+          setTimeout(() => {
+            confirmBox.style.transform = 'scale(1)';
+            confirmBox.style.boxShadow = 'none';
+          }, 320);
+        }
+      });
+    });
+
+    // Smooth Scroll Reveal & Fluid Cards
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.faq-content').forEach(el => el.classList.remove('hidden'));
+      document.querySelectorAll('.rounded-xl.bg-surface-container-low, .rounded-xl.bg-surface-container-low\\/90').forEach(card => {
+        card.classList.add('fluid-card');
+      });
+      const revealEls = document.querySelectorAll('main section > div, .grid > .fluid-card');
+      revealEls.forEach((el, idx) => {
+        el.classList.add('reveal-item');
+        el.style.transitionDelay = `${(idx % 4) * 70}ms`;
+      });
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+      revealEls.forEach(el => observer.observe(el));
+    });
+  </script>
+</div></main><footer class="w-full bg-[#080c09] border-t border-white/10 pt-16 pb-12 px-4 md:px-6 relative z-10 overflow-hidden">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-10">
+    <div class="max-w-sm">
+      <a class="flex items-center gap-2.5 mb-4 group" href="index.html">
+        <div class="w-8 h-8 rounded-lg bg-[#142319] border border-[#00cc6a]/30 flex items-center justify-center text-[#00cc6a] shrink-0 shadow-[0_0_12px_rgba(0,204,106,0.2)]">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#00cc6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
+        <span class="text-xl font-bold tracking-tight text-white">Flo<span class="text-[#00cc6a]">wix</span></span>
+      </a>
+      <p class="text-sm text-slate-400 leading-relaxed">
+        Ingeniería digital, desarrollo web de alto rendimiento y automatizaciones para negocios que buscan escalar con autoridad.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Navegación</h4>
+        <ul class="space-y-2 text-sm text-slate-400">
+          <li><a href="index.html" class="hover:text-[#41e983] transition-colors">Inicio</a></li>
+          <li><a href="index.html#servicios-modulares" class="hover:text-[#41e983] transition-colors">Servicios Modulares</a></li>
+          <li><a href="index.html#metodologia" class="hover:text-[#41e983] transition-colors">Metodología</a></li>
+          <li><a href="index.html#sobre-nosotros" class="hover:text-[#41e983] transition-colors">Sobre Nosotros</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Productos</h4>
+        <ul class="space-y-2 text-sm text-slate-400">
+          <li><a href="flowix-book.html" class="hover:text-[#41e983] transition-colors">Flowix Book</a></li>
+          <li><a href="portfolio.html" class="hover:text-[#41e983] transition-colors">Portfolio Web</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Contacto</h4>
+        <ul class="space-y-2 text-sm text-slate-400">
+          <li><a href="https://wa.me/5491126730927" target="_blank" rel="noopener noreferrer" class="hover:text-[#41e983] transition-colors">WhatsApp</a></li>
+          <li><a href="mailto:contacto@flowixagency.com" class="hover:text-[#41e983] transition-colors">Email</a></li>
+          <li><span class="text-xs text-slate-500">Buenos Aires, Argentina</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+    <div>&copy; 2026 Flowix Agency. Todos los derechos reservados.</div>
+    <div class="flex items-center gap-4">
+      <span class="inline-flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#00cc6a] animate-pulse"></span> Sistemas 100% operativos</span>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
