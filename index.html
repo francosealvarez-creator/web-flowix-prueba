@@ -38,15 +38,120 @@
     };
   </script>
 <style>
+    @view-transition {
+      navigation: auto;
+    }
+    ::view-transition-old(root) {
+      animation: flowixVtOut 0.22s cubic-bezier(0.4, 0, 1, 1) both;
+    }
+    ::view-transition-new(root) {
+      animation: flowixVtIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    @keyframes flowixVtOut {
+      from { opacity: 1; transform: translateY(0) scale(1); }
+      to   { opacity: 0; transform: translateY(-6px) scale(0.994); }
+    }
+    @keyframes flowixVtIn {
+      from { opacity: 0; transform: translateY(10px) scale(0.994); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    html, body {
+      background-color: #060b08 !important;
+      color: #dce5d9;
+    }
     .material-symbols-outlined {
       line-height: 1 !important;
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
       vertical-align: middle;
+      width: 1em;
+      height: 1em;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
     }
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
+      opacity: 0;
+      transition:
+        opacity 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    html.flowix-ready body {
+      opacity: 1;
+    }
+    html.flowix-leaving body {
+      opacity: 0 !important;
+      transform: translateY(-8px) scale(0.995) !important;
+      filter: blur(4px) !important;
+      transition:
+        opacity 0.2s cubic-bezier(0.4, 0, 1, 1),
+        transform 0.2s cubic-bezier(0.4, 0, 1, 1),
+        filter 0.2s cubic-bezier(0.4, 0, 1, 1) !important;
+      pointer-events: none;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00cc6a, #41e983, transparent);
+      box-shadow: 0 0 18px rgba(0, 204, 106, 0.75);
+      z-index: 9999;
+      pointer-events: none;
+      transform: scaleX(0.15);
+      transform-origin: center;
+      opacity: 0.95;
+      transition:
+        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.45s ease 0.32s;
+    }
+    html.flowix-ready body::after {
+      transform: scaleX(1);
+      opacity: 0;
+    }
+    /* Choreographed Startup Cascade (Above the Fold) */
+    header {
+      opacity: 0;
+      transform: translate3d(0, -14px, 0);
+      transition:
+        opacity 0.68s cubic-bezier(0.16, 1, 0.3, 1) 0.03s,
+        transform 0.68s cubic-bezier(0.16, 1, 0.3, 1) 0.03s;
+      will-change: opacity, transform;
+    }
+    html.flowix-ready header {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    main > div > h1,
+    main > div > p,
+    main > div > div:first-of-type,
+    #servicios-modulares > div {
+      opacity: 0;
+      transform: translate3d(0, 22px, 0) scale(0.985);
+      filter: blur(6px);
+      transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform, filter;
+    }
+    main > div > h1 { transition-delay: 0.07s; }
+    main > div > p { transition-delay: 0.14s; }
+    main > div > div:first-of-type { transition-delay: 0.21s; }
+    #servicios-modulares > div:nth-of-type(1) { transition-delay: 0.28s; }
+    #servicios-modulares > div:nth-of-type(3) { transition-delay: 0.35s; }
+    html.flowix-ready main > div > h1,
+    html.flowix-ready main > div > p,
+    html.flowix-ready main > div > div:first-of-type,
+    html.flowix-ready #servicios-modulares > div {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+      filter: blur(0px);
     }
     .grid-pattern {
       background-size: 28px 28px;
@@ -1079,13 +1184,13 @@
       });
     });
 
-    // Smooth Blur-to-Crisp Scroll Reveal with IntersectionObserver
+    // Smooth Blur-to-Crisp Scroll Reveal with IntersectionObserver (Below the Fold)
     const revealTargets = document.querySelectorAll(
-      'main h1, main > div > p, main > div > div:first-of-type, #servicios-modulares > div, #metodologia > div, #metodologia .grid > div, #sobre-nosotros > div, #sobre-nosotros .lg\\:col-span-6 > div, main section:last-of-type > div'
+      '#trabajos > div, #metodologia > div, #metodologia .grid > div, #sobre-nosotros > div, #sobre-nosotros .lg\\:col-span-6 > div, main section:last-of-type > div'
     );
     revealTargets.forEach((el, idx) => {
       el.classList.add('reveal-item');
-      el.style.transitionDelay = `${(idx % 4) * 75}ms`;
+      el.style.transitionDelay = `${(idx % 4) * 70}ms`;
     });
 
     const observer = new IntersectionObserver((entries) => {
@@ -1095,9 +1200,65 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -25px 0px' });
 
     revealTargets.forEach(el => observer.observe(el));
+
+    // Trigger fluid page boot
+    const activatePage = () => {
+      document.documentElement.classList.remove('flowix-leaving');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.documentElement.classList.add('flowix-ready');
+        });
+      });
+    };
+    activatePage();
+    window.addEventListener('pageshow', activatePage);
+
+    // Smooth cross-page navigation & same-page hash handling
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (!href || link.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        if (href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+
+        // Same-page hash link (e.g., "#trabajos" or "index.html#servicios-modulares")
+        const isSelfHash = href.startsWith('#') || href.startsWith('index.html#');
+        if (isSelfHash) {
+          const hash = href.includes('#') ? '#' + href.split('#')[1] : '';
+          const targetEl = hash && hash !== '#' ? document.querySelector(hash) : null;
+          if (targetEl) {
+            e.preventDefault();
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu) mobileMenu.classList.add('hidden');
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            history.pushState(null, '', hash);
+          } else if (href === 'index.html') {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+          return;
+        }
+
+        if (href === 'index.html') {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+
+        // Internal HTML page transition
+        if (!href.startsWith('http')) {
+          e.preventDefault();
+          document.documentElement.classList.add('flowix-leaving');
+          setTimeout(() => {
+            window.location.href = href;
+          }, 170);
+        }
+      });
+    });
   });
+  // Fallback safety timer to ensure page is always visible
+  setTimeout(() => document.documentElement.classList.add('flowix-ready'), 300);
 </script>
 </body></html>

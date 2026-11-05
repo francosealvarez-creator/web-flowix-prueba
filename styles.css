@@ -31,6 +31,130 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root) {
+  animation: flowixVtOut 0.22s cubic-bezier(0.4, 0, 1, 1) both;
+}
+::view-transition-new(root) {
+  animation: flowixVtIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes flowixVtOut {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(-6px) scale(0.994); }
+}
+@keyframes flowixVtIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.994); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+body {
+  opacity: 0;
+  transition:
+    opacity 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+}
+html.flowix-ready body {
+  opacity: 1;
+}
+html.flowix-leaving body {
+  opacity: 0 !important;
+  transform: translateY(-8px) scale(0.995) !important;
+  filter: blur(4px) !important;
+  transition:
+    opacity 0.2s cubic-bezier(0.4, 0, 1, 1),
+    transform 0.2s cubic-bezier(0.4, 0, 1, 1),
+    filter 0.2s cubic-bezier(0.4, 0, 1, 1) !important;
+  pointer-events: none;
+}
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00cc6a, #41e983, transparent);
+  box-shadow: 0 0 18px rgba(0, 204, 106, 0.75);
+  z-index: 9999;
+  pointer-events: none;
+  transform: scaleX(0.15);
+  transform-origin: center;
+  opacity: 0.95;
+  transition:
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.45s ease 0.32s;
+}
+html.flowix-ready body::after {
+  transform: scaleX(1);
+  opacity: 0;
+}
+
+.lab-toolbar,
+.flowix-header {
+  opacity: 0;
+  transform: translate3d(0, -14px, 0);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.03s,
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.03s;
+}
+html.flowix-ready .lab-toolbar,
+html.flowix-ready .flowix-header {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.hero-tagline,
+.hero-heading,
+.hero-description,
+.hero-actions,
+.hero-stats-row,
+.hero-container-inner > div:nth-child(2) {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0) scale(0.985);
+  filter: blur(6px);
+  transition:
+    opacity 0.78s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.78s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.78s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+.hero-tagline { transition-delay: 0.06s; }
+.hero-heading { transition-delay: 0.12s; }
+.hero-description { transition-delay: 0.18s; }
+.hero-actions { transition-delay: 0.24s; }
+.hero-stats-row { transition-delay: 0.30s; }
+.hero-container-inner > div:nth-child(2) { transition-delay: 0.20s; }
+
+html.flowix-ready .hero-tagline,
+html.flowix-ready .hero-heading,
+html.flowix-ready .hero-description,
+html.flowix-ready .hero-actions,
+html.flowix-ready .hero-stats-row,
+html.flowix-ready .hero-container-inner > div:nth-child(2) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0px);
+}
+
+.reveal-item {
+  opacity: 0;
+  transform: translateY(28px) scale(0.98);
+  filter: blur(6px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0px);
+
+}
+
 /* =========================================================
    BARRA DE CONTROL SUPERIOR (TEST BENCH)
    ========================================================= */
@@ -2726,4 +2850,12 @@ a.contact-val:hover {
   .hero-stats-row {
     grid-template-columns: 1fr !important;
   }
+}
+
+.material-symbols-outlined {
+  line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle;
 }

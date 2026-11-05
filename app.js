@@ -94,3 +94,69 @@ if (servicesCarousel && servicesPrevBtn && servicesNextBtn) {
     servicesCarousel.scrollBy({ left: getServiceScrollStep(), behavior: 'smooth' });
   });
 }
+
+// Arranque fluido y animaciones de entrada para todas las páginas verticales
+(function initFluidBoot() {
+  const activatePage = () => {
+    document.documentElement.classList.remove('flowix-leaving');
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.documentElement.classList.add('flowix-ready');
+      });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', activatePage);
+  } else {
+    activatePage();
+  }
+  window.addEventListener('pageshow', activatePage);
+  setTimeout(() => document.documentElement.classList.add('flowix-ready'), 300);
+
+  // Scroll reveal suave para secciones inferiores
+  const setupReveal = () => {
+    const sections = document.querySelectorAll('.preview-content > section:not(:first-of-type) > div');
+    sections.forEach((el, idx) => {
+      el.classList.add('reveal-item');
+      el.style.transitionDelay = `${(idx % 3) * 65}ms`;
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: previewFrame || null,
+      threshold: 0.08,
+      rootMargin: '0px 0px -25px 0px'
+    });
+
+    sections.forEach(el => observer.observe(el));
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupReveal);
+  } else {
+    setupReveal();
+  }
+
+  // Transición suave al cambiar de página
+  document.querySelectorAll('a[href]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href || link.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+      if (!href.startsWith('http')) {
+        e.preventDefault();
+        document.documentElement.classList.add('flowix-leaving');
+        setTimeout(() => {
+          window.location.href = href;
+        }, 170);
+      }
+    });
+  });
+})();

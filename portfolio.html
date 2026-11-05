@@ -1,517 +1,908 @@
-<!DOCTYPE html><html class="dark" lang="es" style=""><head><title>Portfolio & Casos de Éxito | Flowix</title><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
-.flowix-bg-grid {
-  background-size: 48px 48px;
-  background-image:
-    linear-gradient(to right, rgba(0, 204, 106, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 204, 106, 0.05) 1px, transparent 1px);
-  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 25%, #000 25%, transparent 95%);
-  mask-image: radial-gradient(ellipse 85% 75% at 50% 25%, #000 25%, transparent 95%);
-}
-.flowix-bg-dots {
-  background-size: 24px 24px;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 50%, #000 20%, transparent 95%);
-  mask-image: radial-gradient(ellipse 90% 85% at 50% 50%, #000 20%, transparent 95%);
-}
-@keyframes floatSlow {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(18px, -18px, 0) scale(1.05); }
-}
-.animate-float-slow {
-  animation: floatSlow 12s ease-in-out infinite;
-}
-html {
-  scroll-behavior: smooth;
-}
-@keyframes cardFilterIn {
-  0% {
-    opacity: 0;
-    transform: translateY(18px) scale(0.97);
-    filter: blur(6px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0px);
-  }
-}
-.project-card {
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.45s ease, background-color 0.4s ease !important;
-}
-.project-card:hover {
-  transform: translateY(-7px) scale(1.008);
-  border-color: rgba(0, 204, 106, 0.45);
-  box-shadow: 0 24px 48px -15px rgba(0, 0, 0, 0.75), 0 0 30px rgba(0, 204, 106, 0.2);
-}
-.project-card.filtering-in {
-  animation: cardFilterIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.reveal-item {
-  opacity: 0;
-  transform: translateY(32px) scale(0.975);
-  filter: blur(8px);
-  transition:
-    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.reveal-item.is-visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  filter: blur(0px);
-}
-</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-fixed-variant": "#7a2f13", "inverse-primary": "#006d36", "on-secondary-container": "#00424e", "on-secondary": "#003640", "primary-fixed-dim": "#37e27d", "on-secondary-fixed-variant": "#004e5c", "primary": "#41e983", "primary-container": "#00cc6a", "on-primary": "#003919", "outline": "#859586", "on-background": "#dce5d9", "tertiary": "#ffbea9", "primary-fixed": "#61ff98", "surface-variant": "#2e372f", "on-tertiary-container": "#772d11", "surface-container-highest": "#2e372f", "secondary-fixed": "#acedff", "on-primary-container": "#004f25", "surface-dim": "#0d150f", "outline-variant": "#3c4a3e", "secondary-container": "#03b5d3", "tertiary-container": "#ff9672", "tertiary-fixed": "#ffdbd0", "surface-container-high": "#242c24", "on-error-container": "#ffdad6", "on-tertiary-fixed": "#390c00", "on-secondary-fixed": "#001f26", "secondary": "#4cd7f6", "on-primary-fixed-variant": "#005227", "surface-bright": "#333b33", "surface-container-lowest": "#08100a", "inverse-surface": "#dce5d9", "surface": "#0d150f", "on-surface": "#dce5d9", "tertiary-fixed-dim": "#ffb59c", "error-container": "#93000a", "error": "#ffb4ab", "background": "#0d150f", "secondary-fixed-dim": "#4cd7f6", "on-error": "#690005", "on-surface-variant": "#bbcbba", "on-primary-fixed": "#00210c", "surface-tint": "#37e27d", "inverse-on-surface": "#2a322b", "on-tertiary": "#5c1901", "surface-container-low": "#151d16", "surface-container": "#19221a" }, "borderRadius": { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "margin": "2rem", "gutter": "1.5rem", "margin-mobile": "1rem", "space-2xl": "4rem", "space-lg": "1.5rem", "space-xl": "2.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem" }, "fontFamily": { "headline-lg": ["Plus Jakarta Sans"], "label-caps": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "display-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "display": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"] }, "fontSize": { "headline-lg": ["2.5rem", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-caps": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.08em", "fontWeight": "700" }], "headline-md": ["1.75rem", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-sm": ["0.875rem", { "lineHeight": "1.45", "letterSpacing": "0", "fontWeight": "400" }], "body-md": ["1rem", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }], "body-lg": ["1.125rem", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }], "headline-lg-mobile": ["1.75rem", { "lineHeight": "1.25", "letterSpacing": "-0.015em", "fontWeight": "700" }], "display-mobile": ["2.25rem", { "lineHeight": "1.15", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-sm": ["1.25rem", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600" }], "display": ["3.75rem", { "lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800" }], "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0", "fontWeight": "600" }] } } } };</script></head><body class="bg-[#060b08] font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary relative overflow-x-hidden">
-<!-- Unified Flowix Ambient Background System -->
-<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-  <div class="absolute inset-0 flowix-bg-grid"></div>
-  <div class="absolute inset-0 flowix-bg-dots opacity-50"></div>
-  <div class="absolute -top-48 left-1/2 -translate-x-1/2 w-[960px] h-[460px] bg-gradient-to-b from-[#00cc6a]/22 via-[#41e983]/8 to-transparent rounded-full blur-[130px]"></div>
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[75%] max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-[#00cc6a]/50 to-transparent"></div>
-  <div class="absolute top-[28%] -left-56 w-[560px] h-[560px] bg-[#00cc6a]/10 rounded-full blur-[150px] animate-float-slow"></div>
-  <div class="absolute top-[52%] -right-56 w-[520px] h-[520px] bg-[#03b5d3]/8 rounded-full blur-[150px] animate-float-slow" style="animation-delay: -6s;"></div>
-  <div class="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[820px] h-[360px] bg-[#00cc6a]/12 rounded-full blur-[140px]"></div>
-</div>
-<!-- Main Standardized Navbar -->
-<!-- Floating Header Wrapper inspired by n8n -->
-<!-- Main Standardized Navbar -->
-<header class="w-full pt-6 px-4 md:px-6 relative z-50">
-  <div class="max-w-7xl mx-auto rounded-2xl bg-[#0f1712]/90 backdrop-blur-md border border-white/10 px-5 py-2.5 flex items-center justify-between shadow-[0_12px_40px_rgba(0,0,0,0.65)] relative">
-    <div class="flex items-center gap-6 shrink-0">
-      <a class="flex items-center gap-2.5 group" href="index.html">
-        <div class="w-8 h-8 rounded-lg bg-[#142319] border border-[#00cc6a]/30 flex items-center justify-center text-[#00cc6a] shrink-0 group-hover:scale-105 group-hover:border-[#00cc6a] transition-all shadow-[0_0_12px_rgba(0,204,106,0.2)]">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#00cc6a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
-          </svg>
-        </div>
-        <span class="text-lg font-bold tracking-tight text-white group-hover:text-white transition-colors">Flo<span class="text-[#00cc6a]">wix</span></span>
-      </a>
-    </div>
+<!DOCTYPE html>
+<html class="dark" lang="es" style="">
 
-    <nav class="hidden lg:flex items-center gap-7 whitespace-nowrap">
-      <a class="inline-flex items-center text-sm font-medium text-slate-300 hover:text-white transition-colors leading-none" href="index.html">
-        Inicio
-      </a>
-      <a class="inline-flex items-center text-sm font-medium text-slate-300 hover:text-white transition-colors leading-none" href="index.html#servicios-modulares">
-        Servicios Modulares
-      </a>
-      <a class="inline-flex items-center text-sm font-semibold text-[#41e983] transition-colors leading-none" href="portfolio.html">
-        Portfolio Web
-      </a>
-      <a class="inline-flex items-center text-sm font-medium text-slate-300 hover:text-white transition-colors leading-none" href="flowix-book.html">
-        Flowix Book
-      </a>
-    </nav>
-
-    <div class="flex items-center gap-3">
-      <a class="inline-flex items-center justify-center font-semibold text-sm px-4 py-2 rounded-lg bg-[#00cc6a] hover:bg-[#00b35c] text-[#08100a] transition-all shadow-[0_0_16px_rgba(0,204,106,0.35)] hover:shadow-[0_0_22px_rgba(0,204,106,0.5)] active:scale-[0.98] leading-none" href="https://wa.me/5491126730927?text=Hola%20Flowix,%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener noreferrer">
-        Hablemos
-      </a>
-      <button id="mobileMenuToggle" aria-label="Abrir menú" class="lg:hidden inline-flex items-center justify-center p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
-        <span class="material-symbols-outlined text-[22px]">menu</span>
-      </button>
-    </div>
-  </div>
-
-  <div id="mobileMenu" class="hidden lg:hidden max-w-7xl mx-auto mt-2 rounded-xl bg-[#0f1712]/95 backdrop-blur-xl border border-white/10 p-4 shadow-2xl">
-    <div class="flex flex-col gap-3">
-      <a class="px-3 py-2 rounded-lg text-slate-200 hover:bg-white/5" href="index.html">Inicio</a>
-      <a class="px-3 py-2 rounded-lg text-slate-200 hover:bg-white/5" href="index.html#servicios-modulares">Servicios Modulares</a>
-      <a class="px-3 py-2 rounded-lg bg-[#00cc6a]/15 text-[#41e983] font-semibold" href="portfolio.html">Portfolio Web</a>
-      <a class="px-3 py-2 rounded-lg text-slate-200 hover:bg-white/5" href="flowix-book.html">Flowix Book</a>
-      <a class="mt-2 text-center py-2.5 rounded-lg bg-[#00cc6a] text-[#08100a] font-bold text-sm shadow-[0_0_15px_rgba(0,204,106,0.3)]" href="https://wa.me/5491126730927?text=Hola%20Flowix,%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener noreferrer">Hablemos por WhatsApp</a>
-    </div>
-  </div>
-</header>
-<script>
-  (function() {
-    const btn = document.getElementById('mobileMenuToggle');
-    const menu = document.getElementById('mobileMenu');
-    if (btn && menu) {
-      btn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-      });
+<head>
+  <title>Portfolio & Casos de Éxito | Flowix</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="web_standard" name="shell-type">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet">
+  <style>
+    @view-transition {
+      navigation: auto;
     }
-  })();
-</script><main class="w-full bg-transparent relative z-10 min-h-screen"><div class="flex flex-col w-full">
-<!-- Portfolio Hero Section -->
-<section class="relative w-full overflow-hidden px-margin py-space-2xl md:py-32">
-<!-- Ambient Bio-Digital Energy Mesh Background -->
-<div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-primary-container/15 rounded-full blur-[130px] opacity-70"></div>
-<div class="pointer-events-none absolute top-1/3 -right-48 w-[400px] h-[400px] bg-secondary-container/10 rounded-full blur-[110px] opacity-60"></div>
-<div class="pointer-events-none absolute -bottom-24 -left-40 w-[500px] h-[400px] bg-primary/10 rounded-full blur-[120px] opacity-50"></div>
-<div class="max-w-7xl mx-auto relative z-10">
-<!-- Live Status Pill Badge -->
-<div class="flex items-center justify-start mb-space-md">
-<div class="inline-flex items-center gap-space-xs px-3.5 py-1.5 rounded-full bg-surface-container-high/80 backdrop-blur-md shadow-sm">
-<span class="relative flex h-2 w-2">
-<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-<span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span>
-</span>
-<span class="font-label-caps text-label-caps uppercase text-primary tracking-widest">NUESTROS PROYECTOS &amp; CASOS DE ÉXITO</span>
-</div>
-</div>
-<!-- Main Headline with Typographic Rhythm -->
-<div class="max-w-4xl space-y-space-md">
-<h1 class="font-display text-display text-on-surface tracking-tight">
-          Proyectos digitales diseñados para <span class="text-primary-container inline-block drop-shadow-[0_0_24px_rgba(0,204,106,0.35)]">generar resultados reales</span>.
-        </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">Webs ultra rápidas (&lt; 1s), catálogos, plataformas y páginas corporativas pensadas para ordenar la operación y multiplicar consultas calificadas en cada rubro.</p>
-</div>
-<!-- Metric Highlights Strip -->
-<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mt-space-xl pt-space-lg">
-<div class="p-space-md rounded-DEFAULT bg-surface-container-low/70 backdrop-blur-md">
-<div class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Velocidad Promedio</div>
-<div class="font-headline-md text-headline-md text-primary flex items-baseline gap-1">0.72s <span class="text-body-sm text-on-surface-variant font-normal">LCP</span></div>
-<div class="text-body-sm text-on-surface-variant">Core Web Vitals óptimos</div>
-</div>
-<div class="p-space-md rounded-DEFAULT bg-surface-container-low/70 backdrop-blur-md">
-<div class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Eficacia Comercial</div>
-<div class="font-headline-md text-headline-md text-on-surface flex items-baseline gap-1">+120% <span class="text-body-sm text-primary font-normal">leads</span></div>
-<div class="text-body-sm text-on-surface-variant">Tasa de contacto orgánico</div>
-</div>
-<div class="p-space-md rounded-DEFAULT bg-surface-container-low/70 backdrop-blur-md">
-<div class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Uptime Garantizado</div>
-<div class="font-headline-md text-headline-md text-on-surface flex items-baseline gap-1">99.9% <span class="text-body-sm text-primary font-normal">SLA</span></div>
-<div class="text-body-sm text-on-surface-variant">Infraestructura Vercel Edge</div>
-</div>
-<div class="p-space-md rounded-DEFAULT bg-surface-container-low/70 backdrop-blur-md"><div class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Conversión Directa</div>
-<div class="font-headline-md text-headline-md text-primary-container flex items-baseline gap-1">100% <span class="text-body-sm text-on-surface-variant font-normal">directo</span></div>
-<div class="text-body-sm text-on-surface-variant">Leads directo al cliente</div></div>
-</div>
-</div>
-</section>
-<!-- Interactive Category Filter Section -->
-<section class="w-full px-margin pb-space-lg">
-<div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-gutter">
-<!-- Filter Pills Group -->
-<div class="flex flex-wrap items-center gap-space-xs p-1.5 rounded-full bg-surface-container-low/80 backdrop-blur-md" id="filterPillsContainer"><button class="filter-pill px-4 py-2 rounded-full font-label-md text-label-md transition-all duration-200 bg-primary-container text-on-primary shadow-[0_0_16px_rgba(0,204,106,0.35)]" data-filter="all" type="button">Todos los Rubros</button><button class="filter-pill px-4 py-2 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/50 transition-all duration-200" data-filter="deporte" type="button">Deporte &amp; Academias</button><button class="filter-pill px-4 py-2 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/50 transition-all duration-200" data-filter="turismo" type="button">Turismo &amp; Hospedaje</button><button class="filter-pill px-4 py-2 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/50 transition-all duration-200" data-filter="inmobiliarias" type="button">Inmobiliarias &amp; Arquitectura</button></div>
-<!-- Live Counter Badge -->
-<div class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md">
-<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-<span id="projectCounterText" class="">4 proyectos destacados en producción</span>
-</div>
-</div>
-</section>
-<!-- Projects Bento/Grid Section -->
-<section class="w-full px-margin py-space-xl">
-<div class="max-w-7xl mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter" id="projectsGrid">
-<!-- Project 1: Tang Soo Do Escobar -->
-<article class="project-card flex flex-col rounded-DEFAULT bg-surface-container-low/70 backdrop-blur-md overflow-hidden group hover:bg-surface-container/90 transition-all duration-300" data-category="deporte">
-<!-- Browser Top Mockup Bar -->
-<div class="px-space-md py-2.5 bg-surface-container-highest/60 flex items-center justify-between">
-<div class="flex items-center gap-1.5">
-<span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]/80"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]/80"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]/80"></span>
-</div>
-<span class="font-label-caps text-[10px] text-on-surface-variant truncate max-w-[160px] tracking-tight">tangsoodoescobar.com</span>
-<span class="flex items-center gap-1 font-label-caps text-[10px] text-primary">
-<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span> VIVO
-            </span>
-</div>
-<!-- Visual Showcase Area -->
-<div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A dynamic martial arts training academy in modern cinematic lighting with traditional dojang wooden floors, sleek branding graphics, and an athlete executing a controlled high kick, captured with high contrast and emerald highlights." src="portfolio/tangsoo.png">
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/30 to-transparent"></div>
-<div class="absolute top-space-sm left-space-sm">
-<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-on-surface text-label-caps uppercase font-bold">
-                Deporte &amp; Academias
-              </span>
-</div>
-</div>
-<!-- Card Content Body -->
-<div class="p-space-lg flex-1 flex flex-col justify-between space-y-space-md">
-<div class="space-y-space-xs">
-<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Tang Soo Do Escobar</h2>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-                Landing de captación para clases y membresías de arte marcial tradicional con integración directa de WhatsApp y calificador de alumnos.
-              </p>
-</div>
-<div class="space-y-space-md pt-space-xs">
-<!-- Feature Pills -->
 
-<!-- Action Link -->
-<a class="inline-flex items-center justify-between w-full pt-space-sm font-label-md text-label-md text-primary-container hover:text-primary group/btn transition-colors" href="#"><span class="">Ver online</span><span class="material-symbols-outlined text-[18px] group-hover/btn:translate-x-1 group-hover/btn:-translate-y-0.5 transition-transform">arrow_outward</span></a>
-</div>
-</div>
-</article>
-<!-- Project 2: Complejo Los Peques -->
-<article class="project-card flex flex-col rounded-DEFAULT bg-surface-container-low/70 backdrop-blur-md overflow-hidden group hover:bg-surface-container/90 transition-all duration-300" data-category="turismo">
-<div class="px-space-md py-2.5 bg-surface-container-highest/60 flex items-center justify-between">
-<div class="flex items-center gap-1.5">
-<span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]/80"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]/80"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]/80"></span>
-</div>
-<span class="font-label-caps text-[10px] text-on-surface-variant truncate max-w-[160px] tracking-tight">complejolospeques.com</span>
-<span class="flex items-center gap-1 font-label-caps text-[10px] text-primary">
-<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span> VIVO
-            </span>
-</div>
-<div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Warm coastal pine forest resort cabins in Mar Azul at dusk, modern wood architecture glowing with ambient interior amber lights, surrounded by tall pine trees, high end architectural photography with subtle emerald grading." src="portfolio/peques.png">
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/30 to-transparent"></div>
-<div class="absolute top-space-sm left-space-sm">
-<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-on-surface text-label-caps uppercase font-bold">
-                Turismo &amp; Hospedaje
-              </span>
-</div>
-</div>
-<div class="p-space-lg flex-1 flex flex-col justify-between space-y-space-md">
-<div class="space-y-space-xs">
-<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Complejo Los Peques</h2>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-                Web de reservas directas y hospedaje en Mar Azul, catálogo interactivo de cabañas, disponibilidad y mapa satelital de accesos.
-              </p>
-</div>
-<div class="space-y-space-md pt-space-xs">
+    ::view-transition-old(root) {
+      animation: flowixVtOut 0.22s cubic-bezier(0.4, 0, 1, 1) both;
+    }
 
-<a class="inline-flex items-center justify-between w-full pt-space-sm font-label-md text-label-md text-primary-container hover:text-primary group/btn transition-colors" href="#"><span class="">Ver online</span><span class="material-symbols-outlined text-[18px] group-hover/btn:translate-x-1 group-hover/btn:-translate-y-0.5 transition-transform">arrow_outward</span></a>
-</div>
-</div>
-</article>
-<!-- Project 3: Marroncelli Puertas -->
-<article class="project-card flex flex-col rounded-DEFAULT bg-surface-container-low/70 backdrop-blur-md overflow-hidden group hover:bg-surface-container/90 transition-all duration-300" data-category="inmobiliarias">
-<div class="px-space-md py-2.5 bg-surface-container-highest/60 flex items-center justify-between">
-<div class="flex items-center gap-1.5">
-<span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]/80"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]/80"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]/80"></span>
-</div>
-<span class="font-label-caps text-[10px] text-on-surface-variant truncate max-w-[160px] tracking-tight">marroncelli-web.vercel.app</span>
-<span class="flex items-center gap-1 font-label-caps text-[10px] text-primary">
-<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span> VIVO
-            </span>
-</div>
-<div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist luxury interior architectural design featuring premium floor-to-ceiling wooden doors with concealed frame systems and flush hinges, sharp modern interior lighting and marble floors in contemporary dark aesthetic." src="portfolio/marroncelli.png">
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/30 to-transparent"></div>
-<div class="absolute top-space-sm left-space-sm">
-<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-on-surface text-label-caps uppercase font-bold">
-                Arquitectura &amp; Diseño
-              </span>
-</div>
-</div>
-<div class="p-space-lg flex-1 flex flex-col justify-between space-y-space-md">
-<div class="space-y-space-xs">
-<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Marroncelli Puertas</h2>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-                Puertas de interior de alta gama y sistemas de marcos invisibles. Catálogo visual interactivo y cotizador express para estudios de arquitectura.
-              </p>
-</div>
-<div class="space-y-space-md pt-space-xs">
+    ::view-transition-new(root) {
+      animation: flowixVtIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
 
-<a class="inline-flex items-center justify-between w-full pt-space-sm font-label-md text-label-md text-primary-container hover:text-primary group/btn transition-colors" href="#"><span class="">Ver online</span><span class="material-symbols-outlined text-[18px] group-hover/btn:translate-x-1 group-hover/btn:-translate-y-0.5 transition-transform">arrow_outward</span></a>
-</div>
-</div>
-</article>
-<!-- Project 4: Bananas Agency -->
+    @keyframes flowixVtOut {
+      from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
 
-<!-- Project 5: Infinity Inmobiliaria -->
+      to {
+        opacity: 0;
+        transform: translateY(-6px) scale(0.994);
+      }
+    }
 
-<!-- Project 6: Renovar 360° -->
-<article class="project-card flex flex-col rounded-DEFAULT bg-surface-container-low/70 backdrop-blur-md overflow-hidden group hover:bg-surface-container/90 transition-all duration-300" data-category="inmobiliarias">
-<div class="px-space-md py-2.5 bg-surface-container-highest/60 flex items-center justify-between">
-<div class="flex items-center gap-1.5">
-<span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]/80"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]/80"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]/80"></span>
-</div>
-<span class="font-label-caps text-[10px] text-on-surface-variant truncate max-w-[160px] tracking-tight">renovar360.com.ar</span>
-<span class="flex items-center gap-1 font-label-caps text-[10px] text-primary">
-<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span> VIVO
-            </span>
-</div>
-<div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Before and after split perspective of a luxury apartment renovation, featuring dark oak cabinetry, matte stone islands, clean architectural lines and ambient strip lighting." src="portfolio/infinity.png">
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/30 to-transparent"></div>
-<div class="absolute top-space-sm left-space-sm">
-<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-on-surface text-label-caps uppercase font-bold">
-                Construcción &amp; Remodelaciones
-              </span>
-</div>
-</div>
-<div class="p-space-lg flex-1 flex flex-col justify-between space-y-space-md">
-<div class="space-y-space-xs">
-<h2 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Renovar 360°</h2>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-                Remodelación integral de espacios llave en mano, módulo interactivo antes/después y captación calificada de presupuestos de obra.
-              </p>
-</div>
-<div class="space-y-space-md pt-space-xs">
+    @keyframes flowixVtIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.994);
+      }
 
-<a class="inline-flex items-center justify-between w-full pt-space-sm font-label-md text-label-md text-primary-container hover:text-primary group/btn transition-colors" href="#"><span class="">Ver online</span><span class="material-symbols-outlined text-[18px] group-hover/btn:translate-x-1 group-hover/btn:-translate-y-0.5 transition-transform">arrow_outward</span></a>
-</div>
-</div>
-</article>
-<!-- Project 7: Studio Luis R. Angrehs -->
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
 
-<!-- Project 8: Dr. Martín Beltrán - Clínica Odontológica -->
+    @layer base {
 
-<!-- Project 9: GastroBar Central -->
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #060b08 !important;
+        color: #dce5d9;
+      }
 
-</div>
-</div>
-</section>
-<!-- Featured Deep-Dive Case Studies Section -->
+      body {
+        overscroll-behavior: none;
+      }
 
-<!-- Final CTA Banner (Flowix Emerald Signature Style) -->
-<section class="w-full px-margin py-space-2xl">
-<div class="max-w-7xl mx-auto relative rounded-lg bg-surface-container-low/90 overflow-hidden shadow-2xl p-space-xl md:p-space-2xl">
-<!-- Glow Gradients -->
-<div class="pointer-events-none absolute -top-32 -right-32 w-96 h-96 bg-primary-container/20 rounded-full blur-[100px]"></div>
-<div class="pointer-events-none absolute -bottom-32 -left-32 w-96 h-96 bg-secondary-container/15 rounded-full blur-[100px]"></div>
-<div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-xl">
-<div class="space-y-space-md max-w-2xl">
+      main>:first-child {
+        margin-top: 0 !important;
+      }
 
-<h2 class="font-headline-lg text-headline-lg text-on-surface">
-            ¿Listo para que tu proyecto sea nuestro próximo caso de éxito?
-          </h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-            Contanos qué necesitás y te mostramos la arquitectura ideal para tu rubro, estimación de tiempos y presupuesto sin compromiso.
-          </p>
-</div>
-<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md w-full lg:w-auto">
-<a class="inline-flex items-center justify-center gap-space-xs px-space-xl py-4 rounded-full bg-primary-container text-on-primary font-headline-sm text-headline-sm shadow-[0_0_24px_rgba(0,204,106,0.4)] hover:shadow-[0_0_32px_rgba(0,204,106,0.7)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200" href="#">
-<span class="">Solicitar Diagnóstico por WhatsApp</span>
-<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-</section>
-<!-- Interactive Filter Logic -->
-<script>
+      main>:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    html,
+    body {
+      background-color: #060b08 !important;
+      color: #dce5d9;
+    }
+
+    .material-symbols-outlined {
+      line-height: 1 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      vertical-align: middle;
+      width: 1em;
+      height: 1em;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+    }
+
+    body {
+      opacity: 0;
+      transition:
+        opacity 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html.flowix-ready body {
+      opacity: 1;
+    }
+
+    html.flowix-leaving body {
+      opacity: 0 !important;
+      transform: translateY(-8px) scale(0.995) !important;
+      filter: blur(4px) !important;
+      transition:
+        opacity 0.2s cubic-bezier(0.4, 0, 1, 1),
+        transform 0.2s cubic-bezier(0.4, 0, 1, 1),
+        filter 0.2s cubic-bezier(0.4, 0, 1, 1) !important;
+      pointer-events: none;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00cc6a, #41e983, transparent);
+      box-shadow: 0 0 18px rgba(0, 204, 106, 0.75);
+      z-index: 9999;
+      pointer-events: none;
+      transform: scaleX(0.15);
+      transform-origin: center;
+      opacity: 0.95;
+      transition:
+        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.45s ease 0.32s;
+    }
+
+    html.flowix-ready body::after {
+      transform: scaleX(1);
+      opacity: 0;
+    }
+
+    header {
+      opacity: 0;
+      transform: translate3d(0, -14px, 0);
+      transition:
+        opacity 0.68s cubic-bezier(0.16, 1, 0.3, 1) 0.03s,
+        transform 0.68s cubic-bezier(0.16, 1, 0.3, 1) 0.03s;
+      will-change: opacity, transform;
+    }
+
+    html.flowix-ready header {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    main section:nth-of-type(1) .max-w-7xl>div,
+    main section:nth-of-type(2)>div,
+    #projectsGrid {
+      opacity: 0;
+      transform: translate3d(0, 22px, 0) scale(0.985);
+      filter: blur(6px);
+      transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform, filter;
+    }
+
+    main section:nth-of-type(1) .max-w-7xl>div:nth-child(1) {
+      transition-delay: 0.06s;
+    }
+
+    main section:nth-of-type(1) .max-w-7xl>div:nth-child(2) {
+      transition-delay: 0.13s;
+    }
+
+    main section:nth-of-type(1) .max-w-7xl>div:nth-child(3) {
+      transition-delay: 0.20s;
+    }
+
+    main section:nth-of-type(2)>div {
+      transition-delay: 0.27s;
+    }
+
+    #projectsGrid {
+      transition-delay: 0.34s;
+    }
+
+    html.flowix-ready main section:nth-of-type(1) .max-w-7xl>div,
+    html.flowix-ready main section:nth-of-type(2)>div,
+    html.flowix-ready #projectsGrid {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+      filter: blur(0px);
+    }
+
+    .flowix-bg-grid {
+      background-size: 48px 48px;
+      background-image:
+        linear-gradient(to right, rgba(0, 204, 106, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 204, 106, 0.05) 1px, transparent 1px);
+      -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 25%, #000 25%, transparent 95%);
+      mask-image: radial-gradient(ellipse 85% 75% at 50% 25%, #000 25%, transparent 95%);
+    }
+
+    .flowix-bg-dots {
+      background-size: 24px 24px;
+      background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 50%, #000 20%, transparent 95%);
+      mask-image: radial-gradient(ellipse 90% 85% at 50% 50%, #000 20%, transparent 95%);
+    }
+
+    @keyframes floatSlow {
+
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate3d(18px, -18px, 0) scale(1.05);
+      }
+    }
+
+    .animate-float-slow {
+      animation: floatSlow 12s ease-in-out infinite;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @keyframes cardFilterIn {
+      0% {
+        opacity: 0;
+        transform: translateY(18px) scale(0.97);
+        filter: blur(6px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0px);
+      }
+    }
+
+    .project-card {
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.45s ease, background-color 0.4s ease !important;
+    }
+
+    .project-card:hover {
+      transform: translateY(-7px) scale(1.008);
+      border-color: rgba(0, 204, 106, 0.45);
+      box-shadow: 0 24px 48px -15px rgba(0, 0, 0, 0.75), 0 0 30px rgba(0, 204, 106, 0.2);
+    }
+
+    .project-card.filtering-in {
+      animation: cardFilterIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(32px) scale(0.975);
+      filter: blur(8px);
+      transition:
+        opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-item.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0px);
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script
+    id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-fixed-variant": "#7a2f13", "inverse-primary": "#006d36", "on-secondary-container": "#00424e", "on-secondary": "#003640", "primary-fixed-dim": "#37e27d", "on-secondary-fixed-variant": "#004e5c", "primary": "#41e983", "primary-container": "#00cc6a", "on-primary": "#003919", "outline": "#859586", "on-background": "#dce5d9", "tertiary": "#ffbea9", "primary-fixed": "#61ff98", "surface-variant": "#2e372f", "on-tertiary-container": "#772d11", "surface-container-highest": "#2e372f", "secondary-fixed": "#acedff", "on-primary-container": "#004f25", "surface-dim": "#0d150f", "outline-variant": "#3c4a3e", "secondary-container": "#03b5d3", "tertiary-container": "#ff9672", "tertiary-fixed": "#ffdbd0", "surface-container-high": "#242c24", "on-error-container": "#ffdad6", "on-tertiary-fixed": "#390c00", "on-secondary-fixed": "#001f26", "secondary": "#4cd7f6", "on-primary-fixed-variant": "#005227", "surface-bright": "#333b33", "surface-container-lowest": "#08100a", "inverse-surface": "#dce5d9", "surface": "#0d150f", "on-surface": "#dce5d9", "tertiary-fixed-dim": "#ffb59c", "error-container": "#93000a", "error": "#ffb4ab", "background": "#0d150f", "secondary-fixed-dim": "#4cd7f6", "on-error": "#690005", "on-surface-variant": "#bbcbba", "on-primary-fixed": "#00210c", "surface-tint": "#37e27d", "inverse-on-surface": "#2a322b", "on-tertiary": "#5c1901", "surface-container-low": "#151d16", "surface-container": "#19221a" }, "borderRadius": { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "margin": "2rem", "gutter": "1.5rem", "margin-mobile": "1rem", "space-2xl": "4rem", "space-lg": "1.5rem", "space-xl": "2.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem" }, "fontFamily": { "headline-lg": ["Plus Jakarta Sans"], "label-caps": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "display-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "display": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"] }, "fontSize": { "headline-lg": ["2.5rem", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-caps": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.08em", "fontWeight": "700" }], "headline-md": ["1.75rem", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-sm": ["0.875rem", { "lineHeight": "1.45", "letterSpacing": "0", "fontWeight": "400" }], "body-md": ["1rem", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }], "body-lg": ["1.125rem", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }], "headline-lg-mobile": ["1.75rem", { "lineHeight": "1.25", "letterSpacing": "-0.015em", "fontWeight": "700" }], "display-mobile": ["2.25rem", { "lineHeight": "1.15", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-sm": ["1.25rem", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600" }], "display": ["3.75rem", { "lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800" }], "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0", "fontWeight": "600" }] } } } };</script>
+</head>
+
+<body
+  class="bg-[#060b08] font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary relative overflow-x-hidden">
+  <!-- Unified Flowix Ambient Background System -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute inset-0 flowix-bg-grid"></div>
+    <div class="absolute inset-0 flowix-bg-dots opacity-50"></div>
+    <div
+      class="absolute -top-48 left-1/2 -translate-x-1/2 w-[960px] h-[460px] bg-gradient-to-b from-[#00cc6a]/22 via-[#41e983]/8 to-transparent rounded-full blur-[130px]">
+    </div>
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-[75%] max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-[#00cc6a]/50 to-transparent">
+    </div>
+    <div
+      class="absolute top-[28%] -left-56 w-[560px] h-[560px] bg-[#00cc6a]/10 rounded-full blur-[150px] animate-float-slow">
+    </div>
+    <div
+      class="absolute top-[52%] -right-56 w-[520px] h-[520px] bg-[#03b5d3]/8 rounded-full blur-[150px] animate-float-slow"
+      style="animation-delay: -6s;"></div>
+    <div
+      class="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[820px] h-[360px] bg-[#00cc6a]/12 rounded-full blur-[140px]">
+    </div>
+  </div>
+  <!-- Main Standardized Navbar -->
+  <!-- Floating Header Wrapper inspired by n8n -->
+  <!-- Main Standardized Navbar -->
+  <header class="w-full pt-6 px-4 md:px-6 relative z-50">
+    <div
+      class="max-w-7xl mx-auto rounded-2xl bg-[#0f1712]/90 backdrop-blur-md border border-white/10 px-5 py-2.5 flex items-center justify-between shadow-[0_12px_40px_rgba(0,0,0,0.65)] relative">
+      <div class="flex items-center gap-6 shrink-0">
+        <a class="flex items-center gap-2.5 group" href="index.html">
+          <div
+            class="w-8 h-8 rounded-lg bg-[#142319] border border-[#00cc6a]/30 flex items-center justify-center text-[#00cc6a] shrink-0 group-hover:scale-105 group-hover:border-[#00cc6a] transition-all shadow-[0_0_12px_rgba(0,204,106,0.2)]">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#00cc6a" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <span class="text-lg font-bold tracking-tight text-white group-hover:text-white transition-colors">Flo<span
+              class="text-[#00cc6a]">wix</span></span>
+        </a>
+      </div>
+
+      <nav class="hidden lg:flex items-center gap-7 whitespace-nowrap">
+        <a class="inline-flex items-center text-sm font-medium text-slate-300 hover:text-white transition-colors leading-none"
+          href="index.html">
+          Inicio
+        </a>
+        <a class="inline-flex items-center text-sm font-medium text-slate-300 hover:text-white transition-colors leading-none"
+          href="index.html#servicios-modulares">
+          Servicios Modulares
+        </a>
+        <a class="inline-flex items-center text-sm font-semibold text-[#41e983] transition-colors leading-none"
+          href="portfolio.html">
+          Portfolio Web
+        </a>
+        <a class="inline-flex items-center text-sm font-medium text-slate-300 hover:text-white transition-colors leading-none"
+          href="flowix-book.html">
+          Flowix Book
+        </a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a class="inline-flex items-center justify-center font-semibold text-sm px-4 py-2 rounded-lg bg-[#00cc6a] hover:bg-[#00b35c] text-[#08100a] transition-all shadow-[0_0_16px_rgba(0,204,106,0.35)] hover:shadow-[0_0_22px_rgba(0,204,106,0.5)] active:scale-[0.98] leading-none"
+          href="https://wa.me/5491126730927?text=Hola%20Flowix,%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios"
+          target="_blank" rel="noopener noreferrer">
+          Hablemos
+        </a>
+        <button id="mobileMenuToggle" aria-label="Abrir menú"
+          class="lg:hidden inline-flex items-center justify-center p-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
+          <span class="material-symbols-outlined text-[22px]">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu"
+      class="hidden lg:hidden max-w-7xl mx-auto mt-2 rounded-xl bg-[#0f1712]/95 backdrop-blur-xl border border-white/10 p-4 shadow-2xl">
+      <div class="flex flex-col gap-3">
+        <a class="px-3 py-2 rounded-lg text-slate-200 hover:bg-white/5" href="index.html">Inicio</a>
+        <a class="px-3 py-2 rounded-lg text-slate-200 hover:bg-white/5" href="index.html#servicios-modulares">Servicios
+          Modulares</a>
+        <a class="px-3 py-2 rounded-lg bg-[#00cc6a]/15 text-[#41e983] font-semibold" href="portfolio.html">Portfolio
+          Web</a>
+        <a class="px-3 py-2 rounded-lg text-slate-200 hover:bg-white/5" href="flowix-book.html">Flowix Book</a>
+        <a class="mt-2 text-center py-2.5 rounded-lg bg-[#00cc6a] text-[#08100a] font-bold text-sm shadow-[0_0_15px_rgba(0,204,106,0.3)]"
+          href="https://wa.me/5491126730927?text=Hola%20Flowix,%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios"
+          target="_blank" rel="noopener noreferrer">Hablemos por WhatsApp</a>
+      </div>
+    </div>
+  </header>
+  <script>
     (function () {
-      const container = document.getElementById('filterPillsContainer');
-      const grid = document.getElementById('projectsGrid');
-      const counterText = document.getElementById('projectCounterText');
-
-      if (!container || !grid) return;
-
-      const buttons = container.querySelectorAll('.filter-pill');
-      const cards = grid.querySelectorAll('.project-card');
-
-      const activeClasses = ['bg-primary-container', 'text-on-primary', 'shadow-[0_0_16px_rgba(0,204,106,0.35)]'];
-      const inactiveClasses = ['text-on-surface-variant', 'hover:text-on-surface', 'hover:bg-surface-container-high/50'];
-
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          const filter = button.getAttribute('data-filter');
-
-          // Update active button styling
-          buttons.forEach(btn => {
-            btn.classList.remove(...activeClasses);
-            btn.classList.add(...inactiveClasses);
-          });
-          button.classList.remove(...inactiveClasses);
-          button.classList.add(...activeClasses);
-
-          // Filter cards with smooth staggered animation
-          let visibleCount = 0;
-          cards.forEach(card => {
-            const cardCat = card.getAttribute('data-category');
-            if (filter === 'all' || cardCat === filter) {
-              card.style.display = 'flex';
-              card.classList.remove('filtering-in');
-              void card.offsetWidth;
-              card.style.animationDelay = `${visibleCount * 70}ms`;
-              card.classList.add('filtering-in');
-              visibleCount++;
-            } else {
-              card.style.display = 'none';
-              card.classList.remove('filtering-in');
-            }
-          });
-
-          // Update Counter
-          if (counterText) {
-            if (filter === 'all') {
-              counterText.textContent = `${visibleCount} proyectos destacados en producción`;
-            } else {
-              counterText.textContent = visibleCount === 1
-                ? '1 proyecto mostrado para este rubro'
-                : `${visibleCount} proyectos mostrados para este rubro`;
-            }
-          }
+      const btn = document.getElementById('mobileMenuToggle');
+      const menu = document.getElementById('mobileMenu');
+      if (btn && menu) {
+        btn.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
         });
-      });
-
-      // Scroll reveal animation
-      const revealEls = document.querySelectorAll('main section > div');
-      revealEls.forEach((el, idx) => {
-        el.classList.add('reveal-item');
-        el.style.transitionDelay = `${(idx % 3) * 60}ms`;
-      });
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      revealEls.forEach(el => observer.observe(el));
+      }
     })();
   </script>
-</div></main><footer class="w-full bg-[#080c09] border-t border-white/10 pt-16 pb-12 px-4 md:px-6 relative z-10 overflow-hidden">
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-10">
-    <div class="max-w-sm">
-      <a class="flex items-center gap-2.5 mb-4 group" href="index.html">
-        <div class="w-8 h-8 rounded-lg bg-[#142319] border border-[#00cc6a]/30 flex items-center justify-center text-[#00cc6a] shrink-0 shadow-[0_0_12px_rgba(0,204,106,0.2)]">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#00cc6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
-          </svg>
+  <main class="w-full bg-transparent relative z-10 min-h-screen">
+    <div class="flex flex-col w-full">
+      <!-- Portfolio Hero Section -->
+      <section class="relative w-full overflow-hidden px-margin py-space-2xl md:py-32">
+        <!-- Ambient Bio-Digital Energy Mesh Background -->
+        <div
+          class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-primary-container/15 rounded-full blur-[130px] opacity-70">
         </div>
-        <span class="text-xl font-bold tracking-tight text-white">Flo<span class="text-[#00cc6a]">wix</span></span>
-      </a>
-      <p class="text-sm text-slate-400 leading-relaxed">
-        Ingeniería digital, desarrollo web de alto rendimiento y automatizaciones para negocios que buscan escalar con autoridad.
-      </p>
+        <div
+          class="pointer-events-none absolute top-1/3 -right-48 w-[400px] h-[400px] bg-secondary-container/10 rounded-full blur-[110px] opacity-60">
+        </div>
+        <div
+          class="pointer-events-none absolute -bottom-24 -left-40 w-[500px] h-[400px] bg-primary/10 rounded-full blur-[120px] opacity-50">
+        </div>
+        <div class="max-w-7xl mx-auto relative z-10">
+          <!-- Live Status Pill Badge -->
+          <div class="flex items-center justify-start mb-space-md">
+            <div
+              class="inline-flex items-center gap-space-xs px-3.5 py-1.5 rounded-full bg-surface-container-high/80 backdrop-blur-md shadow-sm">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span>
+              </span>
+              <span class="font-label-caps text-label-caps uppercase text-primary tracking-widest">NUESTROS PROYECTOS
+                &amp; CASOS DE ÉXITO</span>
+            </div>
+          </div>
+          <!-- Main Headline with Typographic Rhythm -->
+          <div class="max-w-4xl space-y-space-md">
+            <h1 class="font-display text-display text-on-surface tracking-tight">
+              Proyectos digitales diseñados para <span
+                class="text-primary-container inline-block drop-shadow-[0_0_24px_rgba(0,204,106,0.35)]">generar
+                resultados reales</span>.
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">Webs ultra rápidas
+              (&lt; 1s), catálogos, plataformas y páginas corporativas pensadas para ordenar la operación y multiplicar
+              consultas calificadas en cada rubro.</p>
+          </div>
+          <!-- Metric Highlights Strip -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mt-space-xl pt-space-lg">
+            <div class="p-space-md rounded-DEFAULT bg-surface-container-low/70 backdrop-blur-md">
+              <div class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Velocidad Promedio
+              </div>
+              <div class="font-headline-md text-headline-md text-primary flex items-baseline gap-1">0.72s <span
+                  class="text-body-sm text-on-surface-variant font-normal">LCP</span></div>
+              <div class="text-body-sm text-on-surface-variant">Core Web Vitals óptimos</div>
+            </div>
+            <div class="p-space-md rounded-DEFAULT bg-surface-container-low/70 backdrop-blur-md">
+              <div class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Eficacia Comercial
+              </div>
+              <div class="font-headline-md text-headline-md text-on-surface flex items-baseline gap-1">+120% <span
+                  class="text-body-sm text-primary font-normal">leads</span></div>
+              <div class="text-body-sm text-on-surface-variant">Tasa de contacto orgánico</div>
+            </div>
+            <div class="p-space-md rounded-DEFAULT bg-surface-container-low/70 backdrop-blur-md">
+              <div class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Uptime Garantizado
+              </div>
+              <div class="font-headline-md text-headline-md text-on-surface flex items-baseline gap-1">99.9% <span
+                  class="text-body-sm text-primary font-normal">SLA</span></div>
+              <div class="text-body-sm text-on-surface-variant">Infraestructura Vercel Edge</div>
+            </div>
+            <div class="p-space-md rounded-DEFAULT bg-surface-container-low/70 backdrop-blur-md">
+              <div class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Conversión Directa
+              </div>
+              <div class="font-headline-md text-headline-md text-primary-container flex items-baseline gap-1">100% <span
+                  class="text-body-sm text-on-surface-variant font-normal">directo</span></div>
+              <div class="text-body-sm text-on-surface-variant">Leads directo al cliente</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Interactive Category Filter Section -->
+      <section class="w-full px-margin pb-space-lg">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-gutter">
+          <!-- Filter Pills Group -->
+          <div
+            class="flex flex-wrap items-center gap-space-xs p-1.5 rounded-full bg-surface-container-low/80 backdrop-blur-md"
+            id="filterPillsContainer"><button
+              class="filter-pill px-4 py-2 rounded-full font-label-md text-label-md transition-all duration-200 bg-primary-container text-on-primary shadow-[0_0_16px_rgba(0,204,106,0.35)]"
+              data-filter="all" type="button">Todos los Rubros</button><button
+              class="filter-pill px-4 py-2 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/50 transition-all duration-200"
+              data-filter="deporte" type="button">Deporte &amp; Academias</button><button
+              class="filter-pill px-4 py-2 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/50 transition-all duration-200"
+              data-filter="turismo" type="button">Turismo &amp; Hospedaje</button><button
+              class="filter-pill px-4 py-2 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/50 transition-all duration-200"
+              data-filter="inmobiliarias" type="button">Inmobiliarias &amp; Arquitectura</button></div>
+          <!-- Live Counter Badge -->
+          <div
+            class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md">
+            <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+            <span id="projectCounterText" class="">4 proyectos destacados en producción</span>
+          </div>
+        </div>
+      </section>
+      <!-- Projects Bento/Grid Section -->
+      <section class="w-full px-margin py-space-xl">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter" id="projectsGrid">
+            <!-- Project 1: Tang Soo Do Escobar -->
+            <article
+              class="project-card flex flex-col rounded-DEFAULT bg-surface-container-low/70 backdrop-blur-md overflow-hidden group hover:bg-surface-container/90 transition-all duration-300"
+              data-category="deporte">
+              <!-- Browser Top Mockup Bar -->
+              <div class="px-space-md py-2.5 bg-surface-container-highest/60 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]/80"></span>
+                </div>
+                <span
+                  class="font-label-caps text-[10px] text-on-surface-variant truncate max-w-[160px] tracking-tight">tangsoodoescobar.com</span>
+                <span class="flex items-center gap-1 font-label-caps text-[10px] text-primary">
+                  <span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span> VIVO
+                </span>
+              </div>
+              <!-- Visual Showcase Area -->
+              <div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  data-alt="A dynamic martial arts training academy in modern cinematic lighting with traditional dojang wooden floors, sleek branding graphics, and an athlete executing a controlled high kick, captured with high contrast and emerald highlights."
+                  src="portfolio/tangsoo.png">
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/30 to-transparent">
+                </div>
+                <div class="absolute top-space-sm left-space-sm">
+                  <span
+                    class="px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-on-surface text-label-caps uppercase font-bold">
+                    Deporte &amp; Academias
+                  </span>
+                </div>
+              </div>
+              <!-- Card Content Body -->
+              <div class="p-space-lg flex-1 flex flex-col justify-between space-y-space-md">
+                <div class="space-y-space-xs">
+                  <h2
+                    class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                    Tang Soo Do Escobar</h2>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Landing de captación para clases y membresías de arte marcial tradicional con integración directa de
+                    WhatsApp y calificador de alumnos.
+                  </p>
+                </div>
+                <div class="space-y-space-md pt-space-xs">
+                  <!-- Feature Pills -->
+
+                  <!-- Action Link -->
+                  <a class="inline-flex items-center justify-between w-full pt-space-sm font-label-md text-label-md text-primary-container hover:text-primary group/btn transition-colors"
+                    href="#"><span class="">Ver online</span><span
+                      class="material-symbols-outlined text-[18px] group-hover/btn:translate-x-1 group-hover/btn:-translate-y-0.5 transition-transform">arrow_outward</span></a>
+                </div>
+              </div>
+            </article>
+            <!-- Project 2: Complejo Los Peques -->
+            <article
+              class="project-card flex flex-col rounded-DEFAULT bg-surface-container-low/70 backdrop-blur-md overflow-hidden group hover:bg-surface-container/90 transition-all duration-300"
+              data-category="turismo">
+              <div class="px-space-md py-2.5 bg-surface-container-highest/60 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]/80"></span>
+                </div>
+                <span
+                  class="font-label-caps text-[10px] text-on-surface-variant truncate max-w-[160px] tracking-tight">complejolospeques.com</span>
+                <span class="flex items-center gap-1 font-label-caps text-[10px] text-primary">
+                  <span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span> VIVO
+                </span>
+              </div>
+              <div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  data-alt="Warm coastal pine forest resort cabins in Mar Azul at dusk, modern wood architecture glowing with ambient interior amber lights, surrounded by tall pine trees, high end architectural photography with subtle emerald grading."
+                  src="portfolio/peques.png">
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/30 to-transparent">
+                </div>
+                <div class="absolute top-space-sm left-space-sm">
+                  <span
+                    class="px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-on-surface text-label-caps uppercase font-bold">
+                    Turismo &amp; Hospedaje
+                  </span>
+                </div>
+              </div>
+              <div class="p-space-lg flex-1 flex flex-col justify-between space-y-space-md">
+                <div class="space-y-space-xs">
+                  <h2
+                    class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                    Complejo Los Peques</h2>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Web de reservas directas y hospedaje en Mar Azul, catálogo interactivo de cabañas, disponibilidad y
+                    mapa satelital de accesos.
+                  </p>
+                </div>
+                <div class="space-y-space-md pt-space-xs">
+
+                  <a class="inline-flex items-center justify-between w-full pt-space-sm font-label-md text-label-md text-primary-container hover:text-primary group/btn transition-colors"
+                    href="#"><span class="">Ver online</span><span
+                      class="material-symbols-outlined text-[18px] group-hover/btn:translate-x-1 group-hover/btn:-translate-y-0.5 transition-transform">arrow_outward</span></a>
+                </div>
+              </div>
+            </article>
+            <!-- Project 3: Marroncelli Puertas -->
+            <article
+              class="project-card flex flex-col rounded-DEFAULT bg-surface-container-low/70 backdrop-blur-md overflow-hidden group hover:bg-surface-container/90 transition-all duration-300"
+              data-category="inmobiliarias">
+              <div class="px-space-md py-2.5 bg-surface-container-highest/60 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]/80"></span>
+                </div>
+                <span
+                  class="font-label-caps text-[10px] text-on-surface-variant truncate max-w-[160px] tracking-tight">marroncelli-web.vercel.app</span>
+                <span class="flex items-center gap-1 font-label-caps text-[10px] text-primary">
+                  <span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span> VIVO
+                </span>
+              </div>
+              <div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  data-alt="Minimalist luxury interior architectural design featuring premium floor-to-ceiling wooden doors with concealed frame systems and flush hinges, sharp modern interior lighting and marble floors in contemporary dark aesthetic."
+                  src="portfolio/marroncelli.png">
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/30 to-transparent">
+                </div>
+                <div class="absolute top-space-sm left-space-sm">
+                  <span
+                    class="px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-on-surface text-label-caps uppercase font-bold">
+                    Arquitectura &amp; Diseño
+                  </span>
+                </div>
+              </div>
+              <div class="p-space-lg flex-1 flex flex-col justify-between space-y-space-md">
+                <div class="space-y-space-xs">
+                  <h2
+                    class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                    Marroncelli Puertas</h2>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Puertas de interior de alta gama y sistemas de marcos invisibles. Catálogo visual interactivo y
+                    cotizador express para estudios de arquitectura.
+                  </p>
+                </div>
+                <div class="space-y-space-md pt-space-xs">
+
+                  <a class="inline-flex items-center justify-between w-full pt-space-sm font-label-md text-label-md text-primary-container hover:text-primary group/btn transition-colors"
+                    href="#"><span class="">Ver online</span><span
+                      class="material-symbols-outlined text-[18px] group-hover/btn:translate-x-1 group-hover/btn:-translate-y-0.5 transition-transform">arrow_outward</span></a>
+                </div>
+              </div>
+            </article>
+            <!-- Project 4: Bananas Agency -->
+
+            <!-- Project 5: Infinity Inmobiliaria -->
+
+            <!-- Project 6: Renovar 360° -->
+            <article
+              class="project-card flex flex-col rounded-DEFAULT bg-surface-container-low/70 backdrop-blur-md overflow-hidden group hover:bg-surface-container/90 transition-all duration-300"
+              data-category="inmobiliarias">
+              <div class="px-space-md py-2.5 bg-surface-container-highest/60 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]/80"></span>
+                </div>
+                <span
+                  class="font-label-caps text-[10px] text-on-surface-variant truncate max-w-[160px] tracking-tight">renovar360.com.ar</span>
+                <span class="flex items-center gap-1 font-label-caps text-[10px] text-primary">
+                  <span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span> VIVO
+                </span>
+              </div>
+              <div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  data-alt="Before and after split perspective of a luxury apartment renovation, featuring dark oak cabinetry, matte stone islands, clean architectural lines and ambient strip lighting."
+                  src="portfolio/infinity.png">
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/30 to-transparent">
+                </div>
+                <div class="absolute top-space-sm left-space-sm">
+                  <span
+                    class="px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-on-surface text-label-caps uppercase font-bold">
+                    Construcción &amp; Remodelaciones
+                  </span>
+                </div>
+              </div>
+              <div class="p-space-lg flex-1 flex flex-col justify-between space-y-space-md">
+                <div class="space-y-space-xs">
+                  <h2
+                    class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                    Renovar 360°</h2>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Remodelación integral de espacios llave en mano, módulo interactivo antes/después y captación
+                    calificada de presupuestos de obra.
+                  </p>
+                </div>
+                <div class="space-y-space-md pt-space-xs">
+
+                  <a class="inline-flex items-center justify-between w-full pt-space-sm font-label-md text-label-md text-primary-container hover:text-primary group/btn transition-colors"
+                    href="#"><span class="">Ver online</span><span
+                      class="material-symbols-outlined text-[18px] group-hover/btn:translate-x-1 group-hover/btn:-translate-y-0.5 transition-transform">arrow_outward</span></a>
+                </div>
+              </div>
+            </article>
+            <!-- Project 7: Studio Luis R. Angrehs -->
+
+            <!-- Project 8: Dr. Martín Beltrán - Clínica Odontológica -->
+
+            <!-- Project 9: GastroBar Central -->
+
+          </div>
+        </div>
+      </section>
+      <!-- Featured Deep-Dive Case Studies Section -->
+
+      <!-- Final CTA Banner (Flowix Emerald Signature Style) -->
+      <section class="w-full px-margin py-space-2xl">
+        <div
+          class="max-w-7xl mx-auto relative rounded-lg bg-surface-container-low/90 overflow-hidden shadow-2xl p-space-xl md:p-space-2xl">
+          <!-- Glow Gradients -->
+          <div
+            class="pointer-events-none absolute -top-32 -right-32 w-96 h-96 bg-primary-container/20 rounded-full blur-[100px]">
+          </div>
+          <div
+            class="pointer-events-none absolute -bottom-32 -left-32 w-96 h-96 bg-secondary-container/15 rounded-full blur-[100px]">
+          </div>
+          <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-xl">
+            <div class="space-y-space-md max-w-2xl">
+
+              <h2 class="font-headline-lg text-headline-lg text-on-surface">
+                ¿Listo para que tu proyecto sea nuestro próximo caso de éxito?
+              </h2>
+              <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                Contanos qué necesitás y te mostramos la arquitectura ideal para tu rubro, estimación de tiempos y
+                presupuesto sin compromiso.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md w-full lg:w-auto">
+              <a class="inline-flex items-center justify-center gap-space-xs px-space-xl py-4 rounded-full bg-primary-container text-on-primary font-headline-sm text-headline-sm shadow-[0_0_24px_rgba(0,204,106,0.4)] hover:shadow-[0_0_32px_rgba(0,204,106,0.7)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+                href="#">
+                <span class="">Solicitar Diagnóstico por WhatsApp</span>
+                <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Interactive Filter Logic -->
+      <script>
+        (function () {
+          const container = document.getElementById('filterPillsContainer');
+          const grid = document.getElementById('projectsGrid');
+          const counterText = document.getElementById('projectCounterText');
+
+          if (!container || !grid) return;
+
+          const buttons = container.querySelectorAll('.filter-pill');
+          const cards = grid.querySelectorAll('.project-card');
+
+          const activeClasses = ['bg-primary-container', 'text-on-primary', 'shadow-[0_0_16px_rgba(0,204,106,0.35)]'];
+          const inactiveClasses = ['text-on-surface-variant', 'hover:text-on-surface', 'hover:bg-surface-container-high/50'];
+
+          buttons.forEach(button => {
+            button.addEventListener('click', () => {
+              const filter = button.getAttribute('data-filter');
+
+              // Update active button styling
+              buttons.forEach(btn => {
+                btn.classList.remove(...activeClasses);
+                btn.classList.add(...inactiveClasses);
+              });
+              button.classList.remove(...inactiveClasses);
+              button.classList.add(...activeClasses);
+
+              // Filter cards with smooth staggered animation
+              let visibleCount = 0;
+              cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (filter === 'all' || cardCat === filter) {
+                  card.style.display = 'flex';
+                  card.classList.remove('filtering-in');
+                  void card.offsetWidth;
+                  card.style.animationDelay = `${visibleCount * 70}ms`;
+                  card.classList.add('filtering-in');
+                  visibleCount++;
+                } else {
+                  card.style.display = 'none';
+                  card.classList.remove('filtering-in');
+                }
+              });
+
+              // Update Counter
+              if (counterText) {
+                if (filter === 'all') {
+                  counterText.textContent = `${visibleCount} proyectos destacados en producción`;
+                } else {
+                  counterText.textContent = visibleCount === 1
+                    ? '1 proyecto mostrado para este rubro'
+                    : `${visibleCount} proyectos mostrados para este rubro`;
+                }
+              }
+            });
+          });
+
+          // Scroll reveal animation (below the fold)
+          const revealEls = document.querySelectorAll('main section:nth-of-type(n+4) > div');
+          revealEls.forEach((el, idx) => {
+            el.classList.add('reveal-item');
+            el.style.transitionDelay = `${(idx % 3) * 60}ms`;
+          });
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.1 });
+          revealEls.forEach(el => observer.observe(el));
+
+          // Trigger fluid page boot
+          const activatePage = () => {
+            document.documentElement.classList.remove('flowix-leaving');
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                document.documentElement.classList.add('flowix-ready');
+              });
+            });
+          };
+          activatePage();
+          window.addEventListener('pageshow', activatePage);
+
+          // Smooth cross-page navigation
+          document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', (e) => {
+              const href = link.getAttribute('href');
+              if (!href || link.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+              if (href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+              if (href.startsWith('#')) return;
+              if (href === 'portfolio.html') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+              }
+              if (!href.startsWith('http')) {
+                e.preventDefault();
+                document.documentElement.classList.add('flowix-leaving');
+                setTimeout(() => {
+                  window.location.href = href;
+                }, 170);
+              }
+            });
+          });
+          setTimeout(() => document.documentElement.classList.add('flowix-ready'), 300);
+        })();
+      </script>
+    </div>
+  </main>
+  <footer class="w-full bg-[#080c09] border-t border-white/10 pt-16 pb-12 px-4 md:px-6 relative z-10 overflow-hidden">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-10">
+      <div class="max-w-sm">
+        <a class="flex items-center gap-2.5 mb-4 group" href="index.html">
+          <div
+            class="w-8 h-8 rounded-lg bg-[#142319] border border-[#00cc6a]/30 flex items-center justify-center text-[#00cc6a] shrink-0 shadow-[0_0_12px_rgba(0,204,106,0.2)]">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#00cc6a" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <span class="text-xl font-bold tracking-tight text-white">Flo<span class="text-[#00cc6a]">wix</span></span>
+        </a>
+        <p class="text-sm text-slate-400 leading-relaxed">
+          Ingeniería digital, desarrollo web de alto rendimiento y automatizaciones para negocios que buscan escalar con
+          autoridad.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Navegación</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="index.html" class="hover:text-[#41e983] transition-colors">Inicio</a></li>
+            <li><a href="index.html#servicios-modulares" class="hover:text-[#41e983] transition-colors">Servicios
+                Modulares</a></li>
+            <li><a href="index.html#metodologia" class="hover:text-[#41e983] transition-colors">Metodología</a></li>
+            <li><a href="index.html#sobre-nosotros" class="hover:text-[#41e983] transition-colors">Sobre Nosotros</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Productos</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="flowix-book.html" class="hover:text-[#41e983] transition-colors">Flowix Book</a></li>
+            <li><a href="portfolio.html" class="hover:text-[#41e983] transition-colors">Portfolio Web</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Contacto</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="https://wa.me/5491126730927" target="_blank" rel="noopener noreferrer"
+                class="hover:text-[#41e983] transition-colors">WhatsApp</a></li>
+            <li><a href="mailto:contacto@flowixagency.com" class="hover:text-[#41e983] transition-colors">Email</a></li>
+            <li><span class="text-xs text-slate-500">Buenos Aires, Argentina</span></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
-      <div>
-        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Navegación</h4>
-        <ul class="space-y-2 text-sm text-slate-400">
-          <li><a href="index.html" class="hover:text-[#41e983] transition-colors">Inicio</a></li>
-          <li><a href="index.html#servicios-modulares" class="hover:text-[#41e983] transition-colors">Servicios Modulares</a></li>
-          <li><a href="index.html#metodologia" class="hover:text-[#41e983] transition-colors">Metodología</a></li>
-          <li><a href="index.html#sobre-nosotros" class="hover:text-[#41e983] transition-colors">Sobre Nosotros</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Productos</h4>
-        <ul class="space-y-2 text-sm text-slate-400">
-          <li><a href="flowix-book.html" class="hover:text-[#41e983] transition-colors">Flowix Book</a></li>
-          <li><a href="portfolio.html" class="hover:text-[#41e983] transition-colors">Portfolio Web</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Contacto</h4>
-        <ul class="space-y-2 text-sm text-slate-400">
-          <li><a href="https://wa.me/5491126730927" target="_blank" rel="noopener noreferrer" class="hover:text-[#41e983] transition-colors">WhatsApp</a></li>
-          <li><a href="mailto:contacto@flowixagency.com" class="hover:text-[#41e983] transition-colors">Email</a></li>
-          <li><span class="text-xs text-slate-500">Buenos Aires, Argentina</span></li>
-        </ul>
+    <div
+      class="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div>&copy; 2026 Flowix Agency. Todos los derechos reservados.</div>
+      <div class="flex items-center gap-4">
+        <span class="inline-flex items-center gap-1.5"><span
+            class="w-2 h-2 rounded-full bg-[#00cc6a] animate-pulse"></span> Sistemas 100% operativos</span>
       </div>
     </div>
-  </div>
-
-  <div class="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-    <div>&copy; 2026 Flowix Agency. Todos los derechos reservados.</div>
-    <div class="flex items-center gap-4">
-      <span class="inline-flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#00cc6a] animate-pulse"></span> Sistemas 100% operativos</span>
-    </div>
-  </div>
-</footer>
+  </footer>
 
 
 
-</body></html>
+</body>
+
+</html>
